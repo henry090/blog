@@ -1,0 +1,4 @@
+---
+title: "Gallery of featured posts"
+listing: posts
+---

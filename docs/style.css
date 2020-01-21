@@ -1,0 +1,33 @@
+
+.radix-site-nav {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: #25548C;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+div.d {
+  text-align: justify;
+} 
+
+.radix-site-nav a {
+
+  text-decoration: none;
+}
+
+.radix-site-nav a:hover {
+  color: #25548C;
+  background-color: transparent;
+}
+
+.radix-site-header {
+}
+
+.radix-site-footer {
+}
+
+@media print {
+  .radix-site-nav {
+    display: none;
+  }
+}

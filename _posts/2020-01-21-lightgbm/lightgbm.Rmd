@@ -1,0 +1,223 @@
+---
+title: "Light GBM from Microsoft"
+categories:
+  - Light GBM
+description: |
+  Olduqca populyar və tez-tez beynəlxalq yarışlarda istifadə olunan və Microsoft tərəfindən təklif olunan Light GBM alqoritmi, hesablamanı çox sadələşdirir, sürətləndirir və dəqiqləşdirir. Bu postda daha çox hiperparametrlərlə işləmə qaydası, data preprocessing və modelin yaradılması oxuyuculara çatdırılacaqdır.
+resources:
+  exclude:
+preview: light_gbm.png
+author:
+  - name: Turqut Abdullayev
+    affiliation: QSS
+    affiliation_url: https://qss.az
+  - name: Gulab Yusifli
+date: 06-01-2019
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+&nbsp; &nbsp; &nbsp; &nbsp; Light GBM, Microsoft tərəfindən __C++__ da yazılan Machine Learning alqoritmidir. Bu alqoritm normal bildiyimiz ağac alqoritmlərinə bənzəyir, sadəcə alqoritm budaqlanan zaman ```depth-wise``` metodunun əvəzinə, ```leaf-wise``` metodundan istifadə edir. Əslində metodlardan istifadə edilən zaman eyni nəticəni almaq mümkündür, sadəcə burada əsas prinsip budaqlanmanın necə artmasıdır. 
+
+
+### Most decision tree learning algorithms
+
+```{r fig.cap=" ", out.extra="class=external",layout="l-body-outset"}
+knitr::include_graphics("level-wise.png")
+```
+
+### Light Gradient Boosting Machine
+ 
+```{r fig.cap=" ", out.extra="class=external",layout="l-body-outset"}
+knitr::include_graphics("leaf-wise.png")
+```
+
+&nbsp; &nbsp; &nbsp; &nbsp; Doğrudur, data olduqca kiçik olduqda model __overfitting__-ə meylli olduğuna baxmayaraq, prosesi ```*max_depth*``` paratmetri ilə optimallaşdırmaq olar.
+
+
+&nbsp; &nbsp; &nbsp; &nbsp; Alqoritmlə işləmə zamanı tövsiyyə olunur ki, kateqorik sütunları one-hot encoding metodu ilə açmaq əvəzinə həmin sütunu(ları) indeksləşdirərək, bölünmə prosesinə Light GBM-ə ötürək. Həqiqətən belə olduğuna əmin olmaq üçün az altqruplardan ibarə olan kateqorik sütunları dummy variable-lara çevirərək test edə bilərik. Amma altqupların sayı çox olduqda bu demək olar ki, mümkün olamayacaq, səbəb --- __yaddaşın çox olmaması olacaqdır__.
+
+### What One-Hot Encoding means
+
+```Nümunə```
+
+```{r eval=T,echo=T}
+library(mltools)
+library(dplyr)
+library(data.table)
+df=data.table(tehsil = as.factor(c('bakalavr','magistr')),age = c(20:21))
+result = one_hot(df)
+
+df # initial data
+
+result # after one-hot encoding
+```
+
+
+&nbsp; &nbsp; &nbsp; &nbsp; Light GBM-in tərkibində həddindən artıq çox parametr mövcuddur. Biz onların arasında olan və training mərhələsində daha çox effektiv olanları nəzərdən keçirəcəyik.
+
+- __bagging_fraction__ ---  Ümumiyyətlə, ```bagging```  __train dataset__-dən əldə edilən *sample* hissəsinə deyilir,  ```sample == bag```
+
+- __bagging_freq__ --- təkrarlama sayına deyilir.
+
+- __bagging_seed__ --- train setdən eyni nəticəni almaq üçün rəqəmlə ifadə olunmalıdır, məsələn --- bagging_seed = 123.
+
+__Məsələn:__ ```bagging_fraction=0.2```, ```bagging_freq=3```. Bu o deməkdir ki, training dataset-dən hər dəfə 0.2 istifadə olunaraq 3 dəfə hesablanacaq. 3 iterations bitdikdən sonra data-dan yeni sample-lar əldə olunacaq.
+
+- __feature_fraction__ --- alqoritm bu paramterlə hər iteration-da sütünların hissəsini təsadüfi olaraq seçəcək. Məsələn, ```featuree_fraction = 0.8```, random olaraq hər mərhələdə 80 % sütunlar seçiləcək .
+
+Üstünlüklər:
+
+1) Training sürətləndirilir
+2) Overfitting qarşısı alınır
+
+- __early_stopping_round__ --- neçə addımdan sonra training prosesinin dayandırılması, əgər performans yaxşılaşmırsa.
+
+- __boosting__ --- 4 altqrupa bölünür. Amma arasından ən sürətli və dəqiq olan _gbdt_ hesab olunur.
+
+1) gbdt, traditional Gradient Boosting Decision Tree
+2) rf, Random Forest
+3) dart, Dropouts meet Multiple Additive Regression Trees
+4) goss, Gradient-based One-Side Sampling
+
+
+- __learning_rate__ --- öyrənmə sürəti, tövsiyə olunan sürət 0.1-ə bərabərdir.
+- __tree_learner__ --- öyrənmə növləri də altqruplara bölünür.
+
+1) _serial_, single machine tree learner
+2) _feature_, feature parallel tree learner
+3) _data_, data parallel tree learner
+4) _voting_, voting parallel tree learner
+
+- __seed__ --- bütün train prosesini təkrarlana bilən edilməsi üçün mütləq olaraq müəyyən olunmalıdır. Məsələn, see=123.
+
+&nbsp; &nbsp; &nbsp; &nbsp; Daha çox parametrlər haqqında məlumat əldə etmək üçün, bu linkə keçid etməlisiniz:
+
+> https://lightgbm.readthedocs.io/en/latest/Parameters.html
+
+### Nümunə üzərində modelləşdirmə
+
+&nbsp; &nbsp; &nbsp; &nbsp; İndi isə biraz real case-də nümunəyə nəzər yetirək. Nümunədən əvvəl qeyd edim ki, kitabxananı install etmək üçün [github](https://github.com/microsoft/LightGBM/tree/master/R-package) səhifəsinə keçid edin.
+
+İzah edəcəyimiz nümunə bank datasını əks etdirir, datada 17 sütun mövcuddur:
+
+```{r echo=T,eval=F}
+Observations: 22,068                                                                                 
+Variables: 17
+chr [10]: job, marital, education, default, housing, loan, contact, month, poutcome, y
+dbl [ 7]: age, balance, day, duration, campaign, pdays, previous
+```
+
+&nbsp; &nbsp; &nbsp; &nbsp; Datanı github səhifəsindən lokala endirək, faktorları da indekslərə çevirək və son addım olaraq output-da olan sütunu 0 və 1-ə kodlayaq.
+
+```{r echo=T,eval=F}
+
+library(data.table)
+library(lightgbm)
+library(dplyr)
+
+df = fread(
+  'https://github.com/jubins/Bank-Marketing-Multivariate-Analysis/raw/master/bank.csv') %>% 
+  mutate_if(is.character,as.factor) %>% mutate_if(is.factor,as.numeric)
+
+df$y = as.integer(car::recode(df$y, "2=1;1=0"))
+
+```
+
+
+&nbsp; &nbsp; &nbsp; &nbsp; Data haqqında qısa məlumat:
+
+> The data is related with direct marketing campaigns of a Portuguese banking institution. The marketing campaigns were based on phone calls. Often, more than one contact to the same client was required, in order to access if the product (bank term deposit) would be ('yes') or not ('no') subscribed. 
+
+&nbsp; &nbsp; &nbsp; &nbsp; Preprocess mərhələsi çox sadədir. Bunun üçün ən qısa yol sütunlardakı faktorları indeksləşdirərək hesablamanı başlada bilərik. Əlbəttə ki, biz Light GBM-dən istifadə qaydasını göstərmək üçün edirik, performans olaraq data üzərində minlərlə metoddan istifadə edərək transformasiyalar həyata keçirmək olar.
+
+```{r echo=T,eval=F}
+train = sample_n(df, nrow(df) * 0.8)
+test = anti_join(df, train)
+```
+
+Parametrləri də müəyyən etdikdən sonra, prosesi başlatmaq  olar.
+
+```{r echo=T,eval=F}
+# Parametrlər
+p2 <- list(objective = "binary", 
+           boost="gbdt",
+           metric="auc",
+           boost_from_average="false",
+           learning_rate = 0.01,
+           num_leaves = 6,
+           max_depth=6,
+           tree_learner = "serial",
+           feature_fraction = 0.2,
+           bagging_freq = 5,
+           bagging_fraction = 0.4,
+           min_data_in_leaf = 85,
+           verbosity = 1,
+           seed=123
+)
+
+```
+
+&nbsp; &nbsp; &nbsp; &nbsp; Modeli run etmək üçün ```lgb.train``` funksiyasından istifadə etmək lazımdır. Amma nəzərə almaq lazımdır ki, alternativ metod ```cv booster``` daha da yaxşı nəticə əldə etməyə kömək edə bilər.
+
+```{r echo=T,eval=F}
+model<- lgb.train(data = dtrain,
+                  params= p2, 
+                  nrounds=10000, 
+                  valids = list(val1=dtrain , val2 = dtest), 
+                  metric="auc",
+                  obj = "binary",
+                  eval_freq = 500, 
+                  early_stopping_rounds=50
+)
+```
+
+### Nəticə
+
+```{r echo=T,eval=F}
+[LightGBM] [Warning] verbosity is set=1, verbose=1 will be ignored. Current value: verbosity=1
+[LightGBM] [Warning] metric is set=auc, metric=auc will be ignored. Current value: metric=auc
+[LightGBM] [Warning] verbosity is set=1, verbose=1 will be ignored. Current value: verbosity=1
+[LightGBM] [Warning] Starting from the 2.1.2 version, default value for the 
+"boost_from_average" parameter in "binary" objective is true.
+This may cause significantly different results comparing to the previous versions of LightGBM.
+Try to set boost_from_average=false, if your old models produce bad results
+[LightGBM] [Info] Number of positive: 4241, number of negative: 31927
+[LightGBM] [Info] Total Bins 998
+[LightGBM] [Info] Number of data: 36168, number of used features: 16
+[LightGBM] [Warning] verbosity is set=1, verbose=1 will be ignored. Current value: verbosity=1
+[1]:	val1's auc:0.641237	val2's auc:0.642355 
+[501]:	val1's auc:0.913739	val2's auc:0.917957 
+[1001]:	val1's auc:0.919842	val2's auc:0.922175 
+[1501]:	val1's auc:0.922546	val2's auc:0.922958 
+
+```
+
+
+&nbsp; &nbsp; &nbsp; &nbsp; Yuxarıda görünən odur ki, bin sayı 998-ə bərabərdir. Bu parametri də dəyişib modeli yenidən run edə bilərik, çünki hiperparametrlərlə oynamaq həmişə performansı az da olsa dəqiqləşdirə bilər.
+
+
+İndi isə test seti yenidən proqnoz edib ehtimalları əldə edə bilərik.
+
+```{r echo=T,eval=F}
+pred = predict(model,test %>% select(-y)%>% as.matrix())
+
+Metrics::auc(test$y %>% as.numeric(),pred)
+
+ 0.9230309
+```
+
+Baxmayaraq ki, hiperparametrlərlə işləməmişik, AUC ~ 0.93-ə bərabərdir. Bu olduqca güclü nəticədir.
+
+
+&nbsp; &nbsp; &nbsp; &nbsp; Əgər postla bağlı hər hansı bir sual və ya çətinlik yaranarsa, aşağı hissədə suallarınızı yerləşdirə bilərsiniz.
+
+
+
+
+

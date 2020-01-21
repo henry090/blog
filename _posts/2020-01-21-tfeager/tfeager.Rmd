@@ -1,0 +1,394 @@
+---
+title: "Tensorflow low-level API (Eager Execution) ilə Logistic Regression"
+categories:
+  - eager
+  - tensorflow
+description: |
+  Bu postda R-da Tensorflow Eager Execution-nun əhəmiyyəti və praktiki tədbiqi HR Analytics datası üzərində izah olunacaq. Bununla yanaşı datanın preprocess mərhələsi və tensorflow-ya ötürülməsi detallı şəkildə əhatə ediləcəkdir.
+resources:
+  exclude:
+preview: eager.png
+author:
+  - name: Turqut Abdullayev
+    affiliation: QSS
+    affiliation_url: https://qss.az
+date: 02-20-2019
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=F}
+knitr::opts_chunk$set()
+#tutorial::go_interactive()
+```
+
+&nbsp; &nbsp; &nbsp; &nbsp; [Tensowflow eager execution](https://www.tensorflow.org/guide/eager) icra edilən əməliyyatların nəticələrini dərhal görməyə icazə verir. Bu funksiyanın olmaması hər dəfə yeni sessiyanı acıb bağlamağa səbəb olurdu. Bu isə əlbətdəki çox yorucu bir metod idi. 
+
+![](eager.png){width=40}
+
+&nbsp; &nbsp; &nbsp; &nbsp; Eager mod ilə artıq proses sadələşir. Məsələn:
+
+#### Without Eager Mode
+
+```{r,echo = T, eval = F}
+library(tensorflow)
+tf$constant(matrix(c(3.0, 3.0), nrow = 1, ncol = 2))
+
+# Output
+Tensor("Const:0", shape=(1, 2), dtype=float64)
+```
+
+
+#### With Eager Mode
+
+```{r, echo = T, eval = F}
+library(tensorflow)
+tf$constant(matrix(c(3.0, 3.0), nrow = 1, ncol = 2))
+
+# Output
+# tensorun daxilindəkini görə bilirik
+tf.Tensor([[3. 3.]], shape=(1, 2), dtype=float64)
+```
+
+
+<center>
+
+### HR ANALYTICS
+
+</center>
+
+&nbsp; &nbsp; &nbsp; &nbsp; HR datası işçilər haqqındakı məlumatları əks etdirir, burada əsas məqsəd işçi axının qarşısını almaqdır. Bu məqsəd üçün biz __eager modla__ *logistic reqressiya* quracayıq. *Dataframe* __1470__ sətr (__işçi sayı__) və __35__ sütundan ibarətdir (__işçilər haqqında məlumatlar__).
+
+
+#### Data structure
+
+```{r, echo=T,eval=F}
+Observations: 1,470
+Variables: 35
+$ Age                      <dbl> 41, 49, 37, 33, 27, 32, 59, 30, 38, 36, 35, 2…
+$ Attrition                <chr> "Yes", "No", "Yes", "No", "No", "No", "No", "…
+$ BusinessTravel           <chr> "Travel_Rarely", "Travel_Frequently", "Travel…
+$ DailyRate                <dbl> 1102, 279, 1373, 1392, 591, 1005, 1324, 1358,…
+$ Department               <chr> "Sales", "Research & Development", "Research …
+$ DistanceFromHome         <dbl> 1, 8, 2, 3, 2, 2, 3, 24, 23, 27, 16, 15, 26, …
+$ Education                <dbl> 2, 1, 2, 4, 1, 2, 3, 1, 3, 3, 3, 2, 1, 2, 3, …
+$ EducationField           <chr> "Life Sciences", "Life Sciences", "Other", "L…
+$ EmployeeCount            <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …
+$ EmployeeNumber           <dbl> 1, 2, 4, 5, 7, 8, 10, 11, 12, 13, 14, 15, 16,…
+$ EnvironmentSatisfaction  <dbl> 2, 3, 4, 4, 1, 4, 3, 4, 4, 3, 1, 4, 1, 2, 3, …
+$ Gender                   <chr> "Female", "Male", "Male", "Female", "Male", "…
+$ HourlyRate               <dbl> 94, 61, 92, 56, 40, 79, 81, 67, 44, 94, 84, 4…
+$ JobInvolvement           <dbl> 3, 2, 2, 3, 3, 3, 4, 3, 2, 3, 4, 2, 3, 3, 2, …
+$ JobLevel                 <dbl> 2, 2, 1, 1, 1, 1, 1, 1, 3, 2, 1, 2, 1, 1, 1, …
+$ JobRole                  <chr> "Sales Executive", "Research Scientist", "Lab…
+$ JobSatisfaction          <dbl> 4, 2, 3, 3, 2, 4, 1, 3, 3, 3, 2, 3, 3, 4, 3, …
+$ MaritalStatus            <chr> "Single", "Married", "Single", "Married", "Ma…
+$ MonthlyIncome            <dbl> 5993, 5130, 2090, 2909, 3468, 3068, 2670, 269…
+$ MonthlyRate              <dbl> 19479, 24907, 2396, 23159, 16632, 11864, 9964…
+$ NumCompaniesWorked       <dbl> 8, 1, 6, 1, 9, 0, 4, 1, 0, 6, 0, 0, 1, 0, 5, …
+$ Over18                   <chr> "Y", "Y", "Y", "Y", "Y", "Y", "Y", "Y", "Y", …
+$ OverTime                 <chr> "Yes", "No", "Yes", "Yes", "No", "No", "Yes",…
+$ PercentSalaryHike        <dbl> 11, 23, 15, 11, 12, 13, 20, 22, 21, 13, 13, 1…
+$ PerformanceRating        <dbl> 3, 4, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 3, 3, 3, …
+$ RelationshipSatisfaction <dbl> 1, 4, 2, 3, 4, 3, 1, 2, 2, 2, 3, 4, 4, 3, 2, …
+$ StandardHours            <dbl> 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 8…
+$ StockOptionLevel         <dbl> 0, 1, 0, 0, 1, 0, 3, 1, 0, 2, 1, 0, 1, 1, 0, …
+$ TotalWorkingYears        <dbl> 8, 10, 7, 8, 6, 8, 12, 1, 10, 17, 6, 10, 5, 3…
+$ TrainingTimesLastYear    <dbl> 0, 3, 3, 3, 3, 2, 3, 2, 2, 3, 5, 3, 1, 2, 4, …
+$ WorkLifeBalance          <dbl> 1, 3, 3, 3, 3, 2, 2, 3, 3, 2, 3, 3, 2, 3, 3, …
+$ YearsAtCompany           <dbl> 6, 10, 0, 8, 2, 7, 1, 1, 9, 7, 5, 9, 5, 2, 4,…
+$ YearsInCurrentRole       <dbl> 4, 7, 0, 7, 2, 7, 0, 0, 7, 7, 4, 5, 2, 2, 2, …
+$ YearsSinceLastPromotion  <dbl> 0, 1, 0, 3, 2, 3, 0, 0, 1, 7, 0, 0, 4, 1, 0, …
+$ YearsWithCurrManager     <dbl> 5, 7, 0, 0, 2, 6, 0, 0, 8, 7, 3, 8, 3, 2, 3, …
+```
+
+
+&nbsp; &nbsp; &nbsp; &nbsp; Məlumatları Tensorflow-ya ötürmədən əvvəl minimum olaraq datadakı verilənləri aşağıdakı kimi etməliyik:
+
+- String-lər qruplara çevirilməlidir
+- Verilənlər mərkəzə doğru normallaşdırılmalıdır
+- Yaxşı olardıki artan sütunları log ilə çıxarıb normallaşdıraq (optional - for high variance)
+
+&nbsp; &nbsp; &nbsp; &nbsp; Sadalananları icra etmək üçün ilk növbədə Eager Mode-u aktivləşdirmək lazımdır.
+
+```{r, echo=T,eval=F}
+library(tensorflow)
+# Eager mode
+tf$enable_eager_execution()
+tfe = tf$contrib$eager
+
+```
+
+&nbsp; &nbsp; &nbsp; &nbsp; Daha sonra datanı import etmək lazımdır.
+
+```{r, echo=T,eval=F}
+library(tidyquant)
+
+df = read_csv(
+  'https://raw.githubusercontent.com/henry090/dataexperts/master/HR%20Analytics.csv')
+
+# Datanı sətrlər üzrə qarışdırmaq
+df = df[sample(nrow(df)),]
+```
+
+&nbsp; &nbsp; &nbsp; &nbsp; Növbəti addım olaraq isə datanın __0.8 hissəsini train-ə__, qalan hissəsini isə __test-ə (0.2)__ ayırmalıyıq:
+
+```{r, echo=T,eval=F}
+
+train_data = sample_n(df, nrow(df)*0.8)
+
+test_data = anti_join(df,train_data)
+```
+
+&nbsp; &nbsp; &nbsp; &nbsp; Bu addımnan sonra emal edəcəyimiz hissə __train__ datası olacaqdır.
+
+```{r, echo=T,eval=F}
+
+# Attrition-u çıxarmaqla bütün datanı saxlayırıq
+features = train_data %>% mutate_if(is.character,as.factor) %>% select(-Attrition) %>% 
+  # Əgər sütunun tərkibində 1 unikal verilənsə biz onu çıxarmalıyıq
+  .[, sapply(., function(col) length(unique(col))) > 1] %>% 
+  # Nəticə olaraq butün sütunları numeric edib mərkəzə doğru normallaşdırırıq
+  mutate_all(as.numeric) %>% scale(center = T,scale = T) %>% as.matrix()
+
+
+# Eyni zamanda Attrition-da olan Yes və No -ları 1 və 0 kimi kodlayırıq
+labels = train_data$Attrition %>% as.factor() %>%  as.numeric() %>% 
+         car::recode(.,"2 = 1; 1 = 0")
+```
+
+
+
+#### R üçün spesifik olaraq TFDATASETS kitabxanası
+
+&nbsp; &nbsp; &nbsp; &nbsp; Tfdatasets Tensorflow-ya datanın ötürülməsində köməklik edən bir kitabxandır. Datanı __batch-lara__ bölərək hər dəfə hesablamanı reallaşdıracayıq. Məsələn:
+
+```{r, eval=F,echo=T}
+# batch = 50
+1470 / 50 = 29.4
+
+steps  ~30
+```
+
+&nbsp; &nbsp; &nbsp; &nbsp; Yəni:
+
+```{r, eval=F,echo=T}
+library(tfdatasets)
+
+
+batch_size = 50
+num_steps = 30
+learning_rate = 0.01
+display_step = 100
+```
+
+&nbsp; &nbsp; &nbsp; &nbsp; Datadan hər dəfə 50 sətr ötürərək hesablamanı edəcəyik.
+
+```{r, eval=F,echo=T}
+dataset = tensor_slices_dataset(list(features, labels)) %>% 
+  dataset_repeat() %>% dataset_batch(batch_size = batch_size) %>% 
+  dataset_prefetch(batch_size)
+
+dataset_iter =  make_iterator_one_shot(dataset)
+batch =  iterator_get_next(dataset_iter)
+batch
+```
+
+#### Output
+
+```{r, eval=F,echo=T}
+[[1]]
+tf.Tensor(
+[[-0.74563709 -0.93176198 -0.87921167 ... -1.16363856 -0.67966066
+  -1.15323646]
+ [ 0.12980953  0.57753842 -0.23673063 ... -0.60792731 -0.67966066
+  -0.28977758]
+ [ 0.12980953  0.57753842 -1.04541332 ... -0.05221607 -0.67966066
+  -0.57759721]
+ ...
+ [-0.52677544  0.57753842  0.02125403 ... -1.16363856 -0.67966066
+  -1.15323646]
+ [-0.52677544 -0.93176198  1.22187497 ... -0.88578293 -0.67966066
+  -0.28977758]
+ [ 0.56753284  0.57753842 -0.45502534 ...  3.28205141  2.75206856
+   0.5736813 ]], shape=(50, 31), dtype=float64)
+
+[[2]]
+tf.Tensor(
+[1. 0. 0. 1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
+ 0. 0. 0. 1. 0. 1. 0. 1. 0. 0. 0. 0. 0. 0. 0. 1. 0. 1. 0. 0. 0. 0. 0. 0.
+ 0. 0.], shape=(50,), dtype=float32)
+
+```
+
+#### Weights and Biases 
+
+&nbsp; &nbsp; &nbsp; &nbsp; __Weights__ və __Bias__ linear regression-a çox bənzəyir. 
+
+<center>
+
+__Weights == Regression coefficients __
+<br>
+__Bias == Intercept__
+
+</center>
+
+```{r, eval=F,echo=T}
+W = tfe$Variable(tf$zeros(shape(31L, 2L), name='weights'))
+b = tfe$Variable(tf$zeros(shape(2L), name='bias'))
+```
+
+&nbsp; &nbsp; &nbsp; &nbsp; __Logistic Regression__, __itki funksiyası__, __accuracy__ funksiyalarını yazaraq optimizer-idə müəyyən edirik.
+
+```{r, eval=F,echo=T}
+
+# Logistic regression (Wx + b)
+
+logistic_regression = function(inputs){
+  # Multiply Two Matricies
+  return(tf$matmul(inputs, W) + b)
+}
+
+# Cross-Entropy loss function
+loss_fn = function(inference_fn, inputs, labels) {
+  # Using sparse_softmax cross entropy
+  return(tf$reduce_mean(tf$nn$sparse_softmax_cross_entropy_with_logits(
+    logits=inference_fn(inputs), labels=labels)))
+}
+
+
+# Calculate accuracy
+
+accuracy_fn = function(inference_fn, inputs, labels) {
+  prediction = tf$nn$sigmoid(inference_fn(inputs))
+  correct_pred = tf$equal(tf$argmax(prediction, 1L), labels)
+  return( tf$reduce_mean(tf$cast(correct_pred, tf$float32)) )
+}
+
+
+# SGD Optimizer
+
+optimizer = tf$train$GradientDescentOptimizer(learning_rate=learning_rate)
+
+# Compute gradients
+grad = tfe$implicit_gradients(loss_fn)
+
+# Training
+average_loss = 0.0
+average_acc = 0.0
+```
+
+&nbsp; &nbsp; &nbsp; &nbsp; Və nəhayət __training__ mərhələsinə çatdıq. 
+
+```{r, eval=F,echo=T}
+for (step in 1:num_steps) {
+  
+  # İterator
+  d = iterator_get_next(dataset_iter)
+  
+  # Sütunlar
+  x_batch = tf$cast(d[[1]], dtype=tf$float32)
+  
+  # Attrition
+  y_batch =  tf$cast(d[[2]], dtype=tf$int64)
+  
+  # the batch loss
+  batch_loss = loss_fn(logistic_regression, x_batch, y_batch)
+  average_loss = average_loss + batch_loss
+  
+  # the batch accuracy
+  batch_accuracy = accuracy_fn(logistic_regression, x_batch, y_batch)
+  average_acc = average_acc + batch_accuracy
+  
+  if (step == 0) {
+    # Display the initial cost, before optimizing
+    return(print(paste(sprintf("Initial loss: %.2f ",average_loss))))
+  }
+  # Update the variables following gradients info
+  optimizer$apply_gradients(grad(logistic_regression, x_batch, y_batch))
+  
+  # Display info
+  if ((step + 1) %% display_step == 0 & step == 0) {
+    if (step > 0){
+      average_loss = average_loss / display_step
+      average_acc = average_acc / display_step
+      average_loss = 0
+      average_acc = 0
+    }
+    
+  }
+  print(paste(sprintf('Step: %.f',(step + 1)),
+              sprintf('Loss: %.2f',batch_loss),
+              sprintf('Accuracy: %.2f',batch_accuracy)))
+}
+```
+
+#### Output 
+
+&nbsp; &nbsp; &nbsp; &nbsp; Nəticəyə baxanda görünən odur ki, __Accuracy__ artır və azalır. Bunun əsaslı səbəbi datada __high variance__ olmasıdır, yəni *continuous* sütunlarda ciddi outlier-lərin mövcud olduğunu bildirir. Bu problem bizim mövzuda araşdırılmayacaq, çünki məqsəd Tensorflow ilə __logistic regression__ yaratmaqdır.
+
+```{r, eval=F,echo=T}
+[1] "Step: 28 Loss: 0.62 Accuracy: 0.84"
+[1] "Step: 29 Loss: 0.63 Accuracy: 0.86"
+[1] "Step: 30 Loss: 0.60 Accuracy: 0.92"
+[1] "Step: 31 Loss: 0.60 Accuracy: 0.90"
+[1] "Step: 32 Loss: 0.60 Accuracy: 0.92"
+[1] "Step: 33 Loss: 0.62 Accuracy: 0.82"
+[1] "Step: 34 Loss: 0.61 Accuracy: 0.88"
+[1] "Step: 35 Loss: 0.62 Accuracy: 0.82"
+[1] "Step: 36 Loss: 0.61 Accuracy: 0.86"
+[1] "Step: 37 Loss: 0.63 Accuracy: 0.76"
+[1] "Step: 38 Loss: 0.64 Accuracy: 0.80"
+[1] "Step: 39 Loss: 0.61 Accuracy: 0.80"
+[1] "Step: 40 Loss: 0.59 Accuracy: 0.84"
+[1] "Step: 41 Loss: 0.59 Accuracy: 0.86"
+[1] "Step: 42 Loss: 0.58 Accuracy: 0.88"
+[1] "Step: 43 Loss: 0.58 Accuracy: 0.88"
+[1] "Step: 44 Loss: 0.58 Accuracy: 0.94"
+[1] "Step: 45 Loss: 0.60 Accuracy: 0.86"
+[1] "Step: 46 Loss: 0.57 Accuracy: 0.84"
+[1] "Step: 47 Loss: 0.60 Accuracy: 0.86"
+[1] "Step: 48 Loss: 0.58 Accuracy: 0.88"
+[1] "Step: 49 Loss: 0.58 Accuracy: 0.88"
+[1] "Step: 50 Loss: 0.58 Accuracy: 0.88"
+[1] "Step: 51 Loss: 0.58 Accuracy: 0.86"
+```
+
+### Nəticələr məlumdur, test setdə necə təsdiqləmək olar aldığmız nəticəni? Overfitting mövcuddur?
+
+
+&nbsp; &nbsp; &nbsp; &nbsp; Bu məqsəd üçün biz train_datanı preprocess etdiyimiz kimi test_datanıda həmin qaydada emal etməliyik.
+
+
+```{r, eval=F,echo=T}
+features2 = test_data %>% mutate_if(is.character,as.factor) %>% select(-Attrition) %>% 
+  .[, sapply(., function(col) length(unique(col))) > 1] %>% 
+  mutate_all(as.numeric) %>% scale(center = T,scale = T) %>% as.matrix()
+
+
+
+labels2 = test_data$Attrition %>%as.factor() %>%  as.numeric() %>% 
+  car::recode(.,"2 = 1; 1 = 0")
+
+testX = tf$cast(features2, dtype=tf$float32)
+testY = tf$cast(labels2 ,dtype=tf$int64)
+
+test_acc = accuracy_fn(logistic_regression, testX, testY)
+cat(sprintf("Testset Accuracy: %.2f ",test_acc))
+
+# Output 
+
+Testset Accuracy: 0.88 
+
+```
+
+__Test setdəki__ nəticə __train setə__ çox yaxın olduğu üçün biz overfitting problemi ilə qarşılaşmadıq. 
+
+
+### Conclusion
+
+&nbsp; &nbsp; &nbsp; &nbsp; Nəticədə oxuyuculara Tensorflow ilə Logistic Regression-nun yaradılmasıyla yanaşı Eager Execution-un vacibliyi çatdırılmışdır. Bununla yanaşı məlumatı hansı qaydada hazırlanıb ötürülməsidə ətraflı olaraq izah edilmişdir.
+
+
+

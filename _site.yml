@@ -1,0 +1,37 @@
+name: "Data Experts"
+title: "Data Experts"
+favicon: favicon-32x32.png
+google_analytics: "UA-129142339-1"
+description: |
+  Blog
+base_url: http://dataexperts.tech
+collections:
+  posts:
+    creative_commons: CC BY
+    feed_items_max: 10
+    disqus: dataexperts-tech
+    share: [twitter, linkedin, facebook]
+    subscribe: _subscribe.html
+output_dir: "docs"
+navbar:
+  right:
+    - text: "Blog"
+      href: index.html
+    - text: "About"
+      href: about.html
+    - text: "Contributing"
+      menu:
+        - text: "How to contribute?"
+          href: howtocontribute.html
+    - icon: fa fa-rss
+      href: index.xml
+  left:
+    - icon: fa-facebook fa-lg
+      href: https://www.facebook.com/turgutabd
+    - icon: fa-linkedin fa-lg
+      href: https://www.linkedin.com/in/turgut-abdullayev/
+    - icon: fa-github fa-lg
+      href: https://github.com/henry090
+output: distill::distill_article
+   
+   

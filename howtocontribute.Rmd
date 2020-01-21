@@ -1,0 +1,39 @@
+---
+title: "Postlar hansı formatda qəbul olunur?"
+description: "Markdown istifadə edərək asanlıqla postlar yaza bilərsiniz"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+```
+
+
+&nbsp; &nbsp; &nbsp; &nbsp; Hər kəs __DataExperts__ bloqu üçün Machine Learning haqqında məqalələr yaza bilər. Bunun üçün siz [Markdown](https://en.wikipedia.org/wiki/Markdown) vasitəsiylə yazılan postun ən yuxarı hissəsinə *aşağıdakı formatı*  qeyd etməlisiniz:
+
+---
+
+```
+---
+title: "Text classification with Keras"
+categories:
+  - business
+  - text
+description: |
+  Mətnin klasifikasiyası ilə yanaşı qara qutununu izahı. Overfitting / Underfitting problemlərinin aradan qaldırılması.
+resources:
+  exclude:
+preview: your_preview image.png
+author:
+  - name: Turqut Abdullayev 
+    affiliation: QSS
+    affiliation_url: https://qss.az
+date: 10-10-2018
+output:
+  radix::radix_article:
+    self_contained: false
+---
+```
+---
+
+
