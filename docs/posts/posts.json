@@ -2,7 +2,7 @@
   {
     "path": "posts/2020-01-22-automl/",
     "title": "A web application for AUTO ML",
-    "description": "Building a web application is one of the most important skills in Data Science projects. This post shows an app which is designed for building a model directly on a server with XGBoost, GLM, Deep Learning, Random Forest and GBM.",
+    "description": "Building a web application is one of the most important skills in Data Science projects. This post shows an app that is designed for building a model directly on a server with XGBoost, GLM, Deep Learning, Random Forest and GBM.",
     "author": [
       {
         "name": "Turgut Abdullayev",
@@ -14,7 +14,7 @@
       "Natural Language Processing"
     ],
     "preview": "posts/2020-01-22-automl/ai.png",
-    "last_modified": "2020-01-22T14:22:21+04:00",
+    "last_modified": "2020-01-22T14:30:44+04:00",
     "preview_width": 2560,
     "preview_height": 1600
   },

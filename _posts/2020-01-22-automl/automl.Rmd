@@ -1,7 +1,7 @@
 ---
 title: "A web application for AUTO ML"
 description: |
-  Building a web application is one of the most important skills in Data Science projects. This post shows an app which is designed for building a model directly on a server with XGBoost, GLM, Deep Learning, Random Forest and GBM.
+  Building a web application is one of the most important skills in Data Science projects. This post shows an app that is designed for building a model directly on a server with XGBoost, GLM, Deep Learning, Random Forest and GBM.
 author:
   - name: Turgut Abdullayev 
     url: https://github.com/henry090
