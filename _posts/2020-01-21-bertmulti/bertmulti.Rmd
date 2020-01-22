@@ -546,6 +546,7 @@ Metrics::auc(targets2,result)
 0.937
 ```
 
+
 ## Conclusion
 
 In this post, we've shown how we can use Keras to conveniently load, configure, and train a BERT model.
