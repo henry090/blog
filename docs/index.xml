@@ -12,7 +12,16 @@
       <link>http://dataexperts.tech</link>
     </image>
     <generator>Distill</generator>
-    <lastBuildDate>Mon, 18 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 22 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>A web application for AUTO ML</title>
+      <dc:creator>Turgut Abdullayev</dc:creator>
+      <link>http://dataexperts.tech/posts/2020-01-22-automl</link>
+      <description>Building a web application is one of the most important skills in Data Science projects. This post shows an app which is designed for building a model directly on a server with XGBoost, GLM, Deep Learning, Random Forest and GBM.</description>
+      <guid>http://dataexperts.tech/posts/2020-01-22-automl</guid>
+      <pubDate>Wed, 22 Jan 2020 00:00:00 +0000</pubDate>
+      <media:content url="http://dataexperts.tech/posts/2020-01-22-automl/ai.png" medium="image" type="image/png" width="2560" height="1600"/>
+    </item>
     <item>
       <title>Spark from R</title>
       <dc:creator>Turgut Abdullayev</dc:creator>

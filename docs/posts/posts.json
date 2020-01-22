@@ -1,5 +1,24 @@
 [
   {
+    "path": "posts/2020-01-22-automl/",
+    "title": "A web application for AUTO ML",
+    "description": "Building a web application is one of the most important skills in Data Science projects. This post shows an app which is designed for building a model directly on a server with XGBoost, GLM, Deep Learning, Random Forest and GBM.",
+    "author": [
+      {
+        "name": "Turgut Abdullayev",
+        "url": "https://github.com/henry090"
+      }
+    ],
+    "date": "2020-01-22",
+    "categories": [
+      "Natural Language Processing"
+    ],
+    "preview": "posts/2020-01-22-automl/ai.png",
+    "last_modified": "2020-01-22T14:22:21+04:00",
+    "preview_width": 2560,
+    "preview_height": 1600
+  },
+  {
     "path": "posts/2020-01-21-sparkr/",
     "title": "Spark from R",
     "description": "Working with big data for modeling purposes sometimes can be challenging due to memory issues. In this post, we will understand how to prepare a dataset with a machine learning pipeline for modeling with Spark in R.",
