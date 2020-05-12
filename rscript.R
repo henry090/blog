@@ -10,6 +10,7 @@ files = list.files(path = '_posts', pattern = '.Rmd',recursive = TRUE)
 files = paste('_posts',files, sep = '/')
 
 install.packages(unique(pkgs$Package))
+remotes::install_github("JohnCoene/echarts4r.suite")
 
 for (i in 1:length(files)) {
   rmarkdown::render(files[i],quiet = TRUE)
