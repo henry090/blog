@@ -1,7 +1,6 @@
 
 
 # dependecies 
-installed.packages('renv')
 pkgs = renv::dependencies(path = '_posts',errors = 'ignored', dev = TRUE)
 
 
