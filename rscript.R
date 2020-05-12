@@ -5,7 +5,7 @@ unlink("docs/posts", recursive = TRUE)
 unlink("docs/site_libs", recursive = TRUE)
 file.create('docs/text.txt')
 dir.create('docs')
-
+ 
 # dependecies 
 pkgs = renv::dependencies(path = '_posts',errors = 'ignored', dev = TRUE)
 
