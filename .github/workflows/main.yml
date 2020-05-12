@@ -1,0 +1,41 @@
+on: [push, pull_request]
+
+name: R-CMD
+
+jobs:
+  R-CMD:
+    runs-on: ${{ matrix.config.os }}
+
+    name: ${{ matrix.config.os }} )
+
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+        - { os: ubuntu-16.04,  cran: "https://demo.rstudiopm.com/all/__linux__/xenial/latest"}
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - uses: r-lib/actions/setup-r@master
+
+      - uses: r-lib/actions/setup-pandoc@master
+
+      - name: Install dependencies
+        run: |
+          Rscript -e "install.packages(c('distill','rmarkdown'))"
+          
+      - name: Render Rmd files from _posts
+        run: |
+          Rscript rscript.R
+
+      - name: Commit files  
+        run: |
+          git config --local user.name  ${{ github.actor }}
+          git add ./docs
+          git commit -m "Updating the repository GitHub html pages in the docs folder"
+      - name: Push changes  
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          force: true

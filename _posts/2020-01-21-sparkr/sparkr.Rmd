@@ -114,7 +114,7 @@ Sparklyr has some great features as data bucketing like base _cut_ function, qua
 
 For example:
 
-```{r eval=T,echo=T}
+```{r eval=F,echo=T}
 library(rmarkdown)
 library(dplyr)
 
@@ -129,16 +129,16 @@ paged_table(corr, options = list(rows.print = 10))
 
 You can even quickly plot a heatmap of some variables.
 
-```{r eval=T,echo=T}
+```{r eval=F,echo=T}
 # cor plot
-cor_data = sparklyr::ml_corr(df, columns = paste('var',seq(1,30,1),sep = '_'))
+#cor_data = sparklyr::ml_corr(df, columns = paste('var',seq(1,30,1),sep = '_'))
 
-highcharter::hchart(round(as.matrix(cor_data),2), label = T)
+#highcharter::hchart(round(as.matrix(cor_data),2), label = T)
 ```
 
 We can binarizer and quantile bucketizer. The first will turn numeric vector into binary based on a cutoff point and the latter one applies a quantile based cutoffs. So, threshold points can be manually assigned.
 
-```{r eval=T,echo=T}
+```{r eval=F,echo=T}
 # binarizer
 ft_binarizer(df,input_col = 'var_0',output_col = 'var_0_binary',threshold=10) %>% select(var_0,var_0_binary)
 
@@ -151,7 +151,7 @@ ft_quantile_discretizer(df,input_col = 'var_0',output_col = 'var_0_binary',
 
 Lets build a pipeline for modeling part. At first, we will be able to observe the steps of modeling. Later, when we are sure that every step is correct, the training process can be run.
 
-```{r eval=T,echo=T}
+```{r eval=F,echo=T}
 # point out the source of connection "sc"
 bank_pipeline <- ml_pipeline(sc) %>%
   # then select  data
@@ -173,13 +173,13 @@ bank_pipeline <- ml_pipeline(sc) %>%
 
 See the output of steps:
 
-```{r eval=T,echo=T}
+```{r eval=F,echo=T}
 bank_pipeline 
 ```
 
 It seems that everything is okay for now. Lets split the dataset into training and test sets:
 
-```{r eval=T,echo=T}
+```{r eval=F,echo=T}
 partitioned_bank <- sdf_random_split(
   df,
   training = 0.03,
@@ -191,7 +191,7 @@ partitioned_bank <- sdf_random_split(
 
 Finally, fit out model which means to run the calculation:
 
-```{r eval=T,echo=T}
+```{r eval=F,echo=T}
 bank_pipeline2 <- ml_fit(
   bank_pipeline,
   partitioned_bank$training
@@ -200,13 +200,13 @@ bank_pipeline2 <- ml_fit(
 
 We can print the result of modeling:
 
-```{r eval=T,echo=T}
+```{r eval=F,echo=T}
 bank_pipeline2 
 ```
 
 If you want to make prediction on test dataset, ```ml_transform``` function is enough for this task:
 
-```{r eval=T,echo=T}
+```{r eval=F,echo=T}
 predictions <- ml_transform(
   bank_pipeline2,
   partitioned_bank$testing
