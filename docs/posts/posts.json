@@ -14,7 +14,7 @@
       "Natural Language Processing"
     ],
     "preview": "posts/2020-01-22-automl/ai.png",
-    "last_modified": "2020-05-12T19:36:14+00:00",
+    "last_modified": "2020-05-12T19:45:58+00:00",
     "preview_width": 2560,
     "preview_height": 1600
   },
@@ -33,7 +33,7 @@
       "Natural Language Processing"
     ],
     "preview": "posts/2020-01-21-sparkr/spark.jpeg",
-    "last_modified": "2020-05-12T19:36:12+00:00"
+    "last_modified": "2020-05-12T19:45:55+00:00"
   },
   {
     "path": "posts/2020-01-21-bertmulti/",
@@ -50,7 +50,7 @@
       "Natural Language Processing"
     ],
     "preview": "posts/2020-01-21-bertmulti/bert.png",
-    "last_modified": "2020-05-12T19:35:56+00:00",
+    "last_modified": "2020-05-12T19:45:36+00:00",
     "preview_width": 400,
     "preview_height": 400
   },
@@ -70,7 +70,7 @@
       "State of the art"
     ],
     "preview": "posts/2020-01-21-tfhubartmodels/tf_hub.jpg",
-    "last_modified": "2020-05-12T19:36:13+00:00"
+    "last_modified": "2020-05-12T19:45:56+00:00"
   },
   {
     "path": "posts/2020-01-21-dockeraiplumber/",
@@ -87,7 +87,7 @@
       "docker"
     ],
     "preview": "posts/2020-01-21-dockeraiplumber/plumber.jpg",
-    "last_modified": "2020-05-12T19:36:00+00:00"
+    "last_modified": "2020-05-12T19:45:43+00:00"
   },
   {
     "path": "posts/2020-01-21-lightgbm/",
@@ -108,7 +108,7 @@
       "Light GBM"
     ],
     "preview": "posts/2020-01-21-lightgbm/light_gbm.png",
-    "last_modified": "2020-05-12T19:36:03+00:00",
+    "last_modified": "2020-05-12T19:45:46+00:00",
     "preview_width": 901,
     "preview_height": 451
   },
@@ -131,7 +131,7 @@
       "shiny"
     ],
     "preview": "posts/2020-01-21-freeapp/preview.jpeg",
-    "last_modified": "2020-05-12T19:36:01+00:00"
+    "last_modified": "2020-05-12T19:45:44+00:00"
   },
   {
     "path": "posts/2020-01-21-tfeager/",
@@ -149,7 +149,7 @@
       "tensorflow"
     ],
     "preview": "posts/2020-01-21-tfeager/eager.png",
-    "last_modified": "2020-05-12T19:36:12+00:00",
+    "last_modified": "2020-05-12T19:45:56+00:00",
     "preview_width": 622,
     "preview_height": 482
   },
@@ -169,7 +169,7 @@
       "dashboard"
     ],
     "preview": "posts/2020-01-21-dashboard/azal.png",
-    "last_modified": "2020-05-12T19:36:00+00:00",
+    "last_modified": "2020-05-12T19:45:42+00:00",
     "preview_width": 664,
     "preview_height": 384
   },
@@ -188,7 +188,7 @@
       "business"
     ],
     "preview": "posts/2020-01-21-market-basket-analysis/jj-2.png",
-    "last_modified": "2020-05-12T19:36:11+00:00",
+    "last_modified": "2020-05-12T19:45:54+00:00",
     "preview_width": 250,
     "preview_height": 175
   }
