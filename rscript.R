@@ -2,7 +2,8 @@
 # git add -A && git commit -m 'staging all files'
 file.remove(list.files('docs',include.dirs = TRUE,full.names = TRUE))
 unlink("docs/posts", recursive = TRUE)  
-unlink("docs/site_libs", recursive = TRUE) 
+unlink("docs/site_libs", recursive = TRUE)
+file.create('docs/text.txt')
 dir.create('docs')
 
 # dependecies 

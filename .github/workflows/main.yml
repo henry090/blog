@@ -41,7 +41,7 @@ jobs:
           force: true
           
       - name: Update github pages
-          uses: henry090/github-pages-deploy-action@master
+          uses: ad-m/github-pages-deploy-action@master
       env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BASE_BRANCH: master # The branch the action should deploy from.
