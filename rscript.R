@@ -3,6 +3,7 @@
 file.remove(list.files('docs',include.dirs = TRUE,full.names = TRUE))
 unlink("docs/posts", recursive = TRUE)  
 unlink("docs/site_libs", recursive = TRUE) 
+dir.create('docs')
 
 # dependecies 
 pkgs = renv::dependencies(path = '_posts',errors = 'ignored', dev = TRUE)
