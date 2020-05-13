@@ -12,15 +12,7 @@
       <link>http://dataexperts.tech</link>
     </image>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 13 May 2020 00:00:00 +0000</lastBuildDate>
-    <item>
-      <title>test_post</title>
-      <dc:creator>Turgut Abdullayev</dc:creator>
-      <link>http://dataexperts.tech/posts/2020-05-13-testpost</link>
-      <description>A short description of the post.</description>
-      <guid>http://dataexperts.tech/posts/2020-05-13-testpost</guid>
-      <pubDate>Wed, 13 May 2020 00:00:00 +0000</pubDate>
-    </item>
+    <lastBuildDate>Wed, 22 Jan 2020 00:00:00 +0000</lastBuildDate>
     <item>
       <title>A web application for AUTO ML</title>
       <dc:creator>Turgut Abdullayev</dc:creator>
@@ -103,6 +95,15 @@
       <guid>http://dataexperts.tech/posts/2020-01-21-dashboard</guid>
       <pubDate>Sat, 09 Feb 2019 00:00:00 +0000</pubDate>
       <media:content url="http://dataexperts.tech/posts/2020-01-21-dashboard/azal.png" medium="image" type="image/png" width="664" height="384"/>
+    </item>
+    <item>
+      <title>Market Basket Analysis</title>
+      <dc:creator>Turqut Abdullayev</dc:creator>
+      <link>http://dataexperts.tech/posts/2020-01-21-market-basket-analysis</link>
+      <description>Market Basket Analysis kontentin optimallaşdırılması, online satış və digər sahələrdə 2 obyekt arasında əlaqəni üzə çıxaran əsas vasitələrdən biridir.</description>
+      <guid>http://dataexperts.tech/posts/2020-01-21-market-basket-analysis</guid>
+      <pubDate>Thu, 20 Sep 2018 00:00:00 +0000</pubDate>
+      <media:content url="http://dataexperts.tech/posts/2020-01-21-market-basket-analysis/jj-2.png" medium="image" type="image/png" width="250" height="175"/>
     </item>
   </channel>
 </rss>

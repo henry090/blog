@@ -1,20 +1,5 @@
 [
   {
-    "path": "posts/2020-05-13-testpost/",
-    "title": "test_post",
-    "description": "A short description of the post.",
-    "author": [
-      {
-        "name": "Turgut Abdullayev",
-        "url": "https://github.com/henry090"
-      }
-    ],
-    "date": "2020-05-13",
-    "categories": [],
-    "preview": {},
-    "last_modified": "2020-05-13T10:58:06+00:00"
-  },
-  {
     "path": "posts/2020-01-22-automl/",
     "title": "A web application for AUTO ML",
     "description": "Building a web application is one of the most important skills in Data Science projects. This post shows an app that is designed for building a model directly on a server with XGBoost, GLM, Deep Learning, Random Forest and GBM.",
@@ -29,7 +14,7 @@
       "Natural Language Processing"
     ],
     "preview": "posts/2020-01-22-automl/ai.png",
-    "last_modified": "2020-05-13T10:58:05+00:00",
+    "last_modified": "2020-05-13T15:06:50+00:00",
     "preview_width": 2560,
     "preview_height": 1600
   },
@@ -48,7 +33,7 @@
       "Natural Language Processing"
     ],
     "preview": "posts/2020-01-21-sparkr/spark.jpeg",
-    "last_modified": "2020-05-13T10:58:03+00:00"
+    "last_modified": "2020-05-13T15:06:48+00:00"
   },
   {
     "path": "posts/2020-01-21-bertmulti/",
@@ -65,7 +50,7 @@
       "Natural Language Processing"
     ],
     "preview": "posts/2020-01-21-bertmulti/bert.png",
-    "last_modified": "2020-05-13T10:57:47+00:00",
+    "last_modified": "2020-05-13T15:06:32+00:00",
     "preview_width": 400,
     "preview_height": 400
   },
@@ -85,7 +70,7 @@
       "State of the art"
     ],
     "preview": "posts/2020-01-21-tfhubartmodels/tf_hub.jpg",
-    "last_modified": "2020-05-13T10:58:04+00:00"
+    "last_modified": "2020-05-13T15:06:49+00:00"
   },
   {
     "path": "posts/2020-01-21-dockeraiplumber/",
@@ -102,7 +87,7 @@
       "docker"
     ],
     "preview": "posts/2020-01-21-dockeraiplumber/plumber.jpg",
-    "last_modified": "2020-05-13T10:57:52+00:00"
+    "last_modified": "2020-05-13T15:06:37+00:00"
   },
   {
     "path": "posts/2020-01-21-lightgbm/",
@@ -123,7 +108,7 @@
       "Light GBM"
     ],
     "preview": "posts/2020-01-21-lightgbm/light_gbm.png",
-    "last_modified": "2020-05-13T10:57:54+00:00",
+    "last_modified": "2020-05-13T15:06:39+00:00",
     "preview_width": 901,
     "preview_height": 451
   },
@@ -146,7 +131,7 @@
       "shiny"
     ],
     "preview": "posts/2020-01-21-freeapp/preview.jpeg",
-    "last_modified": "2020-05-13T10:57:53+00:00"
+    "last_modified": "2020-05-13T15:06:37+00:00"
   },
   {
     "path": "posts/2020-01-21-tfeager/",
@@ -164,7 +149,7 @@
       "tensorflow"
     ],
     "preview": "posts/2020-01-21-tfeager/eager.png",
-    "last_modified": "2020-05-13T10:58:04+00:00",
+    "last_modified": "2020-05-13T15:06:48+00:00",
     "preview_width": 622,
     "preview_height": 482
   },
@@ -184,7 +169,7 @@
       "dashboard"
     ],
     "preview": "posts/2020-01-21-dashboard/azal.png",
-    "last_modified": "2020-05-13T10:57:51+00:00",
+    "last_modified": "2020-05-13T15:06:36+00:00",
     "preview_width": 664,
     "preview_height": 384
   },
@@ -203,7 +188,7 @@
       "business"
     ],
     "preview": "posts/2020-01-21-market-basket-analysis/jj-2.png",
-    "last_modified": "2020-05-13T10:58:02+00:00",
+    "last_modified": "2020-05-13T15:06:47+00:00",
     "preview_width": 250,
     "preview_height": 175
   }
