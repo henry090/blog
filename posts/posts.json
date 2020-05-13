@@ -12,7 +12,7 @@
     "date": "2020-05-13",
     "categories": [],
     "preview": {},
-    "last_modified": "2020-05-13T07:11:11+00:00"
+    "last_modified": "2020-05-13T07:50:35+00:00"
   },
   {
     "path": "posts/2020-01-22-automl/",
@@ -29,7 +29,7 @@
       "Natural Language Processing"
     ],
     "preview": "posts/2020-01-22-automl/ai.png",
-    "last_modified": "2020-05-13T07:11:10+00:00",
+    "last_modified": "2020-05-13T07:50:34+00:00",
     "preview_width": 2560,
     "preview_height": 1600
   },
@@ -48,7 +48,7 @@
       "Natural Language Processing"
     ],
     "preview": "posts/2020-01-21-sparkr/spark.jpeg",
-    "last_modified": "2020-05-13T07:11:08+00:00"
+    "last_modified": "2020-05-13T07:50:32+00:00"
   },
   {
     "path": "posts/2020-01-21-bertmulti/",
@@ -65,7 +65,7 @@
       "Natural Language Processing"
     ],
     "preview": "posts/2020-01-21-bertmulti/bert.png",
-    "last_modified": "2020-05-13T07:10:52+00:00",
+    "last_modified": "2020-05-13T07:50:17+00:00",
     "preview_width": 400,
     "preview_height": 400
   },
@@ -85,7 +85,7 @@
       "State of the art"
     ],
     "preview": "posts/2020-01-21-tfhubartmodels/tf_hub.jpg",
-    "last_modified": "2020-05-13T07:11:09+00:00"
+    "last_modified": "2020-05-13T07:50:33+00:00"
   },
   {
     "path": "posts/2020-01-21-dockeraiplumber/",
@@ -102,7 +102,7 @@
       "docker"
     ],
     "preview": "posts/2020-01-21-dockeraiplumber/plumber.jpg",
-    "last_modified": "2020-05-13T07:10:56+00:00"
+    "last_modified": "2020-05-13T07:50:21+00:00"
   },
   {
     "path": "posts/2020-01-21-lightgbm/",
@@ -123,7 +123,7 @@
       "Light GBM"
     ],
     "preview": "posts/2020-01-21-lightgbm/light_gbm.png",
-    "last_modified": "2020-05-13T07:10:59+00:00",
+    "last_modified": "2020-05-13T07:50:24+00:00",
     "preview_width": 901,
     "preview_height": 451
   },
@@ -146,7 +146,7 @@
       "shiny"
     ],
     "preview": "posts/2020-01-21-freeapp/preview.jpeg",
-    "last_modified": "2020-05-13T07:10:57+00:00"
+    "last_modified": "2020-05-13T07:50:22+00:00"
   },
   {
     "path": "posts/2020-01-21-tfeager/",
@@ -164,7 +164,7 @@
       "tensorflow"
     ],
     "preview": "posts/2020-01-21-tfeager/eager.png",
-    "last_modified": "2020-05-13T07:11:09+00:00",
+    "last_modified": "2020-05-13T07:50:33+00:00",
     "preview_width": 622,
     "preview_height": 482
   },
@@ -184,7 +184,7 @@
       "dashboard"
     ],
     "preview": "posts/2020-01-21-dashboard/azal.png",
-    "last_modified": "2020-05-13T07:10:56+00:00",
+    "last_modified": "2020-05-13T07:50:21+00:00",
     "preview_width": 664,
     "preview_height": 384
   },
@@ -203,7 +203,7 @@
       "business"
     ],
     "preview": "posts/2020-01-21-market-basket-analysis/jj-2.png",
-    "last_modified": "2020-05-13T07:11:07+00:00",
+    "last_modified": "2020-05-13T07:50:31+00:00",
     "preview_width": 250,
     "preview_height": 175
   }
