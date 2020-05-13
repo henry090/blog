@@ -35,6 +35,10 @@ jobs:
           git add ./docs
           git commit -m "updated site"
           
+      - name: Push changes  
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}          
           
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
@@ -42,7 +46,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs
           
-       - name: Push changes  
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+
