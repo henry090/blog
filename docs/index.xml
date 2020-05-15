@@ -12,7 +12,16 @@
       <link>http://dataexperts.tech</link>
     </image>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 22 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 16 May 2020 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>TensorFlow Addons and classic Keras</title>
+      <dc:creator>Turgut Abdullayev</dc:creator>
+      <link>http://dataexperts.tech/posts/2020-05-15-tfaddons</link>
+      <description>Keras is a very powerful framework for building Neural Networks. However, in a fast-moving field like ML, there are a lot of features that are not integrated into core TensorFlow. In this post, we will introduce new types of callbacks, activations, layers, optimizers, losses, metrics, and many more interesting features that are developed by SIG-addons, and fully compatible with the Keras library.</description>
+      <guid>http://dataexperts.tech/posts/2020-05-15-tfaddons</guid>
+      <pubDate>Sat, 16 May 2020 00:00:00 +0000</pubDate>
+      <media:content url="http://dataexperts.tech/posts/2020-05-15-tfaddons/images/tfaddons.png" medium="image" type="image/png" width="2074" height="2400"/>
+    </item>
     <item>
       <title>A web application for AUTO ML</title>
       <dc:creator>Turgut Abdullayev</dc:creator>
@@ -95,15 +104,6 @@
       <guid>http://dataexperts.tech/posts/2020-01-21-dashboard</guid>
       <pubDate>Sat, 09 Feb 2019 00:00:00 +0000</pubDate>
       <media:content url="http://dataexperts.tech/posts/2020-01-21-dashboard/azal.png" medium="image" type="image/png" width="664" height="384"/>
-    </item>
-    <item>
-      <title>Market Basket Analysis</title>
-      <dc:creator>Turqut Abdullayev</dc:creator>
-      <link>http://dataexperts.tech/posts/2020-01-21-market-basket-analysis</link>
-      <description>Market Basket Analysis kontentin optimallaşdırılması, online satış və digər sahələrdə 2 obyekt arasında əlaqəni üzə çıxaran əsas vasitələrdən biridir.</description>
-      <guid>http://dataexperts.tech/posts/2020-01-21-market-basket-analysis</guid>
-      <pubDate>Thu, 20 Sep 2018 00:00:00 +0000</pubDate>
-      <media:content url="http://dataexperts.tech/posts/2020-01-21-market-basket-analysis/jj-2.png" medium="image" type="image/png" width="250" height="175"/>
     </item>
   </channel>
 </rss>
