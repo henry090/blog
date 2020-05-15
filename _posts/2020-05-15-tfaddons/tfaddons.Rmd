@@ -744,6 +744,6 @@ In fact, we have just covered a lot of interesting features from TensorFlow Addo
 
 [Neural machine translation](https://blogs.rstudio.com/ai/posts/2018-07-30-attention-layer/) was already explained. One can apply new methods from *tfaddons* to the same case or even directly find a new example [here](https://github.com/henry090/tfaddons/blob/master/vignettes/neural%20machine%20translation.R).
 
-We encourage readers to experiment with TensforFlow Addons and share their perspectives on RStudio AI Blog!
+We encourage readers to experiment with TensforFlow Addons and share their perspectives on DataExperts Blog!
 
 Thanks for reading!
