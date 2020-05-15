@@ -1,5 +1,25 @@
 [
   {
+    "path": "posts/2020-05-15-tfaddons/",
+    "title": "TensorFlow Addons and classic Keras",
+    "description": "Keras is a very powerful framework for building Neural Networks. However, in a fast-moving field like ML, there are a lot of features that are not integrated into core TensorFlow. In this post, we will introduce new types of callbacks, activations, layers, optimizers, losses, metrics, and many more interesting features that are developed by SIG-addons, and fully compatible with the Keras library.",
+    "author": [
+      {
+        "name": "Turgut Abdullayev",
+        "url": "https://github.com/henry090"
+      }
+    ],
+    "date": "2020-05-16",
+    "categories": [
+      "TensorFlow/Keras",
+      "Packages/Releases"
+    ],
+    "preview": "posts/2020-05-15-tfaddons/images/tfaddons.png",
+    "last_modified": "2020-05-15T15:42:56+00:00",
+    "preview_width": 2074,
+    "preview_height": 2400
+  },
+  {
     "path": "posts/2020-01-22-automl/",
     "title": "A web application for AUTO ML",
     "description": "Building a web application is one of the most important skills in Data Science projects. This post shows an app that is designed for building a model directly on a server with XGBoost, GLM, Deep Learning, Random Forest and GBM.",
@@ -14,7 +34,7 @@
       "Natural Language Processing"
     ],
     "preview": "posts/2020-01-22-automl/ai.png",
-    "last_modified": "2020-05-14T13:15:58+00:00",
+    "last_modified": "2020-05-15T15:42:49+00:00",
     "preview_width": 2560,
     "preview_height": 1600
   },
@@ -33,7 +53,7 @@
       "Natural Language Processing"
     ],
     "preview": "posts/2020-01-21-sparkr/spark.jpeg",
-    "last_modified": "2020-05-14T13:15:55+00:00"
+    "last_modified": "2020-05-15T15:42:46+00:00"
   },
   {
     "path": "posts/2020-01-21-bertmulti/",
@@ -50,7 +70,7 @@
       "Natural Language Processing"
     ],
     "preview": "posts/2020-01-21-bertmulti/bert.png",
-    "last_modified": "2020-05-14T13:15:38+00:00",
+    "last_modified": "2020-05-15T15:42:31+00:00",
     "preview_width": 400,
     "preview_height": 400
   },
@@ -70,7 +90,7 @@
       "State of the art"
     ],
     "preview": "posts/2020-01-21-tfhubartmodels/tf_hub.jpg",
-    "last_modified": "2020-05-14T13:15:56+00:00"
+    "last_modified": "2020-05-15T15:42:47+00:00"
   },
   {
     "path": "posts/2020-01-21-dockeraiplumber/",
@@ -87,7 +107,7 @@
       "docker"
     ],
     "preview": "posts/2020-01-21-dockeraiplumber/plumber.jpg",
-    "last_modified": "2020-05-14T13:15:43+00:00"
+    "last_modified": "2020-05-15T15:42:35+00:00"
   },
   {
     "path": "posts/2020-01-21-lightgbm/",
@@ -108,7 +128,7 @@
       "Light GBM"
     ],
     "preview": "posts/2020-01-21-lightgbm/light_gbm.png",
-    "last_modified": "2020-05-14T13:15:45+00:00",
+    "last_modified": "2020-05-15T15:42:37+00:00",
     "preview_width": 901,
     "preview_height": 451
   },
@@ -131,7 +151,7 @@
       "shiny"
     ],
     "preview": "posts/2020-01-21-freeapp/preview.jpeg",
-    "last_modified": "2020-05-14T13:15:43+00:00"
+    "last_modified": "2020-05-15T15:42:35+00:00"
   },
   {
     "path": "posts/2020-01-21-tfeager/",
@@ -149,7 +169,7 @@
       "tensorflow"
     ],
     "preview": "posts/2020-01-21-tfeager/eager.png",
-    "last_modified": "2020-05-14T13:15:56+00:00",
+    "last_modified": "2020-05-15T15:42:47+00:00",
     "preview_width": 622,
     "preview_height": 482
   },
@@ -169,7 +189,7 @@
       "dashboard"
     ],
     "preview": "posts/2020-01-21-dashboard/azal.png",
-    "last_modified": "2020-05-14T13:15:42+00:00",
+    "last_modified": "2020-05-15T15:42:34+00:00",
     "preview_width": 664,
     "preview_height": 384
   },
@@ -188,7 +208,7 @@
       "business"
     ],
     "preview": "posts/2020-01-21-market-basket-analysis/jj-2.png",
-    "last_modified": "2020-05-14T13:15:54+00:00",
+    "last_modified": "2020-05-15T15:42:45+00:00",
     "preview_width": 250,
     "preview_height": 175
   }
