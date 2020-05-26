@@ -28,7 +28,6 @@ Before we start, make sure that the Python version used is 3, as Python 2 can in
 
 > Note: The R implementation presupposes TF Keras while by default, keras-bert does not use it. So, adding that environment variable makes it work.
 
-
 ```{r echo=TRUE,eval=F}
 Sys.setenv(TF_KERAS=1) 
 # make sure we use python 3
