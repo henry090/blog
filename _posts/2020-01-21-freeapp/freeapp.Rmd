@@ -25,7 +25,6 @@ knitr::opts_chunk$set(echo = FALSE)
 
 &nbsp; &nbsp; &nbsp; &nbsp; Böyük həcmli datalar üçün hazırlanmış bu tətbiq sayəsində kodlaşdırmadan istifadə etmədən data üzərində PCA və Cluster analizlərini asanlıqla edə bilərsiniz. Olduqca sadə interfeysə malik bu tətbiq həm də istifadə baxımında sizə geniş imkan yaradır. Belə ki, sizə analizin nəticəsini bir neçə saniyə içində verəcək: 
 
-
 - Datanı tətbiqə upload edin
 -	Müəyyən etdiyiniz analiz üçün müvafiq düyməyə klikləyin
 -	Nəticəni kopyalaya, .csv, .xls, .pdf formatında endirə və ya çap edə bilərsiniz.
