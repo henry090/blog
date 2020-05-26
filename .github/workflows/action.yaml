@@ -1,16 +1,16 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
-inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
-    required: true
-    default: 'World'
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
-runs:
-  using: 'docker'
-  image: 'dockerfile'
-  args:
-    - ${{ inputs.who-to-greet }}
-    
+name: ChatOps
+on: [issue_comment]
+
+jobs:
+  render-run:
+    if: contains(github.event.comment.body, '/render') && (github.actor == 'henry090')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: machine-learning-apps/actions-chatops@master
+        with:
+          APP_PEM: ${{ secrets.APP_PEM }}
+          APP_ID: ${{ secrets.APP_ID }}
+          TRIGGER_PHRASE: "/render"
+          INDICATOR_LABEL: "Rendering the posts"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
