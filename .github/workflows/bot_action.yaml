@@ -3,6 +3,7 @@ on: issue_comment
 
 jobs:
   label-pr:
+    if: contains(github.event.comment.body, '/allow') && (github.actor == 'henry090')
     runs-on: ubuntu-latest
     steps:
       - name: listen for PR Comments

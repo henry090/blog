@@ -4,7 +4,7 @@ name: R-CMD
 
 jobs:
   R-CMD:
-    if: contains(github.event.comment.body, '/allow') && (github.actor == 'henry090')
+    if: (github.actor == 'henry090')
     runs-on: ${{ matrix.config.os }}
 
     name: ${{ matrix.config.os }} 
