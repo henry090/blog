@@ -11,6 +11,5 @@ knitr::opts_chunk$set(echo = FALSE)
 
 &nbsp; &nbsp; &nbsp; &nbsp; Bununla yanaşı bəzi məqalələr vizuallaşdırma, data üzərində xüsusi əməliyyatlardan (təmizlənməsi, tamamilə transformasiyası, funksiyaların yazılması və s.) ibarət olacaqdır.
 
-
 <img src="keras.png" alt="Smiley face" height="280" width="190">
 
