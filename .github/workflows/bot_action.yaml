@@ -11,7 +11,7 @@ jobs:
         with:
           APP_PEM: ${{ secrets.APP_PEM }}
           APP_ID: ${{ secrets.APP_ID }}
-          TRIGGER_PHRASE: "/render"
+          TRIGGER_PHRASE: "/allow"
           INDICATOR_LABEL: "Rendering the posts"
         env: # you must supply GITHUB_TOKEN
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
