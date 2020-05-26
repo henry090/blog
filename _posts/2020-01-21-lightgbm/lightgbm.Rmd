@@ -24,7 +24,6 @@ knitr::opts_chunk$set(echo = FALSE)
 
 &nbsp; &nbsp; &nbsp; &nbsp; Light GBM, Microsoft tərəfindən __C++__ da yazılan Machine Learning alqoritmidir. Bu alqoritm normal bildiyimiz ağac alqoritmlərinə bənzəyir, sadəcə alqoritm budaqlanan zaman ```depth-wise``` metodunun əvəzinə, ```leaf-wise``` metodundan istifadə edir. Əslində metodlardan istifadə edilən zaman eyni nəticəni almaq mümkündür, sadəcə burada əsas prinsip budaqlanmanın necə artmasıdır. 
 
-
 ### Most decision tree learning algorithms
 
 ```{r fig.cap=" ", out.extra="class=external",layout="l-body-outset"}
