@@ -1,5 +1,5 @@
 name: Demo
-on: [issue_comment]
+on: issue_comment
 
 jobs:
   label-pr:
