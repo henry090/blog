@@ -24,7 +24,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          Rscript -e "install.packages(c('distill','rmarkdown','renv'))"
+          Rscript -e "install.packages(c('rmarkdown','renv','devtools'))"
+          Rscript -e "devtools::install_github('rstudio/distill')"
           
       - name: Render Rmd files from _posts
         run: |
