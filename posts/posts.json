@@ -14,7 +14,7 @@
       "Packages/Releases"
     ],
     "preview": "posts/2020-05-15-tfaddons/images/tfaddons.png",
-    "last_modified": "2020-09-29T14:42:56+00:00",
+    "last_modified": "2020-09-29T18:21:43+00:00",
     "input_file": {},
     "preview_width": 2074,
     "preview_height": 2400
@@ -34,7 +34,7 @@
       "shiny"
     ],
     "preview": "posts/2020-01-22-automl/ai.png",
-    "last_modified": "2020-09-29T14:42:49+00:00",
+    "last_modified": "2020-09-29T18:21:36+00:00",
     "input_file": {},
     "preview_width": 2560,
     "preview_height": 1600
@@ -54,7 +54,7 @@
       "Natural Language Processing"
     ],
     "preview": "posts/2020-01-21-sparkr/spark.jpeg",
-    "last_modified": "2020-09-29T14:42:46+00:00",
+    "last_modified": "2020-09-29T18:21:34+00:00",
     "input_file": {}
   },
   {
@@ -72,7 +72,7 @@
       "Natural Language Processing"
     ],
     "preview": "posts/2020-01-21-bertmulti/bert.png",
-    "last_modified": "2020-09-29T14:42:26+00:00",
+    "last_modified": "2020-09-29T18:21:16+00:00",
     "input_file": {},
     "preview_width": 400,
     "preview_height": 400
@@ -93,7 +93,7 @@
       "State of the art"
     ],
     "preview": "posts/2020-01-21-tfhubartmodels/tf_hub.jpg",
-    "last_modified": "2020-09-29T14:42:48+00:00",
+    "last_modified": "2020-09-29T18:21:35+00:00",
     "input_file": {}
   },
   {
@@ -111,7 +111,7 @@
       "docker"
     ],
     "preview": "posts/2020-01-21-dockeraiplumber/plumber.jpg",
-    "last_modified": "2020-09-29T14:42:31+00:00",
+    "last_modified": "2020-09-29T18:21:21+00:00",
     "input_file": {}
   },
   {
@@ -133,7 +133,7 @@
       "Light GBM"
     ],
     "preview": "posts/2020-01-21-lightgbm/light_gbm.png",
-    "last_modified": "2020-09-29T14:42:34+00:00",
+    "last_modified": "2020-09-29T18:21:24+00:00",
     "input_file": {},
     "preview_width": 901,
     "preview_height": 451
@@ -157,7 +157,7 @@
       "shiny"
     ],
     "preview": "posts/2020-01-21-freeapp/preview.jpeg",
-    "last_modified": "2020-09-29T14:42:32+00:00",
+    "last_modified": "2020-09-29T18:21:22+00:00",
     "input_file": {}
   },
   {
@@ -176,7 +176,7 @@
       "tensorflow"
     ],
     "preview": "posts/2020-01-21-tfeager/eager.png",
-    "last_modified": "2020-09-29T14:42:47+00:00",
+    "last_modified": "2020-09-29T18:21:35+00:00",
     "input_file": {},
     "preview_width": 622,
     "preview_height": 482
@@ -197,7 +197,7 @@
       "dashboard"
     ],
     "preview": "posts/2020-01-21-dashboard/azal.png",
-    "last_modified": "2020-09-29T14:42:31+00:00",
+    "last_modified": "2020-09-29T18:21:21+00:00",
     "input_file": {},
     "preview_width": 664,
     "preview_height": 384
@@ -217,7 +217,7 @@
       "business"
     ],
     "preview": "posts/2020-01-21-market-basket-analysis/jj-2.png",
-    "last_modified": "2020-09-29T14:42:45+00:00",
+    "last_modified": "2020-09-29T18:21:33+00:00",
     "input_file": {},
     "preview_width": 250,
     "preview_height": 175
