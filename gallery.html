@@ -731,6 +731,16 @@
   }
   
   
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+  
+  .custom p {
+    margin-bottom: 0.5em;
+  }
+  
+  
   /* Improve display for browsers without grid (IE/Edge <= 15) */
   
   .downlevel {
@@ -1288,13 +1298,13 @@
 <div class="nav-left">
 <a href="index.html" class="title">Data Experts</a>
 <a href="https://www.facebook.com/turgutabd">
-<i class="fa fa-facebook fa-lg"></i>
+<i class="fa fa-facebook fa-lg" aria-hidden="true"></i>
 </a>
 <a href="https://www.linkedin.com/in/turgut-abdullayev/">
-<i class="fa fa-linkedin fa-lg"></i>
+<i class="fa fa-linkedin fa-lg" aria-hidden="true"></i>
 </a>
 <a href="https://github.com/henry090">
-<i class="fa fa-github fa-lg"></i>
+<i class="fa fa-github fa-lg" aria-hidden="true"></i>
 </a>
 </div>
 <div class="nav-right">
@@ -1311,7 +1321,7 @@ Contributing
 </div>
 </div>
 <a href="index.xml">
-<i class="fa fa-rss"></i>
+<i class="fa fa-rss" aria-hidden="true"></i>
 </a>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
 </div>
@@ -1641,7 +1651,7 @@ function init_posts_list() {
 <div class="posts-list">
 <h1 class="posts-list-caption">Gallery of featured posts</h1>
 <a href="posts/2020-05-15-tfaddons/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["TensorFlow/Keras","Packages/Releases"]}</script>
+<script class="post-metadata" type="text/json">{"categories":["Packages/Releases"]}</script>
 <div class="metadata">
 <div class="publishedDate">May 16, 2020</div>
 </div>
@@ -1654,7 +1664,7 @@ function init_posts_list() {
 </div>
 </a>
 <a href="posts/2020-01-22-automl/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["Natural Language Processing"]}</script>
+<script class="post-metadata" type="text/json">{"categories":["shiny"]}</script>
 <div class="metadata">
 <div class="publishedDate">Jan. 22, 2020</div>
 </div>
@@ -1821,7 +1831,7 @@ function init_posts_list() {
 </li>
 <li>
 <a href="#Natural_Language_Processing">Natural Language Processing</a>
-<span class="category-count">(3)</span>
+<span class="category-count">(2)</span>
 </li>
 <li>
 <a href="#Packages/Releases">Packages/Releases</a>
@@ -1829,7 +1839,7 @@ function init_posts_list() {
 </li>
 <li>
 <a href="#shiny">shiny</a>
-<span class="category-count">(2)</span>
+<span class="category-count">(3)</span>
 </li>
 <li>
 <a href="#State_of_the_art">State of the art</a>
@@ -1841,10 +1851,6 @@ function init_posts_list() {
 </li>
 <li>
 <a href="#Tensorflow_Hub">Tensorflow Hub</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#TensorFlow/Keras">TensorFlow/Keras</a>
 <span class="category-count">(1)</span>
 </li>
 </ul>
