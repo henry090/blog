@@ -9,7 +9,6 @@ author:
     affiliation: Baku State University
 date: 05-16-2020
 categories:
-  - TensorFlow/Keras
   - Packages/Releases
 creative_commons: CC BY
 repository_url: https://github.com/henry090/tfaddons_intro

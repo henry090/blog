@@ -9,7 +9,7 @@ author:
     affiliation_url: https://www.accessbank.az/en/
 date: 01-22-2020
 categories:
-  - Natural Language Processing
+  - shiny
 creative_commons: CC BY
 repository_url: https://github.com/henry090/dataexperts_blog
 output:
