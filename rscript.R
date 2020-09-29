@@ -25,4 +25,5 @@ for (i in 1:length(files)) {
 }
 
 rmarkdown::render_site()
+rmarkdown::render_site('index.Rmd')
 
