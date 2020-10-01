@@ -9,6 +9,7 @@ dir.create('docs')
 # dependecies 
 pkgs = renv::dependencies(path = '_posts',errors = 'ignored', dev = TRUE)
 
+pkgs = pkgs[pkgs$Package!='distill',]
 
 # run and render posts
 files = list.files(path = '_posts', pattern = '.Rmd',recursive = TRUE)
@@ -24,6 +25,6 @@ for (i in 1:length(files)) {
   print(paste('Done',i,'post out of',length(files)))
 }
 
-rmarkdown::render_site()
+#rmarkdown::render_site()
 rmarkdown::render_site('index.Rmd')
 
