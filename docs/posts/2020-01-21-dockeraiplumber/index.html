@@ -18,6 +18,73 @@
  <!--radix_placeholder_import_source-->
  <!--/radix_placeholder_import_source-->
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #545454; font-weight: bold; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #a1024a; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007faa; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #008000; } /* Char */
+code span.cn { color: #d91e18; } /* Constant */
+code span.co { color: #545454; } /* Comment */
+code span.cv { color: #545454; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #aa5d00; } /* DataType */
+code span.dv { color: #a1024a; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #a1024a; } /* Float */
+code span.fu { color: #4254a7; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #545454; font-weight: bold; } /* Information */
+code span.kw { color: #007faa; font-weight: bold; } /* Keyword */
+code span.op { color: #696969; } /* Operator */
+code span.ot { color: #007faa; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #008000; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #008000; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #008000; } /* VerbatimString */
+code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
   <!--radix_placeholder_meta_tags-->
 <title>Data Experts: Docker + R + AI + Web API</title>
 
@@ -65,7 +132,7 @@
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["all.jpg","dockeraiplumber_files/bowser-1.9.3/bowser.min 3.js","dockeraiplumber_files/bowser-1.9.3/bowser.min.js","dockeraiplumber_files/distill-2.2.21/template.v2 3.js","dockeraiplumber_files/distill-2.2.21/template.v2.js","dockeraiplumber_files/jquery-1.11.3/jquery.min 3.js","dockeraiplumber_files/jquery-1.11.3/jquery.min.js","dockeraiplumber_files/webcomponents-2.0.0/webcomponents.js","plumber.jpg","result.png"]}
+  {"type":"character","attributes":{},"value":["all.jpg","dockeraiplumber_files/bowser-1.9.3/bowser.min.js","dockeraiplumber_files/distill-2.2.21/template.v2.js","dockeraiplumber_files/jquery-1.11.3/jquery.min.js","dockeraiplumber_files/webcomponents-2.0.0/webcomponents.js","plumber.jpg","result.png"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -1708,6 +1775,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <!--/radix_placeholder_distill-->
   <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="../../site_libs/anchor-4.2.2/anchor.min.js"></script>
   <script src="../../site_libs/bowser-1.9.3/bowser.min.js"></script>
   <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
   <script src="../../site_libs/distill-2.2.21/template.v2.js"></script>
@@ -1729,7 +1797,7 @@ gtag('config', 'UA-129142339-1');
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Docker + R + AI + Web API","description":"Docker sayəsində virtuallaşdırma ilə heç bir sistem məhdudiyyəti olmadan R mühitini yaradın. Daha sonra R-a daxil olaraq AI vasitəsilə model yaradın. Web API-ın köməyi ilə isə nəticəni hər kəslə rahatlıqla bölüşün. Bu zaman heç bir kodlaşdırma olmadan, həmçinin R sintaksisini bilmədən brauzerdən datanı birbaşa modelə yönləndirərək nəticəni əldə edin.","authors":[{"author":"Turqut Abdullayev","authorURL":"#","affiliation":"Access Bank /  QSS","affiliationURL":"#","orcidID":""}],"publishedDate":"2019-08-11T00:00:00.000+04:00","citationText":"Abdullayev, 2019"}
+{"title":"Docker + R + AI + Web API","description":"Docker sayəsində virtuallaşdırma ilə heç bir sistem məhdudiyyəti olmadan R mühitini yaradın. Daha sonra R-a daxil olaraq AI vasitəsilə model yaradın. Web API-ın köməyi ilə isə nəticəni hər kəslə rahatlıqla bölüşün. Bu zaman heç bir kodlaşdırma olmadan, həmçinin R sintaksisini bilmədən brauzerdən datanı birbaşa modelə yönləndirərək nəticəni əldə edin.","authors":[{"author":"Turqut Abdullayev","authorURL":"#","affiliation":"Access Bank /  QSS","affiliationURL":"#","orcidID":""}],"publishedDate":"2019-08-11T00:00:00.000+00:00","citationText":"Abdullayev, 2019"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1775,7 +1843,12 @@ Contributing
 
 <div class="d-title">
 <h1>Docker + R + AI + Web API</h1>
-<p>Docker sayəsində virtuallaşdırma ilə heç bir sistem məhdudiyyəti olmadan R mühitini yaradın. Daha sonra R-a daxil olaraq AI vasitəsilə model yaradın. Web API-ın köməyi ilə isə nəticəni hər kəslə rahatlıqla bölüşün. Bu zaman heç bir kodlaşdırma olmadan, həmçinin R sintaksisini bilmədən brauzerdən datanı birbaşa modelə yönləndirərək nəticəni əldə edin.</p>
+<!--radix_placeholder_categories-->
+<div class="dt-tags">
+  <a href="../../index.html#category:docker" class="dt-tag">docker</a>
+</div>
+<!--/radix_placeholder_categories-->
+<p><p>Docker sayəsində virtuallaşdırma ilə heç bir sistem məhdudiyyəti olmadan R mühitini yaradın. Daha sonra R-a daxil olaraq AI vasitəsilə model yaradın. Web API-ın köməyi ilə isə nəticəni hər kəslə rahatlıqla bölüşün. Bu zaman heç bir kodlaşdırma olmadan, həmçinin R sintaksisini bilmədən brauzerdən datanı birbaşa modelə yönləndirərək nəticəni əldə edin.</p></p>
 </div>
 
 <div class="d-byline">
@@ -1801,42 +1874,41 @@ Contributing
 <h3 id="step-4">Step 4</h3>
 <p>Yaradılmış <code>dockerfile</code>-ın daxilinə aşağıda qeyd olunan addımları əlavə edərək save etməliyik.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-# R mühitini istifadə etmək üçün
-FROM rocker/r-ver:3.6.1
-
-# plumber (web api) üçün linux kitabxanaları
-RUN apt-get update -qq &amp;&amp; apt-get install -y \
-  libssl-dev \
-  libcurl4-gnutls-dev
-
-# Java 8 install etmək üçün
-RUN apt-get install -y --no-install-recommends software-properties-common
-RUN add-apt-repository -y ppa:openjdk-r/ppa
-RUN apt-get update
-RUN apt-get install -y openjdk-8-jdk
-RUN apt-get install -y openjdk-8-jre
-RUN update-alternatives --config java
-RUN update-alternatives --config javac
-
-# R kitabxanaları
-RUN R -e &quot;install.packages(&#39;plumber&#39;)&quot;
-RUN R -e &quot;install.packages(&#39;dplyr&#39;)&quot;
-RUN R -e &quot;install.packages(&#39;data.table&#39;)&quot;
-RUN R -e &quot;install.packages(&#39;jsonlite&#39;)&quot;
-RUN R -e &quot;install.packages(&#39;RCurl&#39;)&quot;
-RUN R -e &quot;install.packages(&#39;curl&#39;)&quot;
-RUN R -e &quot;install.packages(&#39;h2o&#39;,
-type=&#39;source&#39;,repos=&#39;https://h2o-release.s3.amazonaws.com/h2o/rel-yau/2/R&#39;)&quot;
-
-# bütün faylların serverə köçürülməsi
-COPY / /
-
-# port 80-dın açılması
-EXPOSE 80
-
-# nəticədə isə aşağıdakı skriptin əks edilməsi
-ENTRYPOINT [&quot;Rscript&quot;, &quot;controller.R&quot;]</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># R mühitini istifadə etmək üçün</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>FROM rocker<span class="op">/</span>r<span class="op">-</span>ver<span class="op">:</span><span class="dv">3</span>.<span class="fl">6.1</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># plumber (web api) üçün linux kitabxanaları</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>RUN apt<span class="op">-</span>get update <span class="op">-</span>qq <span class="op">&amp;&amp;</span><span class="st"> </span>apt<span class="op">-</span>get install <span class="op">-</span>y \</span>
+<span id="cb1-6"><a href="#cb1-6"></a>  libssl<span class="op">-</span>dev \</span>
+<span id="cb1-7"><a href="#cb1-7"></a>  libcurl4<span class="op">-</span>gnutls<span class="op">-</span>dev</span>
+<span id="cb1-8"><a href="#cb1-8"></a></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="co"># Java 8 install etmək üçün</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a>RUN apt<span class="op">-</span>get install <span class="op">-</span>y <span class="op">--</span>no<span class="op">-</span>install<span class="op">-</span>recommends software<span class="op">-</span>properties<span class="op">-</span>common</span>
+<span id="cb1-11"><a href="#cb1-11"></a>RUN add<span class="op">-</span>apt<span class="op">-</span>repository <span class="op">-</span>y ppa<span class="op">:</span>openjdk<span class="op">-</span>r<span class="op">/</span>ppa</span>
+<span id="cb1-12"><a href="#cb1-12"></a>RUN apt<span class="op">-</span>get update</span>
+<span id="cb1-13"><a href="#cb1-13"></a>RUN apt<span class="op">-</span>get install <span class="op">-</span>y openjdk<span class="dv">-8</span><span class="op">-</span>jdk</span>
+<span id="cb1-14"><a href="#cb1-14"></a>RUN apt<span class="op">-</span>get install <span class="op">-</span>y openjdk<span class="dv">-8</span><span class="op">-</span>jre</span>
+<span id="cb1-15"><a href="#cb1-15"></a>RUN update<span class="op">-</span>alternatives <span class="op">--</span>config java</span>
+<span id="cb1-16"><a href="#cb1-16"></a>RUN update<span class="op">-</span>alternatives <span class="op">--</span>config javac</span>
+<span id="cb1-17"><a href="#cb1-17"></a></span>
+<span id="cb1-18"><a href="#cb1-18"></a><span class="co"># R kitabxanaları</span></span>
+<span id="cb1-19"><a href="#cb1-19"></a>RUN R <span class="op">-</span>e <span class="st">&quot;install.packages(&#39;plumber&#39;)&quot;</span></span>
+<span id="cb1-20"><a href="#cb1-20"></a>RUN R <span class="op">-</span>e <span class="st">&quot;install.packages(&#39;dplyr&#39;)&quot;</span></span>
+<span id="cb1-21"><a href="#cb1-21"></a>RUN R <span class="op">-</span>e <span class="st">&quot;install.packages(&#39;data.table&#39;)&quot;</span></span>
+<span id="cb1-22"><a href="#cb1-22"></a>RUN R <span class="op">-</span>e <span class="st">&quot;install.packages(&#39;jsonlite&#39;)&quot;</span></span>
+<span id="cb1-23"><a href="#cb1-23"></a>RUN R <span class="op">-</span>e <span class="st">&quot;install.packages(&#39;RCurl&#39;)&quot;</span></span>
+<span id="cb1-24"><a href="#cb1-24"></a>RUN R <span class="op">-</span>e <span class="st">&quot;install.packages(&#39;curl&#39;)&quot;</span></span>
+<span id="cb1-25"><a href="#cb1-25"></a>RUN R <span class="op">-</span>e <span class="st">&quot;install.packages(&#39;h2o&#39;,</span></span>
+<span id="cb1-26"><a href="#cb1-26"></a><span class="st">type=&#39;source&#39;,repos=&#39;https://h2o-release.s3.amazonaws.com/h2o/rel-yau/2/R&#39;)&quot;</span></span>
+<span id="cb1-27"><a href="#cb1-27"></a></span>
+<span id="cb1-28"><a href="#cb1-28"></a><span class="co"># bütün faylların serverə köçürülməsi</span></span>
+<span id="cb1-29"><a href="#cb1-29"></a>COPY <span class="op">/</span><span class="st"> </span><span class="er">/</span></span>
+<span id="cb1-30"><a href="#cb1-30"></a></span>
+<span id="cb1-31"><a href="#cb1-31"></a><span class="co"># port 80-dın açılması</span></span>
+<span id="cb1-32"><a href="#cb1-32"></a>EXPOSE <span class="dv">80</span></span>
+<span id="cb1-33"><a href="#cb1-33"></a></span>
+<span id="cb1-34"><a href="#cb1-34"></a><span class="co"># nəticədə isə aşağıdakı skriptin əks edilməsi</span></span>
+<span id="cb1-35"><a href="#cb1-35"></a>ENTRYPOINT [<span class="st">&quot;Rscript&quot;</span>, <span class="st">&quot;controller.R&quot;</span>]</span></code></pre></div>
 </div>
 <p>İlk öncə sizə mənim qovluğumda olan fayllara nəzər yetirək.</p>
 <ul>
@@ -1853,21 +1925,23 @@ ENTRYPOINT [&quot;Rscript&quot;, &quot;controller.R&quot;]</code></pre>
 <li>modelin yadda saxlanılması</li>
 </ul>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-library(dplyr)
-df = data.table::fread(
-  &#39;https://github.com/jubins/Bank-Marketing-Multivariate-Analysis/raw/master/bank.csv&#39;) %&gt;% 
-  mutate_if(is.character,as.factor) %&gt;% 
-  select(y,duration,contact,age)
+<div class="sourceCode">
+<pre><code><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span>
+<span class='va'>df</span> <span class='op'>=</span> <span class='fu'>data.table</span><span class='fu'>::</span><span class='fu'><a href='https://Rdatatable.gitlab.io/data.table/reference/fread.html'>fread</a></span><span class='op'>(</span>
+  <span class='st'>'https://github.com/jubins/Bank-Marketing-Multivariate-Analysis/raw/master/bank.csv'</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate_all.html'>mutate_if</a></span><span class='op'>(</span><span class='va'>is.character</span>,<span class='va'>as.factor</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>y</span>,<span class='va'>duration</span>,<span class='va'>contact</span>,<span class='va'>age</span><span class='op'>)</span>
 
-library(h2o)
-h2o.init()
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/h2oai/h2o-3'>h2o</a></span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/pkg/h2o/man/h2o.init.html'>h2o.init</a></span><span class='op'>(</span><span class='op'>)</span>
 
-xgb = h2o.xgboost(y=&quot;y&quot;,training_frame = df %&gt;% as.h2o(),nfolds = 5)
+<span class='va'>xgb</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/h2o/man/h2o.xgboost.html'>h2o.xgboost</a></span><span class='op'>(</span>y<span class='op'>=</span><span class='st'>"y"</span>,training_frame <span class='op'>=</span> <span class='va'>df</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/pkg/h2o/man/as.h2o.html'>as.h2o</a></span><span class='op'>(</span><span class='op'>)</span>,nfolds <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span>
 
-h2o.saveModel(xgb,path = &#39;path&#39;)
+<span class='fu'><a href='https://rdrr.io/pkg/h2o/man/h2o.saveModel.html'>h2o.saveModel</a></span><span class='op'>(</span><span class='va'>xgb</span>,path <span class='op'>=</span> <span class='st'>'path'</span><span class='op'>)</span>
 
-data.table::fwrite(xgb@model_id %&gt;% as.data.frame(),file = &#39;model_name.csv&#39;)</code></pre>
+<span class='fu'>data.table</span><span class='fu'>::</span><span class='fu'><a href='https://Rdatatable.gitlab.io/data.table/reference/fwrite.html'>fwrite</a></span><span class='op'>(</span><span class='va'>xgb</span><span class='op'>@</span><span class='va'>model_id</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='op'>)</span>,file <span class='op'>=</span> <span class='st'>'model_name.csv'</span><span class='op'>)</span>
+</code></pre>
+</div>
 </div>
 <p>Web API üçün nəzərdə tutulan <strong>plumber</strong> faylı isə aşağıdakı kodları əhatə edir.</p>
 <ul>
@@ -1875,35 +1949,39 @@ data.table::fwrite(xgb@model_id %&gt;% as.data.frame(),file = &#39;model_name.cs
 <li>Web API alətinin yaradılması</li>
 </ul>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-source(&#39;calculation.R&#39;)
-library(plumber);library(h2o);library(dplyr)
-h2o.init()
+<div class="sourceCode">
+<pre><code><span class='kw'><a href='https://rdrr.io/r/base/source.html'>source</a></span><span class='op'>(</span><span class='st'>'calculation.R'</span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://www.rplumber.io'>plumber</a></span><span class='op'>)</span>;<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/h2oai/h2o-3'>h2o</a></span><span class='op'>)</span>;<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/pkg/h2o/man/h2o.init.html'>h2o.init</a></span><span class='op'>(</span><span class='op'>)</span>
 
-model_name = data.table::fread(&#39;model_name.csv&#39;) %&gt;% pull(.)
+<span class='va'>model_name</span> <span class='op'>=</span> <span class='fu'>data.table</span><span class='fu'>::</span><span class='fu'><a href='https://Rdatatable.gitlab.io/data.table/reference/fread.html'>fread</a></span><span class='op'>(</span><span class='st'>'model_name.csv'</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/pull.html'>pull</a></span><span class='op'>(</span><span class='va'>.</span><span class='op'>)</span>
 
-model = h2o.loadModel(glue::glue(&quot;path/{model_name}&quot;))
+<span class='va'>model</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/h2o/man/h2o.loadModel.html'>h2o.loadModel</a></span><span class='op'>(</span><span class='fu'>glue</span><span class='fu'>::</span><span class='fu'><a href='https://glue.tidyverse.org/reference/glue.html'>glue</a></span><span class='op'>(</span><span class='st'>"path/{model_name}"</span><span class='op'>)</span><span class='op'>)</span>
 
-#* @apiTitle XGBoost from H2O
+<span class='co'>#* @apiTitle XGBoost from H2O</span>
 
-#* Return the prediction given 3 input features
-#* @param duration description for inp1
-#* @param contact description for inp2
-#* @param age description for inp3
-#* @get /h2o_prediction
-function( duration,contact,age){
-  calc = as.h2o(
-    data.frame(duration=as.numeric(duration),contact=as.factor(contact),age=as.numeric(age))
-  )
-  as.data.frame(h2o.predict(model, calc %&gt;% as.h2o())) %&gt;% .[3] %&gt;% pull() %&gt;% round(.,2)
-}</code></pre>
+<span class='co'>#* Return the prediction given 3 input features</span>
+<span class='co'>#* @param duration description for inp1</span>
+<span class='co'>#* @param contact description for inp2</span>
+<span class='co'>#* @param age description for inp3</span>
+<span class='co'>#* @get /h2o_prediction</span>
+<span class='kw'>function</span><span class='op'>(</span> <span class='va'>duration</span>,<span class='va'>contact</span>,<span class='va'>age</span><span class='op'>)</span><span class='op'>{</span>
+  <span class='va'>calc</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/h2o/man/as.h2o.html'>as.h2o</a></span><span class='op'>(</span>
+    <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>duration<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/pkg/h2o/man/as.numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='va'>duration</span><span class='op'>)</span>,contact<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/pkg/h2o/man/as.factor.html'>as.factor</a></span><span class='op'>(</span><span class='va'>contact</span><span class='op'>)</span>,age<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/pkg/h2o/man/as.numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='va'>age</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='op'>)</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/h2o/man/h2o.predict.html'>h2o.predict</a></span><span class='op'>(</span><span class='va'>model</span>, <span class='va'>calc</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/pkg/h2o/man/as.h2o.html'>as.h2o</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='va'>.</span><span class='op'>[</span><span class='fl'>3</span><span class='op'>]</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/pull.html'>pull</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/pkg/h2o/man/h2o.round.html'>round</a></span><span class='op'>(</span><span class='va'>.</span>,<span class='fl'>2</span><span class='op'>)</span>
+<span class='op'>}</span>
+</code></pre>
+</div>
 </div>
 <p>Və nəhayət <strong>controller</strong> isə yuxarıda qeyd olunan Web API-ın port 80-da açılmasını təmin edir.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-library(plumber)
-r &lt;- plumb(&quot;plumber.R&quot;)
-r$run(port=80, host=&quot;0.0.0.0&quot;)</code></pre>
+<div class="sourceCode">
+<pre><code><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://www.rplumber.io'>plumber</a></span><span class='op'>)</span>
+<span class='va'>r</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://www.rplumber.io/reference/plumb.html'>plumb</a></span><span class='op'>(</span><span class='st'>"plumber.R"</span><span class='op'>)</span>
+<span class='va'>r</span><span class='op'>$</span><span class='fu'>run</span><span class='op'>(</span>port<span class='op'>=</span><span class='fl'>80</span>, host<span class='op'>=</span><span class='st'>"0.0.0.0"</span><span class='op'>)</span>
+</code></pre>
+</div>
 </div>
 <p>Və bu qədər, bütün əməliyyatlar bitdi.</p>
 <p>Mənim terminalımda icra olunan əməliyyatlara baxa bilərik. Qeyd etmək lazımdır ki, proses ilk dəfə 5-10 dəq vaxt alır, daha sonra isə cache-da olduğu üçün prosesi yenidən başlatmaq üçün bir neçə saniyə bəs edir.</p>
@@ -1914,164 +1992,163 @@ r$run(port=80, host=&quot;0.0.0.0&quot;)</code></pre>
 <li><code>docker run --rm -p 80:80 h2o</code> (və run olunması)</li>
 </ul>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-Last login: Sat Aug 10 23:59:22 on console
-(base) Turguts-MacBook-Pro:~ turgutabdullayev$ cd ~/Downloads/virtual_xgboost
-(base) Turguts-MacBook-Pro:virtual_xgboost turgutabdullayev$ docker build -t h2o .
-Sending build context to Docker daemon  6.656kB
-Step 1/19 : FROM rocker/r-ver:3.6.1
- ---&gt; 8ac8a83e9658
-Step 2/19 : RUN apt-get update -qq &amp;&amp; apt-get install -y   libssl-dev   libcurl4-gnutls-dev
- ---&gt; Using cache
- ---&gt; 11c9d8feb303
-Step 3/19 : RUN apt-get install -y --no-install-recommends software-properties-common
- ---&gt; Using cache
- ---&gt; b1e821e2fc14
-Step 4/19 : RUN add-apt-repository -y ppa:openjdk-r/ppa
- ---&gt; Using cache
- ---&gt; 769b9ff5ade9
-Step 5/19 : RUN apt-get update
- ---&gt; Using cache
- ---&gt; d81c94adb8eb
-Step 6/19 : RUN apt-get install -y openjdk-8-jdk
- ---&gt; Using cache
- ---&gt; 7ff5f805202e
-Step 7/19 : RUN apt-get install -y openjdk-8-jre
- ---&gt; Using cache
- ---&gt; ccb005a1141f
-Step 8/19 : RUN update-alternatives --config java
- ---&gt; Using cache
- ---&gt; cec90267baf5
-Step 9/19 : RUN update-alternatives --config javac
- ---&gt; Using cache
- ---&gt; e4f0eca2090d
-Step 10/19 : RUN R -e &quot;install.packages(&#39;plumber&#39;)&quot;
- ---&gt; Using cache
- ---&gt; 743eacd9fda8
-Step 11/19 : RUN R -e &quot;install.packages(&#39;dplyr&#39;)&quot;
- ---&gt; Using cache
- ---&gt; ac3a82b2141f
-Step 12/19 : RUN R -e &quot;install.packages(&#39;data.table&#39;)&quot;
- ---&gt; Using cache
- ---&gt; 936a0fdc2ec2
-Step 13/19 : RUN R -e &quot;install.packages(&#39;jsonlite&#39;)&quot;
- ---&gt; Using cache
- ---&gt; abbbe40b3448
-Step 14/19 : RUN R -e &quot;install.packages(&#39;RCurl&#39;)&quot;
- ---&gt; Using cache
- ---&gt; 55767f64bcfb
-Step 15/19 : RUN R -e &quot;install.packages(&#39;curl&#39;)&quot;
- ---&gt; Using cache
- ---&gt; 4b878d232d23
-Step 16/19 : RUN R -e &quot;install.packages(&#39;h2o&#39;, type=&#39;source&#39;, repos=&#39;https://h2o-release.s3.amazonaws.com/h2o/rel-yau/2/R&#39;)&quot;
- ---&gt; Using cache
- ---&gt; 6dbbf007fc75
-Step 17/19 : COPY / /
- ---&gt; Using cache
- ---&gt; 25496fe718a1
-Step 18/19 : EXPOSE 80
- ---&gt; Using cache
- ---&gt; 4574025162e0
-Step 19/19 : ENTRYPOINT [&quot;Rscript&quot;, &quot;controller.R&quot;]
- ---&gt; Using cache
- ---&gt; a610f540daa7
-Successfully built a610f540daa7
-Successfully tagged h2o:latest
-(base) Turguts-MacBook-Pro:virtual_xgboost turgutabdullayev$ docker run --rm -p 80:80 h2o
-
-Attaching package: ‘dplyr’
-
-The following objects are masked from ‘package:stats’:
-
-    filter, lag
-
-The following objects are masked from ‘package:base’:
-
-    intersect, setdiff, setequal, union
-
-
-----------------------------------------------------------------------
-
-Your next step is to start H2O:
-    &gt; h2o.init()
-
-For H2O package documentation, ask for help:
-    &gt; ??h2o
-
-After starting H2O, you can use the Web UI at http://localhost:54321
-For more information visit http://docs.h2o.ai
-
-----------------------------------------------------------------------
-
-
-Attaching package: ‘h2o’
-
-The following objects are masked from ‘package:stats’:
-
-    cor, sd, var
-
-The following objects are masked from ‘package:base’:
-
-    &amp;&amp;, %*%, %in%, ||, apply, as.factor, as.numeric, colnames,
-    colnames&lt;-, ifelse, is.character, is.factor, is.numeric, log,
-    log10, log1p, log2, round, signif, trunc
-
-
-H2O is not running yet, starting it now...
-
-Note:  In case of errors look at the following log files:
-    /tmp/RtmplzYQ5U/h2o_UnknownUser_started_from_r.out
-    /tmp/RtmplzYQ5U/h2o_UnknownUser_started_from_r.err
-
-openjdk version &quot;1.8.0_222&quot;
-OpenJDK Runtime Environment (build 1.8.0_222-8u222-b10-1~deb9u1-b10)
-OpenJDK 64-Bit Server VM (build 25.222-b10, mixed mode)
-
-Starting H2O JVM and connecting: .. Connection successful!
-
-R is connected to the H2O cluster: 
-    H2O cluster uptime:         2 seconds 677 milliseconds 
-    H2O cluster timezone:       Etc/UTC 
-    H2O data parsing timezone:  UTC 
-    H2O cluster version:        3.26.0.2 
-    H2O cluster version age:    14 days, 20 hours and 55 minutes  
-    H2O cluster name:           H2O_started_from_R_root_twr393 
-    H2O cluster total nodes:    1 
-    H2O cluster total memory:   0.86 GB 
-    H2O cluster total cores:    2 
-    H2O cluster allowed cores:  2 
-    H2O cluster healthy:        TRUE 
-    H2O Connection ip:          localhost 
-    H2O Connection port:        54321 
-    H2O Connection proxy:       NA 
-    H2O Internal Security:      FALSE 
-    H2O API Extensions:         Amazon S3, XGBoost, Algos, AutoML, Core V3, Core V4 
-    R Version:                  R version 3.6.1 (2019-07-05) 
-
-  |======================================================================| 100%
-  |======================================================================| 100%
- Connection successful!
-
-R is connected to the H2O cluster: 
-    H2O cluster uptime:         28 seconds 294 milliseconds 
-    H2O cluster timezone:       Etc/UTC 
-    H2O data parsing timezone:  UTC 
-    H2O cluster version:        3.26.0.2 
-    H2O cluster version age:    14 days, 20 hours and 55 minutes  
-    H2O cluster name:           H2O_started_from_R_root_twr393 
-    H2O cluster total nodes:    1 
-    H2O cluster total memory:   0.84 GB 
-    H2O cluster total cores:    2 
-    H2O cluster allowed cores:  2 
-    H2O cluster healthy:        TRUE 
-    H2O Connection ip:          localhost 
-    H2O Connection port:        54321 
-    H2O Connection proxy:       NA 
-    H2O Internal Security:      FALSE 
-    H2O API Extensions:         Amazon S3, XGBoost, Algos, AutoML, Core V3, Core V4 
-    R Version:                  R version 3.6.1 (2019-07-05) 
-
-Starting server to listen on port 80</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>Last login<span class="op">:</span><span class="st"> </span>Sat Aug <span class="dv">10</span> <span class="dv">23</span><span class="op">:</span><span class="dv">59</span><span class="op">:</span><span class="dv">22</span> on console</span>
+<span id="cb2-2"><a href="#cb2-2"></a>(base) Turguts<span class="op">-</span>MacBook<span class="op">-</span>Pro<span class="op">:</span><span class="er">~</span><span class="st"> </span>turgutabdullayev<span class="op">$</span><span class="st"> </span>cd <span class="op">~</span><span class="er">/</span>Downloads<span class="op">/</span>virtual_xgboost</span>
+<span id="cb2-3"><a href="#cb2-3"></a>(base) Turguts<span class="op">-</span>MacBook<span class="op">-</span>Pro<span class="op">:</span>virtual_xgboost turgutabdullayev<span class="op">$</span><span class="st"> </span>docker build <span class="op">-</span>t h2o .</span>
+<span id="cb2-4"><a href="#cb2-4"></a>Sending build context to Docker daemon  <span class="fl">6.656</span>kB</span>
+<span id="cb2-5"><a href="#cb2-5"></a>Step <span class="dv">1</span><span class="op">/</span><span class="dv">19</span> <span class="op">:</span><span class="st"> </span>FROM rocker<span class="op">/</span>r<span class="op">-</span>ver<span class="op">:</span><span class="dv">3</span>.<span class="fl">6.1</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a> <span class="op">--</span>-&gt;<span class="st"> </span>8ac8a83e9658</span>
+<span id="cb2-7"><a href="#cb2-7"></a>Step <span class="dv">2</span><span class="op">/</span><span class="dv">19</span> <span class="op">:</span><span class="st"> </span>RUN apt<span class="op">-</span>get update <span class="op">-</span>qq <span class="op">&amp;&amp;</span><span class="st"> </span>apt<span class="op">-</span>get install <span class="op">-</span>y   libssl<span class="op">-</span>dev   libcurl4<span class="op">-</span>gnutls<span class="op">-</span>dev</span>
+<span id="cb2-8"><a href="#cb2-8"></a> <span class="op">--</span>-&gt;<span class="st"> </span>Using cache</span>
+<span id="cb2-9"><a href="#cb2-9"></a> <span class="op">--</span>-&gt;<span class="st"> </span>11c9d8feb303</span>
+<span id="cb2-10"><a href="#cb2-10"></a>Step <span class="dv">3</span><span class="op">/</span><span class="dv">19</span> <span class="op">:</span><span class="st"> </span>RUN apt<span class="op">-</span>get install <span class="op">-</span>y <span class="op">--</span>no<span class="op">-</span>install<span class="op">-</span>recommends software<span class="op">-</span>properties<span class="op">-</span>common</span>
+<span id="cb2-11"><a href="#cb2-11"></a> <span class="op">--</span>-&gt;<span class="st"> </span>Using cache</span>
+<span id="cb2-12"><a href="#cb2-12"></a> <span class="op">--</span>-&gt;<span class="st"> </span>b1e821e2fc14</span>
+<span id="cb2-13"><a href="#cb2-13"></a>Step <span class="dv">4</span><span class="op">/</span><span class="dv">19</span> <span class="op">:</span><span class="st"> </span>RUN add<span class="op">-</span>apt<span class="op">-</span>repository <span class="op">-</span>y ppa<span class="op">:</span>openjdk<span class="op">-</span>r<span class="op">/</span>ppa</span>
+<span id="cb2-14"><a href="#cb2-14"></a> <span class="op">--</span>-&gt;<span class="st"> </span>Using cache</span>
+<span id="cb2-15"><a href="#cb2-15"></a> <span class="op">--</span>-&gt;<span class="st"> </span>769b9ff5ade9</span>
+<span id="cb2-16"><a href="#cb2-16"></a>Step <span class="dv">5</span><span class="op">/</span><span class="dv">19</span> <span class="op">:</span><span class="st"> </span>RUN apt<span class="op">-</span>get update</span>
+<span id="cb2-17"><a href="#cb2-17"></a> <span class="op">--</span>-&gt;<span class="st"> </span>Using cache</span>
+<span id="cb2-18"><a href="#cb2-18"></a> <span class="op">--</span>-&gt;<span class="st"> </span>d81c94adb8eb</span>
+<span id="cb2-19"><a href="#cb2-19"></a>Step <span class="dv">6</span><span class="op">/</span><span class="dv">19</span> <span class="op">:</span><span class="st"> </span>RUN apt<span class="op">-</span>get install <span class="op">-</span>y openjdk<span class="dv">-8</span><span class="op">-</span>jdk</span>
+<span id="cb2-20"><a href="#cb2-20"></a> <span class="op">--</span>-&gt;<span class="st"> </span>Using cache</span>
+<span id="cb2-21"><a href="#cb2-21"></a> <span class="op">--</span>-&gt;<span class="st"> </span>7ff5f805202e</span>
+<span id="cb2-22"><a href="#cb2-22"></a>Step <span class="dv">7</span><span class="op">/</span><span class="dv">19</span> <span class="op">:</span><span class="st"> </span>RUN apt<span class="op">-</span>get install <span class="op">-</span>y openjdk<span class="dv">-8</span><span class="op">-</span>jre</span>
+<span id="cb2-23"><a href="#cb2-23"></a> <span class="op">--</span>-&gt;<span class="st"> </span>Using cache</span>
+<span id="cb2-24"><a href="#cb2-24"></a> <span class="op">--</span>-&gt;<span class="st"> </span>ccb005a1141f</span>
+<span id="cb2-25"><a href="#cb2-25"></a>Step <span class="dv">8</span><span class="op">/</span><span class="dv">19</span> <span class="op">:</span><span class="st"> </span>RUN update<span class="op">-</span>alternatives <span class="op">--</span>config java</span>
+<span id="cb2-26"><a href="#cb2-26"></a> <span class="op">--</span>-&gt;<span class="st"> </span>Using cache</span>
+<span id="cb2-27"><a href="#cb2-27"></a> <span class="op">--</span>-&gt;<span class="st"> </span>cec90267baf5</span>
+<span id="cb2-28"><a href="#cb2-28"></a>Step <span class="dv">9</span><span class="op">/</span><span class="dv">19</span> <span class="op">:</span><span class="st"> </span>RUN update<span class="op">-</span>alternatives <span class="op">--</span>config javac</span>
+<span id="cb2-29"><a href="#cb2-29"></a> <span class="op">--</span>-&gt;<span class="st"> </span>Using cache</span>
+<span id="cb2-30"><a href="#cb2-30"></a> <span class="op">--</span>-&gt;<span class="st"> </span>e4f0eca2090d</span>
+<span id="cb2-31"><a href="#cb2-31"></a>Step <span class="dv">10</span><span class="op">/</span><span class="dv">19</span> <span class="op">:</span><span class="st"> </span>RUN R <span class="op">-</span>e <span class="st">&quot;install.packages(&#39;plumber&#39;)&quot;</span></span>
+<span id="cb2-32"><a href="#cb2-32"></a> <span class="op">--</span>-&gt;<span class="st"> </span>Using cache</span>
+<span id="cb2-33"><a href="#cb2-33"></a> <span class="op">--</span>-&gt;<span class="st"> </span>743eacd9fda8</span>
+<span id="cb2-34"><a href="#cb2-34"></a>Step <span class="dv">11</span><span class="op">/</span><span class="dv">19</span> <span class="op">:</span><span class="st"> </span>RUN R <span class="op">-</span>e <span class="st">&quot;install.packages(&#39;dplyr&#39;)&quot;</span></span>
+<span id="cb2-35"><a href="#cb2-35"></a> <span class="op">--</span>-&gt;<span class="st"> </span>Using cache</span>
+<span id="cb2-36"><a href="#cb2-36"></a> <span class="op">--</span>-&gt;<span class="st"> </span>ac3a82b2141f</span>
+<span id="cb2-37"><a href="#cb2-37"></a>Step <span class="dv">12</span><span class="op">/</span><span class="dv">19</span> <span class="op">:</span><span class="st"> </span>RUN R <span class="op">-</span>e <span class="st">&quot;install.packages(&#39;data.table&#39;)&quot;</span></span>
+<span id="cb2-38"><a href="#cb2-38"></a> <span class="op">--</span>-&gt;<span class="st"> </span>Using cache</span>
+<span id="cb2-39"><a href="#cb2-39"></a> <span class="op">--</span>-&gt;<span class="st"> </span>936a0fdc2ec2</span>
+<span id="cb2-40"><a href="#cb2-40"></a>Step <span class="dv">13</span><span class="op">/</span><span class="dv">19</span> <span class="op">:</span><span class="st"> </span>RUN R <span class="op">-</span>e <span class="st">&quot;install.packages(&#39;jsonlite&#39;)&quot;</span></span>
+<span id="cb2-41"><a href="#cb2-41"></a> <span class="op">--</span>-&gt;<span class="st"> </span>Using cache</span>
+<span id="cb2-42"><a href="#cb2-42"></a> <span class="op">--</span>-&gt;<span class="st"> </span>abbbe40b3448</span>
+<span id="cb2-43"><a href="#cb2-43"></a>Step <span class="dv">14</span><span class="op">/</span><span class="dv">19</span> <span class="op">:</span><span class="st"> </span>RUN R <span class="op">-</span>e <span class="st">&quot;install.packages(&#39;RCurl&#39;)&quot;</span></span>
+<span id="cb2-44"><a href="#cb2-44"></a> <span class="op">--</span>-&gt;<span class="st"> </span>Using cache</span>
+<span id="cb2-45"><a href="#cb2-45"></a> <span class="op">--</span>-&gt;<span class="st"> </span>55767f64bcfb</span>
+<span id="cb2-46"><a href="#cb2-46"></a>Step <span class="dv">15</span><span class="op">/</span><span class="dv">19</span> <span class="op">:</span><span class="st"> </span>RUN R <span class="op">-</span>e <span class="st">&quot;install.packages(&#39;curl&#39;)&quot;</span></span>
+<span id="cb2-47"><a href="#cb2-47"></a> <span class="op">--</span>-&gt;<span class="st"> </span>Using cache</span>
+<span id="cb2-48"><a href="#cb2-48"></a> <span class="op">--</span>-&gt;<span class="st"> </span>4b878d232d23</span>
+<span id="cb2-49"><a href="#cb2-49"></a>Step <span class="dv">16</span><span class="op">/</span><span class="dv">19</span> <span class="op">:</span><span class="st"> </span>RUN R <span class="op">-</span>e <span class="st">&quot;install.packages(&#39;h2o&#39;, type=&#39;source&#39;, repos=&#39;https://h2o-release.s3.amazonaws.com/h2o/rel-yau/2/R&#39;)&quot;</span></span>
+<span id="cb2-50"><a href="#cb2-50"></a> <span class="op">--</span>-&gt;<span class="st"> </span>Using cache</span>
+<span id="cb2-51"><a href="#cb2-51"></a> <span class="op">--</span>-&gt;<span class="st"> </span>6dbbf007fc75</span>
+<span id="cb2-52"><a href="#cb2-52"></a>Step <span class="dv">17</span><span class="op">/</span><span class="dv">19</span> <span class="op">:</span><span class="st"> </span>COPY <span class="op">/</span><span class="st"> </span><span class="er">/</span></span>
+<span id="cb2-53"><a href="#cb2-53"></a><span class="st"> </span><span class="op">--</span>-&gt;<span class="st"> </span>Using cache</span>
+<span id="cb2-54"><a href="#cb2-54"></a> <span class="op">--</span>-&gt;<span class="st"> </span>25496fe718a1</span>
+<span id="cb2-55"><a href="#cb2-55"></a>Step <span class="dv">18</span><span class="op">/</span><span class="dv">19</span> <span class="op">:</span><span class="st"> </span>EXPOSE <span class="dv">80</span></span>
+<span id="cb2-56"><a href="#cb2-56"></a> <span class="op">--</span>-&gt;<span class="st"> </span>Using cache</span>
+<span id="cb2-57"><a href="#cb2-57"></a> <span class="op">--</span>-&gt;<span class="st"> </span><span class="fl">4574025162e0</span></span>
+<span id="cb2-58"><a href="#cb2-58"></a>Step <span class="dv">19</span><span class="op">/</span><span class="dv">19</span> <span class="op">:</span><span class="st"> </span>ENTRYPOINT [<span class="st">&quot;Rscript&quot;</span>, <span class="st">&quot;controller.R&quot;</span>]</span>
+<span id="cb2-59"><a href="#cb2-59"></a> <span class="op">--</span>-&gt;<span class="st"> </span>Using cache</span>
+<span id="cb2-60"><a href="#cb2-60"></a> <span class="op">--</span>-&gt;<span class="st"> </span>a610f540daa7</span>
+<span id="cb2-61"><a href="#cb2-61"></a>Successfully built a610f540daa7</span>
+<span id="cb2-62"><a href="#cb2-62"></a>Successfully tagged h2o<span class="op">:</span>latest</span>
+<span id="cb2-63"><a href="#cb2-63"></a>(base) Turguts<span class="op">-</span>MacBook<span class="op">-</span>Pro<span class="op">:</span>virtual_xgboost turgutabdullayev<span class="op">$</span><span class="st"> </span>docker run <span class="op">--</span>rm <span class="op">-</span>p <span class="dv">80</span><span class="op">:</span><span class="dv">80</span> h2o</span>
+<span id="cb2-64"><a href="#cb2-64"></a></span>
+<span id="cb2-65"><a href="#cb2-65"></a>Attaching package<span class="op">:</span><span class="st"> </span>‘dplyr’</span>
+<span id="cb2-66"><a href="#cb2-66"></a></span>
+<span id="cb2-67"><a href="#cb2-67"></a>The following objects are masked from ‘package<span class="op">:</span>stats’<span class="op">:</span></span>
+<span id="cb2-68"><a href="#cb2-68"></a></span>
+<span id="cb2-69"><a href="#cb2-69"></a><span class="st">    </span>filter, lag</span>
+<span id="cb2-70"><a href="#cb2-70"></a></span>
+<span id="cb2-71"><a href="#cb2-71"></a>The following objects are masked from ‘package<span class="op">:</span>base’<span class="op">:</span></span>
+<span id="cb2-72"><a href="#cb2-72"></a></span>
+<span id="cb2-73"><a href="#cb2-73"></a><span class="st">    </span>intersect, setdiff, setequal, union</span>
+<span id="cb2-74"><a href="#cb2-74"></a></span>
+<span id="cb2-75"><a href="#cb2-75"></a></span>
+<span id="cb2-76"><a href="#cb2-76"></a><span class="op">----------------------------------------------------------------------</span></span>
+<span id="cb2-77"><a href="#cb2-77"></a></span>
+<span id="cb2-78"><a href="#cb2-78"></a>Your <span class="cf">next</span> step is to start H2O<span class="op">:</span></span>
+<span id="cb2-79"><a href="#cb2-79"></a><span class="st">    </span><span class="er">&gt;</span><span class="st"> </span><span class="kw">h2o.init</span>()</span>
+<span id="cb2-80"><a href="#cb2-80"></a></span>
+<span id="cb2-81"><a href="#cb2-81"></a>For H2O package documentation, ask <span class="cf">for</span> help<span class="op">:</span></span>
+<span id="cb2-82"><a href="#cb2-82"></a><span class="st">    </span><span class="er">&gt;</span><span class="st"> </span>??h2o</span>
+<span id="cb2-83"><a href="#cb2-83"></a></span>
+<span id="cb2-84"><a href="#cb2-84"></a>After starting H2O, you can use the Web UI at http<span class="op">:</span><span class="er">//</span>localhost<span class="op">:</span><span class="dv">54321</span></span>
+<span id="cb2-85"><a href="#cb2-85"></a>For more information visit http<span class="op">:</span><span class="er">//</span>docs.h2o.ai</span>
+<span id="cb2-86"><a href="#cb2-86"></a></span>
+<span id="cb2-87"><a href="#cb2-87"></a><span class="op">----------------------------------------------------------------------</span></span>
+<span id="cb2-88"><a href="#cb2-88"></a></span>
+<span id="cb2-89"><a href="#cb2-89"></a></span>
+<span id="cb2-90"><a href="#cb2-90"></a>Attaching package<span class="op">:</span><span class="st"> </span>‘h2o’</span>
+<span id="cb2-91"><a href="#cb2-91"></a></span>
+<span id="cb2-92"><a href="#cb2-92"></a>The following objects are masked from ‘package<span class="op">:</span>stats’<span class="op">:</span></span>
+<span id="cb2-93"><a href="#cb2-93"></a></span>
+<span id="cb2-94"><a href="#cb2-94"></a><span class="st">    </span>cor, sd, var</span>
+<span id="cb2-95"><a href="#cb2-95"></a></span>
+<span id="cb2-96"><a href="#cb2-96"></a>The following objects are masked from ‘package<span class="op">:</span>base’<span class="op">:</span></span>
+<span id="cb2-97"><a href="#cb2-97"></a></span>
+<span id="cb2-98"><a href="#cb2-98"></a><span class="st">    </span><span class="er">&amp;&amp;</span>, <span class="op">%*%</span>, <span class="op">%in%</span>, <span class="op">||</span>, apply, as.factor, as.numeric, colnames,</span>
+<span id="cb2-99"><a href="#cb2-99"></a>    colnames&lt;-, ifelse, is.character, is.factor, is.numeric, log,</span>
+<span id="cb2-100"><a href="#cb2-100"></a>    log10, log1p, log2, round, signif, trunc</span>
+<span id="cb2-101"><a href="#cb2-101"></a></span>
+<span id="cb2-102"><a href="#cb2-102"></a></span>
+<span id="cb2-103"><a href="#cb2-103"></a>H2O is not running yet, starting it now...</span>
+<span id="cb2-104"><a href="#cb2-104"></a></span>
+<span id="cb2-105"><a href="#cb2-105"></a>Note<span class="op">:</span><span class="st">  </span>In case of errors look at the following log files<span class="op">:</span></span>
+<span id="cb2-106"><a href="#cb2-106"></a><span class="st">    </span><span class="er">/</span>tmp<span class="op">/</span>RtmplzYQ5U<span class="op">/</span>h2o_UnknownUser_started_from_r.out</span>
+<span id="cb2-107"><a href="#cb2-107"></a>    <span class="op">/</span>tmp<span class="op">/</span>RtmplzYQ5U<span class="op">/</span>h2o_UnknownUser_started_from_r.err</span>
+<span id="cb2-108"><a href="#cb2-108"></a></span>
+<span id="cb2-109"><a href="#cb2-109"></a>openjdk version <span class="st">&quot;1.8.0_222&quot;</span></span>
+<span id="cb2-110"><a href="#cb2-110"></a>OpenJDK Runtime <span class="kw">Environment</span> (build <span class="dv">1</span>.<span class="fl">8.0</span>_<span class="dv">222</span><span class="op">-</span>8u222<span class="op">-</span>b10<span class="dv">-1</span><span class="op">~</span>deb9u1<span class="op">-</span>b10)</span>
+<span id="cb2-111"><a href="#cb2-111"></a>OpenJDK <span class="dv">64</span><span class="op">-</span>Bit Server <span class="kw">VM</span> (build <span class="fl">25.222</span><span class="op">-</span>b10, mixed mode)</span>
+<span id="cb2-112"><a href="#cb2-112"></a></span>
+<span id="cb2-113"><a href="#cb2-113"></a>Starting H2O JVM and connecting<span class="op">:</span><span class="st"> </span>.. Connection successful<span class="op">!</span></span>
+<span id="cb2-114"><a href="#cb2-114"></a></span>
+<span id="cb2-115"><a href="#cb2-115"></a>R is connected to the H2O cluster<span class="op">:</span><span class="st"> </span></span>
+<span id="cb2-116"><a href="#cb2-116"></a><span class="st">    </span>H2O cluster uptime<span class="op">:</span><span class="st">         </span><span class="dv">2</span> seconds <span class="dv">677</span> milliseconds </span>
+<span id="cb2-117"><a href="#cb2-117"></a>    H2O cluster timezone<span class="op">:</span><span class="st">       </span>Etc<span class="op">/</span>UTC </span>
+<span id="cb2-118"><a href="#cb2-118"></a>    H2O data parsing timezone<span class="op">:</span><span class="st">  </span>UTC </span>
+<span id="cb2-119"><a href="#cb2-119"></a>    H2O cluster version<span class="op">:</span><span class="st">        </span><span class="dv">3</span>.<span class="dv">26</span>.<span class="fl">0.2</span> </span>
+<span id="cb2-120"><a href="#cb2-120"></a>    H2O cluster version age<span class="op">:</span><span class="st">    </span><span class="dv">14</span> days, <span class="dv">20</span> hours and <span class="dv">55</span> minutes  </span>
+<span id="cb2-121"><a href="#cb2-121"></a>    H2O cluster name<span class="op">:</span><span class="st">           </span>H2O_started_from_R_root_twr393 </span>
+<span id="cb2-122"><a href="#cb2-122"></a>    H2O cluster total nodes<span class="op">:</span><span class="st">    </span><span class="dv">1</span> </span>
+<span id="cb2-123"><a href="#cb2-123"></a>    H2O cluster total memory<span class="op">:</span><span class="st">   </span><span class="fl">0.86</span> GB </span>
+<span id="cb2-124"><a href="#cb2-124"></a>    H2O cluster total cores<span class="op">:</span><span class="st">    </span><span class="dv">2</span> </span>
+<span id="cb2-125"><a href="#cb2-125"></a>    H2O cluster allowed cores<span class="op">:</span><span class="st">  </span><span class="dv">2</span> </span>
+<span id="cb2-126"><a href="#cb2-126"></a>    H2O cluster healthy<span class="op">:</span><span class="st">        </span><span class="ot">TRUE</span> </span>
+<span id="cb2-127"><a href="#cb2-127"></a>    H2O Connection ip<span class="op">:</span><span class="st">          </span>localhost </span>
+<span id="cb2-128"><a href="#cb2-128"></a>    H2O Connection port<span class="op">:</span><span class="st">        </span><span class="dv">54321</span> </span>
+<span id="cb2-129"><a href="#cb2-129"></a>    H2O Connection proxy<span class="op">:</span><span class="st">       </span><span class="ot">NA</span> </span>
+<span id="cb2-130"><a href="#cb2-130"></a>    H2O Internal Security<span class="op">:</span><span class="st">      </span><span class="ot">FALSE</span> </span>
+<span id="cb2-131"><a href="#cb2-131"></a>    H2O API Extensions<span class="op">:</span><span class="st">         </span>Amazon S3, XGBoost, Algos, AutoML, Core V3, Core V4 </span>
+<span id="cb2-132"><a href="#cb2-132"></a>    R Version<span class="op">:</span><span class="st">                  </span>R version <span class="dv">3</span>.<span class="fl">6.1</span> (<span class="dv">2019-07-05</span>) </span>
+<span id="cb2-133"><a href="#cb2-133"></a></span>
+<span id="cb2-134"><a href="#cb2-134"></a>  <span class="op">|</span><span class="er">======================================================================|</span><span class="st"> </span><span class="dv">100</span>%</span>
+<span id="cb2-135"><a href="#cb2-135"></a>  <span class="op">|</span><span class="er">======================================================================|</span><span class="st"> </span><span class="dv">100</span>%</span>
+<span id="cb2-136"><a href="#cb2-136"></a> Connection successful<span class="op">!</span></span>
+<span id="cb2-137"><a href="#cb2-137"></a></span>
+<span id="cb2-138"><a href="#cb2-138"></a>R is connected to the H2O cluster<span class="op">:</span><span class="st"> </span></span>
+<span id="cb2-139"><a href="#cb2-139"></a><span class="st">    </span>H2O cluster uptime<span class="op">:</span><span class="st">         </span><span class="dv">28</span> seconds <span class="dv">294</span> milliseconds </span>
+<span id="cb2-140"><a href="#cb2-140"></a>    H2O cluster timezone<span class="op">:</span><span class="st">       </span>Etc<span class="op">/</span>UTC </span>
+<span id="cb2-141"><a href="#cb2-141"></a>    H2O data parsing timezone<span class="op">:</span><span class="st">  </span>UTC </span>
+<span id="cb2-142"><a href="#cb2-142"></a>    H2O cluster version<span class="op">:</span><span class="st">        </span><span class="dv">3</span>.<span class="dv">26</span>.<span class="fl">0.2</span> </span>
+<span id="cb2-143"><a href="#cb2-143"></a>    H2O cluster version age<span class="op">:</span><span class="st">    </span><span class="dv">14</span> days, <span class="dv">20</span> hours and <span class="dv">55</span> minutes  </span>
+<span id="cb2-144"><a href="#cb2-144"></a>    H2O cluster name<span class="op">:</span><span class="st">           </span>H2O_started_from_R_root_twr393 </span>
+<span id="cb2-145"><a href="#cb2-145"></a>    H2O cluster total nodes<span class="op">:</span><span class="st">    </span><span class="dv">1</span> </span>
+<span id="cb2-146"><a href="#cb2-146"></a>    H2O cluster total memory<span class="op">:</span><span class="st">   </span><span class="fl">0.84</span> GB </span>
+<span id="cb2-147"><a href="#cb2-147"></a>    H2O cluster total cores<span class="op">:</span><span class="st">    </span><span class="dv">2</span> </span>
+<span id="cb2-148"><a href="#cb2-148"></a>    H2O cluster allowed cores<span class="op">:</span><span class="st">  </span><span class="dv">2</span> </span>
+<span id="cb2-149"><a href="#cb2-149"></a>    H2O cluster healthy<span class="op">:</span><span class="st">        </span><span class="ot">TRUE</span> </span>
+<span id="cb2-150"><a href="#cb2-150"></a>    H2O Connection ip<span class="op">:</span><span class="st">          </span>localhost </span>
+<span id="cb2-151"><a href="#cb2-151"></a>    H2O Connection port<span class="op">:</span><span class="st">        </span><span class="dv">54321</span> </span>
+<span id="cb2-152"><a href="#cb2-152"></a>    H2O Connection proxy<span class="op">:</span><span class="st">       </span><span class="ot">NA</span> </span>
+<span id="cb2-153"><a href="#cb2-153"></a>    H2O Internal Security<span class="op">:</span><span class="st">      </span><span class="ot">FALSE</span> </span>
+<span id="cb2-154"><a href="#cb2-154"></a>    H2O API Extensions<span class="op">:</span><span class="st">         </span>Amazon S3, XGBoost, Algos, AutoML, Core V3, Core V4 </span>
+<span id="cb2-155"><a href="#cb2-155"></a>    R Version<span class="op">:</span><span class="st">                  </span>R version <span class="dv">3</span>.<span class="fl">6.1</span> (<span class="dv">2019-07-05</span>) </span>
+<span id="cb2-156"><a href="#cb2-156"></a></span>
+<span id="cb2-157"><a href="#cb2-157"></a>Starting server to listen on port <span class="dv">80</span></span></code></pre></div>
 </div>
 <p>Brauzerə keçərək nəticəni əldə edə bilərik.</p>
 <div class="layout-chunk" data-layout="l-body-outset">
@@ -2083,13 +2160,13 @@ Starting server to listen on port 80</code></pre>
 </div>
 <p>Brauzerdəki nəticənin əldə edilməsi aşağıdakı kimidir.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-http://127.0.0.1/h2o_prediction?age=30&amp;contact=telephone&amp;duration=459
-
-# h2o_prediction - plumber.R-da olan bu hissədir #* @get /h2o_prediction
-# age=30&amp;contact=telephone&amp;duration=459 bu məlumatlar isə datadakı verilənləri əks etdirir.</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>http<span class="op">:</span><span class="er">//</span><span class="dv">127</span>.<span class="dv">0</span>.<span class="fl">0.1</span><span class="op">/</span>h2o_prediction?age=<span class="dv">30</span><span class="op">&amp;</span>contact=telephone<span class="op">&amp;</span>duration=<span class="dv">459</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="co"># h2o_prediction - plumber.R-da olan bu hissədir #* @get /h2o_prediction</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="co"># age=30&amp;contact=telephone&amp;duration=459 bu məlumatlar isə datadakı verilənləri əks etdirir.</span></span></code></pre></div>
 </div>
 <p>Diqqəniz üçün təşəkkür edirəm! Əgər hər hansı bir sual yaranarsa, aşağı hissədə yaza bilərsiniz.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">
   <p class="social_footer">

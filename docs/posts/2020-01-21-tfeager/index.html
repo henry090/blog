@@ -18,6 +18,73 @@
  <!--radix_placeholder_import_source-->
  <!--/radix_placeholder_import_source-->
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #545454; font-weight: bold; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #a1024a; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007faa; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #008000; } /* Char */
+code span.cn { color: #d91e18; } /* Constant */
+code span.co { color: #545454; } /* Comment */
+code span.cv { color: #545454; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #aa5d00; } /* DataType */
+code span.dv { color: #a1024a; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #a1024a; } /* Float */
+code span.fu { color: #4254a7; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #545454; font-weight: bold; } /* Information */
+code span.kw { color: #007faa; font-weight: bold; } /* Keyword */
+code span.op { color: #696969; } /* Operator */
+code span.ot { color: #007faa; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #008000; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #008000; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #008000; } /* VerbatimString */
+code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
   <!--radix_placeholder_meta_tags-->
 <title>Data Experts: Tensorflow low-level API (Eager Execution) ilə Logistic Regression</title>
 
@@ -1712,6 +1779,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <!--/radix_placeholder_distill-->
   <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="../../site_libs/anchor-4.2.2/anchor.min.js"></script>
   <script src="../../site_libs/bowser-1.9.3/bowser.min.js"></script>
   <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
   <script src="../../site_libs/distill-2.2.21/template.v2.js"></script>
@@ -1733,7 +1801,7 @@ gtag('config', 'UA-129142339-1');
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Tensorflow low-level API (Eager Execution) ilə Logistic Regression","description":"Bu postda R-da Tensorflow Eager Execution-nun əhəmiyyəti və praktiki tədbiqi HR Analytics datası üzərində izah olunacaq. Bununla yanaşı datanın preprocess mərhələsi və tensorflow-ya ötürülməsi detallı şəkildə əhatə ediləcəkdir.","authors":[{"author":"Turqut Abdullayev","authorURL":"#","affiliation":"QSS","affiliationURL":"https://qss.az","orcidID":""}],"publishedDate":"2019-02-20T00:00:00.000+04:00","citationText":"Abdullayev, 2019"}
+{"title":"Tensorflow low-level API (Eager Execution) ilə Logistic Regression","description":"Bu postda R-da Tensorflow Eager Execution-nun əhəmiyyəti və praktiki tədbiqi HR Analytics datası üzərində izah olunacaq. Bununla yanaşı datanın preprocess mərhələsi və tensorflow-ya ötürülməsi detallı şəkildə əhatə ediləcəkdir.","authors":[{"author":"Turqut Abdullayev","authorURL":"#","affiliation":"QSS","affiliationURL":"https://qss.az","orcidID":""}],"publishedDate":"2019-02-20T00:00:00.000+00:00","citationText":"Abdullayev, 2019"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1779,7 +1847,13 @@ Contributing
 
 <div class="d-title">
 <h1>Tensorflow low-level API (Eager Execution) ilə Logistic Regression</h1>
-<p>Bu postda R-da Tensorflow Eager Execution-nun əhəmiyyəti və praktiki tədbiqi HR Analytics datası üzərində izah olunacaq. Bununla yanaşı datanın preprocess mərhələsi və tensorflow-ya ötürülməsi detallı şəkildə əhatə ediləcəkdir.</p>
+<!--radix_placeholder_categories-->
+<div class="dt-tags">
+  <a href="../../index.html#category:eager" class="dt-tag">eager</a>
+  <a href="../../index.html#category:tensorflow" class="dt-tag">tensorflow</a>
+</div>
+<!--/radix_placeholder_categories-->
+<p><p>Bu postda R-da Tensorflow Eager Execution-nun əhəmiyyəti və praktiki tədbiqi HR Analytics datası üzərində izah olunacaq. Bununla yanaşı datanın preprocess mərhələsi və tensorflow-ya ötürülməsi detallı şəkildə əhatə ediləcəkdir.</p></p>
 </div>
 
 <div class="d-byline">
@@ -1794,22 +1868,20 @@ Contributing
 <p>        Eager mod ilə artıq proses sadələşir. Məsələn:</p>
 <h4 id="without-eager-mode">Without Eager Mode</h4>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-library(tensorflow)
-tf$constant(matrix(c(3.0, 3.0), nrow = 1, ncol = 2))
-
-# Output
-Tensor(&quot;Const:0&quot;, shape=(1, 2), dtype=float64)</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">library</span>(tensorflow)</span>
+<span id="cb1-2"><a href="#cb1-2"></a>tf<span class="op">$</span><span class="kw">constant</span>(<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="fl">3.0</span>, <span class="fl">3.0</span>), <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">ncol =</span> <span class="dv">2</span>))</span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># Output</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="kw">Tensor</span>(<span class="st">&quot;Const:0&quot;</span>, <span class="dt">shape=</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="dt">dtype=</span>float64)</span></code></pre></div>
 </div>
 <h4 id="with-eager-mode">With Eager Mode</h4>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-library(tensorflow)
-tf$constant(matrix(c(3.0, 3.0), nrow = 1, ncol = 2))
-
-# Output
-# tensorun daxilindəkini görə bilirik
-tf.Tensor([[3. 3.]], shape=(1, 2), dtype=float64)</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">library</span>(tensorflow)</span>
+<span id="cb2-2"><a href="#cb2-2"></a>tf<span class="op">$</span><span class="kw">constant</span>(<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="fl">3.0</span>, <span class="fl">3.0</span>), <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">ncol =</span> <span class="dv">2</span>))</span>
+<span id="cb2-3"><a href="#cb2-3"></a></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="co"># Output</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="co"># tensorun daxilindəkini görə bilirik</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="kw">tf.Tensor</span>([[<span class="fl">3.</span> <span class="fl">3.</span>]], <span class="dt">shape=</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="dt">dtype=</span>float64)</span></code></pre></div>
 </div>
 <center>
 <h3 id="hr-analytics">HR ANALYTICS</h3>
@@ -1817,44 +1889,43 @@ tf.Tensor([[3. 3.]], shape=(1, 2), dtype=float64)</code></pre>
 <p>        HR datası işçilər haqqındakı məlumatları əks etdirir, burada əsas məqsəd işçi axının qarşısını almaqdır. Bu məqsəd üçün biz <strong>eager modla</strong> <em>logistic reqressiya</em> quracayıq. <em>Dataframe</em> <strong>1470</strong> sətr (<strong>işçi sayı</strong>) və <strong>35</strong> sütundan ibarətdir (<strong>işçilər haqqında məlumatlar</strong>).</p>
 <h4 id="data-structure">Data structure</h4>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-Observations: 1,470
-Variables: 35
-$ Age                      &lt;dbl&gt; 41, 49, 37, 33, 27, 32, 59, 30, 38, 36, 35, 2…
-$ Attrition                &lt;chr&gt; &quot;Yes&quot;, &quot;No&quot;, &quot;Yes&quot;, &quot;No&quot;, &quot;No&quot;, &quot;No&quot;, &quot;No&quot;, &quot;…
-$ BusinessTravel           &lt;chr&gt; &quot;Travel_Rarely&quot;, &quot;Travel_Frequently&quot;, &quot;Travel…
-$ DailyRate                &lt;dbl&gt; 1102, 279, 1373, 1392, 591, 1005, 1324, 1358,…
-$ Department               &lt;chr&gt; &quot;Sales&quot;, &quot;Research &amp; Development&quot;, &quot;Research …
-$ DistanceFromHome         &lt;dbl&gt; 1, 8, 2, 3, 2, 2, 3, 24, 23, 27, 16, 15, 26, …
-$ Education                &lt;dbl&gt; 2, 1, 2, 4, 1, 2, 3, 1, 3, 3, 3, 2, 1, 2, 3, …
-$ EducationField           &lt;chr&gt; &quot;Life Sciences&quot;, &quot;Life Sciences&quot;, &quot;Other&quot;, &quot;L…
-$ EmployeeCount            &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …
-$ EmployeeNumber           &lt;dbl&gt; 1, 2, 4, 5, 7, 8, 10, 11, 12, 13, 14, 15, 16,…
-$ EnvironmentSatisfaction  &lt;dbl&gt; 2, 3, 4, 4, 1, 4, 3, 4, 4, 3, 1, 4, 1, 2, 3, …
-$ Gender                   &lt;chr&gt; &quot;Female&quot;, &quot;Male&quot;, &quot;Male&quot;, &quot;Female&quot;, &quot;Male&quot;, &quot;…
-$ HourlyRate               &lt;dbl&gt; 94, 61, 92, 56, 40, 79, 81, 67, 44, 94, 84, 4…
-$ JobInvolvement           &lt;dbl&gt; 3, 2, 2, 3, 3, 3, 4, 3, 2, 3, 4, 2, 3, 3, 2, …
-$ JobLevel                 &lt;dbl&gt; 2, 2, 1, 1, 1, 1, 1, 1, 3, 2, 1, 2, 1, 1, 1, …
-$ JobRole                  &lt;chr&gt; &quot;Sales Executive&quot;, &quot;Research Scientist&quot;, &quot;Lab…
-$ JobSatisfaction          &lt;dbl&gt; 4, 2, 3, 3, 2, 4, 1, 3, 3, 3, 2, 3, 3, 4, 3, …
-$ MaritalStatus            &lt;chr&gt; &quot;Single&quot;, &quot;Married&quot;, &quot;Single&quot;, &quot;Married&quot;, &quot;Ma…
-$ MonthlyIncome            &lt;dbl&gt; 5993, 5130, 2090, 2909, 3468, 3068, 2670, 269…
-$ MonthlyRate              &lt;dbl&gt; 19479, 24907, 2396, 23159, 16632, 11864, 9964…
-$ NumCompaniesWorked       &lt;dbl&gt; 8, 1, 6, 1, 9, 0, 4, 1, 0, 6, 0, 0, 1, 0, 5, …
-$ Over18                   &lt;chr&gt; &quot;Y&quot;, &quot;Y&quot;, &quot;Y&quot;, &quot;Y&quot;, &quot;Y&quot;, &quot;Y&quot;, &quot;Y&quot;, &quot;Y&quot;, &quot;Y&quot;, …
-$ OverTime                 &lt;chr&gt; &quot;Yes&quot;, &quot;No&quot;, &quot;Yes&quot;, &quot;Yes&quot;, &quot;No&quot;, &quot;No&quot;, &quot;Yes&quot;,…
-$ PercentSalaryHike        &lt;dbl&gt; 11, 23, 15, 11, 12, 13, 20, 22, 21, 13, 13, 1…
-$ PerformanceRating        &lt;dbl&gt; 3, 4, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 3, 3, 3, …
-$ RelationshipSatisfaction &lt;dbl&gt; 1, 4, 2, 3, 4, 3, 1, 2, 2, 2, 3, 4, 4, 3, 2, …
-$ StandardHours            &lt;dbl&gt; 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 8…
-$ StockOptionLevel         &lt;dbl&gt; 0, 1, 0, 0, 1, 0, 3, 1, 0, 2, 1, 0, 1, 1, 0, …
-$ TotalWorkingYears        &lt;dbl&gt; 8, 10, 7, 8, 6, 8, 12, 1, 10, 17, 6, 10, 5, 3…
-$ TrainingTimesLastYear    &lt;dbl&gt; 0, 3, 3, 3, 3, 2, 3, 2, 2, 3, 5, 3, 1, 2, 4, …
-$ WorkLifeBalance          &lt;dbl&gt; 1, 3, 3, 3, 3, 2, 2, 3, 3, 2, 3, 3, 2, 3, 3, …
-$ YearsAtCompany           &lt;dbl&gt; 6, 10, 0, 8, 2, 7, 1, 1, 9, 7, 5, 9, 5, 2, 4,…
-$ YearsInCurrentRole       &lt;dbl&gt; 4, 7, 0, 7, 2, 7, 0, 0, 7, 7, 4, 5, 2, 2, 2, …
-$ YearsSinceLastPromotion  &lt;dbl&gt; 0, 1, 0, 3, 2, 3, 0, 0, 1, 7, 0, 0, 4, 1, 0, …
-$ YearsWithCurrManager     &lt;dbl&gt; 5, 7, 0, 0, 2, 6, 0, 0, 8, 7, 3, 8, 3, 2, 3, …</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>Observations<span class="op">:</span><span class="st"> </span><span class="dv">1</span>,<span class="dv">470</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>Variables<span class="op">:</span><span class="st"> </span><span class="dv">35</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="op">$</span><span class="st"> </span>Age                      <span class="op">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="dv">41</span>, <span class="dv">49</span>, <span class="dv">37</span>, <span class="dv">33</span>, <span class="dv">27</span>, <span class="dv">32</span>, <span class="dv">59</span>, <span class="dv">30</span>, <span class="dv">38</span>, <span class="dv">36</span>, <span class="dv">35</span>, 2…</span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="op">$</span><span class="st"> </span>Attrition                <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st"> &quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;…</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="st">$ BusinessTravel           &lt;chr&gt; &quot;</span>Travel_Rarely<span class="st">&quot;, &quot;</span>Travel_Frequently<span class="st">&quot;, &quot;</span>Travel…</span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="op">$</span><span class="st"> </span>DailyRate                <span class="op">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="dv">1102</span>, <span class="dv">279</span>, <span class="dv">1373</span>, <span class="dv">1392</span>, <span class="dv">591</span>, <span class="dv">1005</span>, <span class="dv">1324</span>, <span class="dv">1358</span>,…</span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="op">$</span><span class="st"> </span>Department               <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st"> &quot;Sales&quot;</span>, <span class="st">&quot;Research &amp; Development&quot;</span>, <span class="st">&quot;Research …</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="st">$ DistanceFromHome         &lt;dbl&gt; 1, 8, 2, 3, 2, 2, 3, 24, 23, 27, 16, 15, 26, …</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="st">$ Education                &lt;dbl&gt; 2, 1, 2, 4, 1, 2, 3, 1, 3, 3, 3, 2, 1, 2, 3, …</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="st">$ EducationField           &lt;chr&gt; &quot;</span>Life Sciences<span class="st">&quot;, &quot;</span>Life Sciences<span class="st">&quot;, &quot;</span>Other<span class="st">&quot;, &quot;</span>L…</span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="op">$</span><span class="st"> </span>EmployeeCount            <span class="op">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, …</span>
+<span id="cb3-12"><a href="#cb3-12"></a><span class="op">$</span><span class="st"> </span>EmployeeNumber           <span class="op">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="dv">15</span>, <span class="dv">16</span>,…</span>
+<span id="cb3-13"><a href="#cb3-13"></a><span class="op">$</span><span class="st"> </span>EnvironmentSatisfaction  <span class="op">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, …</span>
+<span id="cb3-14"><a href="#cb3-14"></a><span class="op">$</span><span class="st"> </span>Gender                   <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st"> &quot;Female&quot;</span>, <span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Male&quot;</span>, <span class="st">&quot;…</span></span>
+<span id="cb3-15"><a href="#cb3-15"></a><span class="st">$ HourlyRate               &lt;dbl&gt; 94, 61, 92, 56, 40, 79, 81, 67, 44, 94, 84, 4…</span></span>
+<span id="cb3-16"><a href="#cb3-16"></a><span class="st">$ JobInvolvement           &lt;dbl&gt; 3, 2, 2, 3, 3, 3, 4, 3, 2, 3, 4, 2, 3, 3, 2, …</span></span>
+<span id="cb3-17"><a href="#cb3-17"></a><span class="st">$ JobLevel                 &lt;dbl&gt; 2, 2, 1, 1, 1, 1, 1, 1, 3, 2, 1, 2, 1, 1, 1, …</span></span>
+<span id="cb3-18"><a href="#cb3-18"></a><span class="st">$ JobRole                  &lt;chr&gt; &quot;</span>Sales Executive<span class="st">&quot;, &quot;</span>Research Scientist<span class="st">&quot;, &quot;</span>Lab…</span>
+<span id="cb3-19"><a href="#cb3-19"></a><span class="op">$</span><span class="st"> </span>JobSatisfaction          <span class="op">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">3</span>, …</span>
+<span id="cb3-20"><a href="#cb3-20"></a><span class="op">$</span><span class="st"> </span>MaritalStatus            <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st"> &quot;Single&quot;</span>, <span class="st">&quot;Married&quot;</span>, <span class="st">&quot;Single&quot;</span>, <span class="st">&quot;Married&quot;</span>, <span class="st">&quot;Ma…</span></span>
+<span id="cb3-21"><a href="#cb3-21"></a><span class="st">$ MonthlyIncome            &lt;dbl&gt; 5993, 5130, 2090, 2909, 3468, 3068, 2670, 269…</span></span>
+<span id="cb3-22"><a href="#cb3-22"></a><span class="st">$ MonthlyRate              &lt;dbl&gt; 19479, 24907, 2396, 23159, 16632, 11864, 9964…</span></span>
+<span id="cb3-23"><a href="#cb3-23"></a><span class="st">$ NumCompaniesWorked       &lt;dbl&gt; 8, 1, 6, 1, 9, 0, 4, 1, 0, 6, 0, 0, 1, 0, 5, …</span></span>
+<span id="cb3-24"><a href="#cb3-24"></a><span class="st">$ Over18                   &lt;chr&gt; &quot;</span>Y<span class="st">&quot;, &quot;</span>Y<span class="st">&quot;, &quot;</span>Y<span class="st">&quot;, &quot;</span>Y<span class="st">&quot;, &quot;</span>Y<span class="st">&quot;, &quot;</span>Y<span class="st">&quot;, &quot;</span>Y<span class="st">&quot;, &quot;</span>Y<span class="st">&quot;, &quot;</span>Y<span class="st">&quot;, …</span></span>
+<span id="cb3-25"><a href="#cb3-25"></a><span class="st">$ OverTime                 &lt;chr&gt; &quot;</span>Yes<span class="st">&quot;, &quot;</span>No<span class="st">&quot;, &quot;</span>Yes<span class="st">&quot;, &quot;</span>Yes<span class="st">&quot;, &quot;</span>No<span class="st">&quot;, &quot;</span>No<span class="st">&quot;, &quot;</span>Yes<span class="st">&quot;,…</span></span>
+<span id="cb3-26"><a href="#cb3-26"></a><span class="st">$ PercentSalaryHike        &lt;dbl&gt; 11, 23, 15, 11, 12, 13, 20, 22, 21, 13, 13, 1…</span></span>
+<span id="cb3-27"><a href="#cb3-27"></a><span class="st">$ PerformanceRating        &lt;dbl&gt; 3, 4, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 3, 3, 3, …</span></span>
+<span id="cb3-28"><a href="#cb3-28"></a><span class="st">$ RelationshipSatisfaction &lt;dbl&gt; 1, 4, 2, 3, 4, 3, 1, 2, 2, 2, 3, 4, 4, 3, 2, …</span></span>
+<span id="cb3-29"><a href="#cb3-29"></a><span class="st">$ StandardHours            &lt;dbl&gt; 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 8…</span></span>
+<span id="cb3-30"><a href="#cb3-30"></a><span class="st">$ StockOptionLevel         &lt;dbl&gt; 0, 1, 0, 0, 1, 0, 3, 1, 0, 2, 1, 0, 1, 1, 0, …</span></span>
+<span id="cb3-31"><a href="#cb3-31"></a><span class="st">$ TotalWorkingYears        &lt;dbl&gt; 8, 10, 7, 8, 6, 8, 12, 1, 10, 17, 6, 10, 5, 3…</span></span>
+<span id="cb3-32"><a href="#cb3-32"></a><span class="st">$ TrainingTimesLastYear    &lt;dbl&gt; 0, 3, 3, 3, 3, 2, 3, 2, 2, 3, 5, 3, 1, 2, 4, …</span></span>
+<span id="cb3-33"><a href="#cb3-33"></a><span class="st">$ WorkLifeBalance          &lt;dbl&gt; 1, 3, 3, 3, 3, 2, 2, 3, 3, 2, 3, 3, 2, 3, 3, …</span></span>
+<span id="cb3-34"><a href="#cb3-34"></a><span class="st">$ YearsAtCompany           &lt;dbl&gt; 6, 10, 0, 8, 2, 7, 1, 1, 9, 7, 5, 9, 5, 2, 4,…</span></span>
+<span id="cb3-35"><a href="#cb3-35"></a><span class="st">$ YearsInCurrentRole       &lt;dbl&gt; 4, 7, 0, 7, 2, 7, 0, 0, 7, 7, 4, 5, 2, 2, 2, …</span></span>
+<span id="cb3-36"><a href="#cb3-36"></a><span class="st">$ YearsSinceLastPromotion  &lt;dbl&gt; 0, 1, 0, 3, 2, 3, 0, 0, 1, 7, 0, 0, 4, 1, 0, …</span></span>
+<span id="cb3-37"><a href="#cb3-37"></a><span class="st">$ YearsWithCurrManager     &lt;dbl&gt; 5, 7, 0, 0, 2, 6, 0, 0, 8, 7, 3, 8, 3, 2, 3, …</span></span></code></pre></div>
 </div>
 <p>        Məlumatları Tensorflow-ya ötürmədən əvvəl minimum olaraq datadakı verilənləri aşağıdakı kimi etməliyik:</p>
 <ul>
@@ -1864,100 +1935,113 @@ $ YearsWithCurrManager     &lt;dbl&gt; 5, 7, 0, 0, 2, 6, 0, 0, 8, 7, 3, 8, 3, 2,
 </ul>
 <p>        Sadalananları icra etmək üçün ilk növbədə Eager Mode-u aktivləşdirmək lazımdır.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-library(tensorflow)
-# Eager mode
-tf$enable_eager_execution()
-tfe = tf$contrib$eager</code></pre>
+<div class="sourceCode">
+<pre><code><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/rstudio/tensorflow'>tensorflow</a></span><span class='op'>)</span>
+<span class='co'># Eager mode</span>
+<span class='va'>tf</span><span class='op'>$</span><span class='fu'>enable_eager_execution</span><span class='op'>(</span><span class='op'>)</span>
+<span class='va'>tfe</span> <span class='op'>=</span> <span class='va'>tf</span><span class='op'>$</span><span class='va'>contrib</span><span class='op'>$</span><span class='va'>eager</span>
+</code></pre>
+</div>
 </div>
 <p>        Daha sonra datanı import etmək lazımdır.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-library(tidyquant)
+<div class="sourceCode">
+<pre><code><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/business-science/tidyquant'>tidyquant</a></span><span class='op'>)</span>
 
-df = read_csv(
-  &#39;https://raw.githubusercontent.com/henry090/dataexperts/master/HR%20Analytics.csv&#39;)
+<span class='va'>df</span> <span class='op'>=</span> <span class='fu'>read_csv</span><span class='op'>(</span>
+  <span class='st'>'https://raw.githubusercontent.com/henry090/dataexperts/master/HR%20Analytics.csv'</span><span class='op'>)</span>
 
-# Datanı sətrlər üzrə qarışdırmaq
-df = df[sample(nrow(df)),]</code></pre>
+<span class='co'># Datanı sətrlər üzrə qarışdırmaq</span>
+<span class='va'>df</span> <span class='op'>=</span> <span class='va'>df</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span><span class='op'>(</span><span class='va'>df</span><span class='op'>)</span><span class='op'>)</span>,<span class='op'>]</span>
+</code></pre>
+</div>
 </div>
 <p>        Növbəti addım olaraq isə datanın <strong>0.8 hissəsini train-ə</strong>, qalan hissəsini isə <strong>test-ə (0.2)</strong> ayırmalıyıq:</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-train_data = sample_n(df, nrow(df)*0.8)
+<div class="sourceCode">
+<pre><code><span class='va'>train_data</span> <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/sample_n.html'>sample_n</a></span><span class='op'>(</span><span class='va'>df</span>, <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span><span class='op'>(</span><span class='va'>df</span><span class='op'>)</span><span class='op'>*</span><span class='fl'>0.8</span><span class='op'>)</span>
 
-test_data = anti_join(df,train_data)</code></pre>
+<span class='va'>test_data</span> <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter-joins.html'>anti_join</a></span><span class='op'>(</span><span class='va'>df</span>,<span class='va'>train_data</span><span class='op'>)</span>
+</code></pre>
+</div>
 </div>
 <p>        Bu addımnan sonra emal edəcəyimiz hissə <strong>train</strong> datası olacaqdır.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-# Attrition-u çıxarmaqla bütün datanı saxlayırıq
-features = train_data %&gt;% mutate_if(is.character,as.factor) %&gt;% select(-Attrition) %&gt;% 
-  # Əgər sütunun tərkibində 1 unikal verilənsə biz onu çıxarmalıyıq
-  .[, sapply(., function(col) length(unique(col))) &gt; 1] %&gt;% 
-  # Nəticə olaraq butün sütunları numeric edib mərkəzə doğru normallaşdırırıq
-  mutate_all(as.numeric) %&gt;% scale(center = T,scale = T) %&gt;% as.matrix()
+<div class="sourceCode">
+<pre><code><span class='co'># Attrition-u çıxarmaqla bütün datanı saxlayırıq</span>
+<span class='va'>features</span> <span class='op'>=</span> <span class='va'>train_data</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate_all.html'>mutate_if</a></span><span class='op'>(</span><span class='va'>is.character</span>,<span class='va'>as.factor</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='op'>-</span><span class='va'>Attrition</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='co'># Əgər sütunun tərkibində 1 unikal verilənsə biz onu çıxarmalıyıq</span>
+  <span class='va'>.</span><span class='op'>[</span>, <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>sapply</a></span><span class='op'>(</span><span class='va'>.</span>, <span class='kw'>function</span><span class='op'>(</span><span class='va'>col</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='fu'><a href='https://Rdatatable.gitlab.io/data.table/reference/duplicated.html'>unique</a></span><span class='op'>(</span><span class='va'>col</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>&gt;</span> <span class='fl'>1</span><span class='op'>]</span> <span class='op'>%&gt;%</span> 
+  <span class='co'># Nəticə olaraq butün sütunları numeric edib mərkəzə doğru normallaşdırırıq</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate_all.html'>mutate_all</a></span><span class='op'>(</span><span class='va'>as.numeric</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/pkg/h2o/man/scale.html'>scale</a></span><span class='op'>(</span>center <span class='op'>=</span> <span class='cn'>T</span>,scale <span class='op'>=</span> <span class='cn'>T</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://Rdatatable.gitlab.io/data.table/reference/as.matrix.html'>as.matrix</a></span><span class='op'>(</span><span class='op'>)</span>
 
 
-# Eyni zamanda Attrition-da olan Yes və No -ları 1 və 0 kimi kodlayırıq
-labels = train_data$Attrition %&gt;% as.factor() %&gt;%  as.numeric() %&gt;% 
-         car::recode(.,&quot;2 = 1; 1 = 0&quot;)</code></pre>
+<span class='co'># Eyni zamanda Attrition-da olan Yes və No -ları 1 və 0 kimi kodlayırıq</span>
+<span class='va'>labels</span> <span class='op'>=</span> <span class='va'>train_data</span><span class='op'>$</span><span class='va'>Attrition</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/pkg/h2o/man/as.factor.html'>as.factor</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>  <span class='fu'><a href='https://rdrr.io/pkg/h2o/man/as.numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+         <span class='fu'>car</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/car/man/recode.html'>recode</a></span><span class='op'>(</span><span class='va'>.</span>,<span class='st'>"2 = 1; 1 = 0"</span><span class='op'>)</span>
+</code></pre>
+</div>
 </div>
 <h4 id="r-üçün-spesifik-olaraq-tfdatasets-kitabxanası">R üçün spesifik olaraq TFDATASETS kitabxanası</h4>
 <p>        Tfdatasets Tensorflow-ya datanın ötürülməsində köməklik edən bir kitabxandır. Datanı <strong>batch-lara</strong> bölərək hər dəfə hesablamanı reallaşdıracayıq. Məsələn:</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-# batch = 50
-1470 / 50 = 29.4
+<div class="sourceCode">
+<pre><code><span class='co'># batch = 50</span>
+<span class='fl'>1470</span> <span class='op'>/</span> <span class='fl'>50</span> <span class='op'>=</span> <span class='fl'>29.4</span>
 
-steps  ~30</code></pre>
+<span class='va'>steps</span>  <span class='op'>~</span><span class='fl'>30</span>
+</code></pre>
+</div>
 </div>
 <p>        Yəni:</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-library(tfdatasets)
+<div class="sourceCode">
+<pre><code><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/rstudio/tfdatasets'>tfdatasets</a></span><span class='op'>)</span>
 
 
-batch_size = 50
-num_steps = 30
-learning_rate = 0.01
-display_step = 100</code></pre>
+<span class='va'>batch_size</span> <span class='op'>=</span> <span class='fl'>50</span>
+<span class='va'>num_steps</span> <span class='op'>=</span> <span class='fl'>30</span>
+<span class='va'>learning_rate</span> <span class='op'>=</span> <span class='fl'>0.01</span>
+<span class='va'>display_step</span> <span class='op'>=</span> <span class='fl'>100</span>
+</code></pre>
+</div>
 </div>
 <p>        Datadan hər dəfə 50 sətr ötürərək hesablamanı edəcəyik.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-dataset = tensor_slices_dataset(list(features, labels)) %&gt;% 
-  dataset_repeat() %&gt;% dataset_batch(batch_size = batch_size) %&gt;% 
-  dataset_prefetch(batch_size)
+<div class="sourceCode">
+<pre><code><span class='va'>dataset</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/tfdatasets/man/tensor_slices_dataset.html'>tensor_slices_dataset</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='va'>features</span>, <span class='va'>labels</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/pkg/tfdatasets/man/dataset_repeat.html'>dataset_repeat</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/pkg/tfdatasets/man/dataset_batch.html'>dataset_batch</a></span><span class='op'>(</span>batch_size <span class='op'>=</span> <span class='va'>batch_size</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/pkg/tfdatasets/man/dataset_prefetch.html'>dataset_prefetch</a></span><span class='op'>(</span><span class='va'>batch_size</span><span class='op'>)</span>
 
-dataset_iter =  make_iterator_one_shot(dataset)
-batch =  iterator_get_next(dataset_iter)
-batch</code></pre>
+<span class='va'>dataset_iter</span> <span class='op'>=</span>  <span class='fu'><a href='https://rdrr.io/pkg/tfdatasets/man/make-iterator.html'>make_iterator_one_shot</a></span><span class='op'>(</span><span class='va'>dataset</span><span class='op'>)</span>
+<span class='va'>batch</span> <span class='op'>=</span>  <span class='fu'><a href='https://rdrr.io/pkg/tfdatasets/man/iterator_get_next.html'>iterator_get_next</a></span><span class='op'>(</span><span class='va'>dataset_iter</span><span class='op'>)</span>
+<span class='va'>batch</span>
+</code></pre>
+</div>
 </div>
 <h4 id="output">Output</h4>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-[[1]]
-tf.Tensor(
-[[-0.74563709 -0.93176198 -0.87921167 ... -1.16363856 -0.67966066
-  -1.15323646]
- [ 0.12980953  0.57753842 -0.23673063 ... -0.60792731 -0.67966066
-  -0.28977758]
- [ 0.12980953  0.57753842 -1.04541332 ... -0.05221607 -0.67966066
-  -0.57759721]
- ...
- [-0.52677544  0.57753842  0.02125403 ... -1.16363856 -0.67966066
-  -1.15323646]
- [-0.52677544 -0.93176198  1.22187497 ... -0.88578293 -0.67966066
-  -0.28977758]
- [ 0.56753284  0.57753842 -0.45502534 ...  3.28205141  2.75206856
-   0.5736813 ]], shape=(50, 31), dtype=float64)
-
-[[2]]
-tf.Tensor(
-[1. 0. 0. 1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
- 0. 0. 0. 1. 0. 1. 0. 1. 0. 0. 0. 0. 0. 0. 0. 1. 0. 1. 0. 0. 0. 0. 0. 0.
- 0. 0.], shape=(50,), dtype=float32)</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>[[<span class="dv">1</span>]]</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="kw">tf.Tensor</span>(</span>
+<span id="cb4-3"><a href="#cb4-3"></a>[[<span class="op">-</span><span class="fl">0.74563709</span> <span class="fl">-0.93176198</span> <span class="fl">-0.87921167</span> ... <span class="fl">-1.16363856</span> <span class="fl">-0.67966066</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a>  <span class="fl">-1.15323646</span>]</span>
+<span id="cb4-5"><a href="#cb4-5"></a> [ <span class="fl">0.12980953</span>  <span class="fl">0.57753842</span> <span class="fl">-0.23673063</span> ... <span class="fl">-0.60792731</span> <span class="fl">-0.67966066</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a>  <span class="fl">-0.28977758</span>]</span>
+<span id="cb4-7"><a href="#cb4-7"></a> [ <span class="fl">0.12980953</span>  <span class="fl">0.57753842</span> <span class="fl">-1.04541332</span> ... <span class="fl">-0.05221607</span> <span class="fl">-0.67966066</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a>  <span class="fl">-0.57759721</span>]</span>
+<span id="cb4-9"><a href="#cb4-9"></a> ...</span>
+<span id="cb4-10"><a href="#cb4-10"></a> [<span class="op">-</span><span class="fl">0.52677544</span>  <span class="fl">0.57753842</span>  <span class="fl">0.02125403</span> ... <span class="fl">-1.16363856</span> <span class="fl">-0.67966066</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a>  <span class="fl">-1.15323646</span>]</span>
+<span id="cb4-12"><a href="#cb4-12"></a> [<span class="op">-</span><span class="fl">0.52677544</span> <span class="fl">-0.93176198</span>  <span class="fl">1.22187497</span> ... <span class="fl">-0.88578293</span> <span class="fl">-0.67966066</span></span>
+<span id="cb4-13"><a href="#cb4-13"></a>  <span class="fl">-0.28977758</span>]</span>
+<span id="cb4-14"><a href="#cb4-14"></a> [ <span class="fl">0.56753284</span>  <span class="fl">0.57753842</span> <span class="fl">-0.45502534</span> ...  <span class="fl">3.28205141</span>  <span class="fl">2.75206856</span></span>
+<span id="cb4-15"><a href="#cb4-15"></a>   <span class="fl">0.5736813</span> ]], <span class="dt">shape=</span>(<span class="dv">50</span>, <span class="dv">31</span>), <span class="dt">dtype=</span>float64)</span>
+<span id="cb4-16"><a href="#cb4-16"></a></span>
+<span id="cb4-17"><a href="#cb4-17"></a>[[<span class="dv">2</span>]]</span>
+<span id="cb4-18"><a href="#cb4-18"></a><span class="kw">tf.Tensor</span>(</span>
+<span id="cb4-19"><a href="#cb4-19"></a>[<span class="fl">1.</span> <span class="fl">0.</span> <span class="fl">0.</span> <span class="fl">1.</span> <span class="fl">0.</span> <span class="fl">0.</span> <span class="fl">0.</span> <span class="fl">0.</span> <span class="fl">0.</span> <span class="fl">0.</span> <span class="fl">0.</span> <span class="fl">0.</span> <span class="fl">0.</span> <span class="fl">0.</span> <span class="fl">0.</span> <span class="fl">0.</span> <span class="fl">0.</span> <span class="fl">0.</span> <span class="fl">0.</span> <span class="fl">0.</span> <span class="fl">0.</span> <span class="fl">0.</span> <span class="fl">0.</span> <span class="fl">0.</span></span>
+<span id="cb4-20"><a href="#cb4-20"></a> <span class="fl">0.</span> <span class="fl">0.</span> <span class="fl">0.</span> <span class="fl">1.</span> <span class="fl">0.</span> <span class="fl">1.</span> <span class="fl">0.</span> <span class="fl">1.</span> <span class="fl">0.</span> <span class="fl">0.</span> <span class="fl">0.</span> <span class="fl">0.</span> <span class="fl">0.</span> <span class="fl">0.</span> <span class="fl">0.</span> <span class="fl">1.</span> <span class="fl">0.</span> <span class="fl">1.</span> <span class="fl">0.</span> <span class="fl">0.</span> <span class="fl">0.</span> <span class="fl">0.</span> <span class="fl">0.</span> <span class="fl">0.</span></span>
+<span id="cb4-21"><a href="#cb4-21"></a> <span class="fl">0.</span> <span class="fl">0.</span>], <span class="dt">shape=</span>(<span class="dv">50</span>,), <span class="dt">dtype=</span>float32)</span></code></pre></div>
 </div>
 <h4 id="weights-and-biases">Weights and Biases</h4>
 <p>        <strong>Weights</strong> və <strong>Bias</strong> linear regression-a çox bənzəyir.</p>
@@ -1965,147 +2049,152 @@ tf.Tensor(
 <p><strong>Weights == Regression coefficients </strong> <br> <strong>Bias == Intercept</strong></p>
 </center>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-W = tfe$Variable(tf$zeros(shape(31L, 2L), name=&#39;weights&#39;))
-b = tfe$Variable(tf$zeros(shape(2L), name=&#39;bias&#39;))</code></pre>
+<div class="sourceCode">
+<pre><code><span class='va'>W</span> <span class='op'>=</span> <span class='va'>tfe</span><span class='op'>$</span><span class='fu'>Variable</span><span class='op'>(</span><span class='va'>tf</span><span class='op'>$</span><span class='fu'>zeros</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/tensorflow/man/shape.html'>shape</a></span><span class='op'>(</span><span class='fl'>31L</span>, <span class='fl'>2L</span><span class='op'>)</span>, name<span class='op'>=</span><span class='st'>'weights'</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>b</span> <span class='op'>=</span> <span class='va'>tfe</span><span class='op'>$</span><span class='fu'>Variable</span><span class='op'>(</span><span class='va'>tf</span><span class='op'>$</span><span class='fu'>zeros</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/tensorflow/man/shape.html'>shape</a></span><span class='op'>(</span><span class='fl'>2L</span><span class='op'>)</span>, name<span class='op'>=</span><span class='st'>'bias'</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
 </div>
 <p>        <strong>Logistic Regression</strong>, <strong>itki funksiyası</strong>, <strong>accuracy</strong> funksiyalarını yazaraq optimizer-idə müəyyən edirik.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-# Logistic regression (Wx + b)
+<div class="sourceCode">
+<pre><code><span class='co'># Logistic regression (Wx + b)</span>
 
-logistic_regression = function(inputs){
-  # Multiply Two Matricies
-  return(tf$matmul(inputs, W) + b)
-}
+<span class='va'>logistic_regression</span> <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>inputs</span><span class='op'>)</span><span class='op'>{</span>
+  <span class='co'># Multiply Two Matricies</span>
+  <span class='kw'><a href='https://rdrr.io/r/base/function.html'>return</a></span><span class='op'>(</span><span class='va'>tf</span><span class='op'>$</span><span class='fu'>matmul</span><span class='op'>(</span><span class='va'>inputs</span>, <span class='va'>W</span><span class='op'>)</span> <span class='op'>+</span> <span class='va'>b</span><span class='op'>)</span>
+<span class='op'>}</span>
 
-# Cross-Entropy loss function
-loss_fn = function(inference_fn, inputs, labels) {
-  # Using sparse_softmax cross entropy
-  return(tf$reduce_mean(tf$nn$sparse_softmax_cross_entropy_with_logits(
-    logits=inference_fn(inputs), labels=labels)))
-}
-
-
-# Calculate accuracy
-
-accuracy_fn = function(inference_fn, inputs, labels) {
-  prediction = tf$nn$sigmoid(inference_fn(inputs))
-  correct_pred = tf$equal(tf$argmax(prediction, 1L), labels)
-  return( tf$reduce_mean(tf$cast(correct_pred, tf$float32)) )
-}
+<span class='co'># Cross-Entropy loss function</span>
+<span class='va'>loss_fn</span> <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>inference_fn</span>, <span class='va'>inputs</span>, <span class='va'>labels</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='co'># Using sparse_softmax cross entropy</span>
+  <span class='kw'><a href='https://rdrr.io/r/base/function.html'>return</a></span><span class='op'>(</span><span class='va'>tf</span><span class='op'>$</span><span class='fu'>reduce_mean</span><span class='op'>(</span><span class='va'>tf</span><span class='op'>$</span><span class='va'>nn</span><span class='op'>$</span><span class='fu'>sparse_softmax_cross_entropy_with_logits</span><span class='op'>(</span>
+    logits<span class='op'>=</span><span class='fu'>inference_fn</span><span class='op'>(</span><span class='va'>inputs</span><span class='op'>)</span>, labels<span class='op'>=</span><span class='va'>labels</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+<span class='op'>}</span>
 
 
-# SGD Optimizer
+<span class='co'># Calculate accuracy</span>
 
-optimizer = tf$train$GradientDescentOptimizer(learning_rate=learning_rate)
+<span class='va'>accuracy_fn</span> <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>inference_fn</span>, <span class='va'>inputs</span>, <span class='va'>labels</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='va'>prediction</span> <span class='op'>=</span> <span class='va'>tf</span><span class='op'>$</span><span class='va'>nn</span><span class='op'>$</span><span class='fu'>sigmoid</span><span class='op'>(</span><span class='fu'>inference_fn</span><span class='op'>(</span><span class='va'>inputs</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='va'>correct_pred</span> <span class='op'>=</span> <span class='va'>tf</span><span class='op'>$</span><span class='fu'>equal</span><span class='op'>(</span><span class='va'>tf</span><span class='op'>$</span><span class='fu'>argmax</span><span class='op'>(</span><span class='va'>prediction</span>, <span class='fl'>1L</span><span class='op'>)</span>, <span class='va'>labels</span><span class='op'>)</span>
+  <span class='kw'><a href='https://rdrr.io/r/base/function.html'>return</a></span><span class='op'>(</span> <span class='va'>tf</span><span class='op'>$</span><span class='fu'>reduce_mean</span><span class='op'>(</span><span class='va'>tf</span><span class='op'>$</span><span class='fu'>cast</span><span class='op'>(</span><span class='va'>correct_pred</span>, <span class='va'>tf</span><span class='op'>$</span><span class='va'>float32</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>)</span>
+<span class='op'>}</span>
 
-# Compute gradients
-grad = tfe$implicit_gradients(loss_fn)
 
-# Training
-average_loss = 0.0
-average_acc = 0.0</code></pre>
+<span class='co'># SGD Optimizer</span>
+
+<span class='va'>optimizer</span> <span class='op'>=</span> <span class='va'>tf</span><span class='op'>$</span><span class='va'>train</span><span class='op'>$</span><span class='fu'>GradientDescentOptimizer</span><span class='op'>(</span>learning_rate<span class='op'>=</span><span class='va'>learning_rate</span><span class='op'>)</span>
+
+<span class='co'># Compute gradients</span>
+<span class='va'>grad</span> <span class='op'>=</span> <span class='va'>tfe</span><span class='op'>$</span><span class='fu'>implicit_gradients</span><span class='op'>(</span><span class='va'>loss_fn</span><span class='op'>)</span>
+
+<span class='co'># Training</span>
+<span class='va'>average_loss</span> <span class='op'>=</span> <span class='fl'>0.0</span>
+<span class='va'>average_acc</span> <span class='op'>=</span> <span class='fl'>0.0</span>
+</code></pre>
+</div>
 </div>
 <p>        Və nəhayət <strong>training</strong> mərhələsinə çatdıq.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-for (step in 1:num_steps) {
+<div class="sourceCode">
+<pre><code><span class='kw'>for</span> <span class='op'>(</span><span class='va'>step</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='va'>num_steps</span><span class='op'>)</span> <span class='op'>{</span>
   
-  # İterator
-  d = iterator_get_next(dataset_iter)
+  <span class='co'># İterator</span>
+  <span class='va'>d</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/tfdatasets/man/iterator_get_next.html'>iterator_get_next</a></span><span class='op'>(</span><span class='va'>dataset_iter</span><span class='op'>)</span>
   
-  # Sütunlar
-  x_batch = tf$cast(d[[1]], dtype=tf$float32)
+  <span class='co'># Sütunlar</span>
+  <span class='va'>x_batch</span> <span class='op'>=</span> <span class='va'>tf</span><span class='op'>$</span><span class='fu'>cast</span><span class='op'>(</span><span class='va'>d</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span>, dtype<span class='op'>=</span><span class='va'>tf</span><span class='op'>$</span><span class='va'>float32</span><span class='op'>)</span>
   
-  # Attrition
-  y_batch =  tf$cast(d[[2]], dtype=tf$int64)
+  <span class='co'># Attrition</span>
+  <span class='va'>y_batch</span> <span class='op'>=</span>  <span class='va'>tf</span><span class='op'>$</span><span class='fu'>cast</span><span class='op'>(</span><span class='va'>d</span><span class='op'>[[</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>]</span>, dtype<span class='op'>=</span><span class='va'>tf</span><span class='op'>$</span><span class='va'>int64</span><span class='op'>)</span>
   
-  # the batch loss
-  batch_loss = loss_fn(logistic_regression, x_batch, y_batch)
-  average_loss = average_loss + batch_loss
+  <span class='co'># the batch loss</span>
+  <span class='va'>batch_loss</span> <span class='op'>=</span> <span class='fu'>loss_fn</span><span class='op'>(</span><span class='va'>logistic_regression</span>, <span class='va'>x_batch</span>, <span class='va'>y_batch</span><span class='op'>)</span>
+  <span class='va'>average_loss</span> <span class='op'>=</span> <span class='va'>average_loss</span> <span class='op'>+</span> <span class='va'>batch_loss</span>
   
-  # the batch accuracy
-  batch_accuracy = accuracy_fn(logistic_regression, x_batch, y_batch)
-  average_acc = average_acc + batch_accuracy
+  <span class='co'># the batch accuracy</span>
+  <span class='va'>batch_accuracy</span> <span class='op'>=</span> <span class='fu'>accuracy_fn</span><span class='op'>(</span><span class='va'>logistic_regression</span>, <span class='va'>x_batch</span>, <span class='va'>y_batch</span><span class='op'>)</span>
+  <span class='va'>average_acc</span> <span class='op'>=</span> <span class='va'>average_acc</span> <span class='op'>+</span> <span class='va'>batch_accuracy</span>
   
-  if (step == 0) {
-    # Display the initial cost, before optimizing
-    return(print(paste(sprintf(&quot;Initial loss: %.2f &quot;,average_loss))))
-  }
-  # Update the variables following gradients info
-  optimizer$apply_gradients(grad(logistic_regression, x_batch, y_batch))
+  <span class='kw'>if</span> <span class='op'>(</span><span class='va'>step</span> <span class='op'>==</span> <span class='fl'>0</span><span class='op'>)</span> <span class='op'>{</span>
+    <span class='co'># Display the initial cost, before optimizing</span>
+    <span class='kw'><a href='https://rdrr.io/r/base/function.html'>return</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span><span class='op'>(</span><span class='st'>"Initial loss: %.2f "</span>,<span class='va'>average_loss</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='op'>}</span>
+  <span class='co'># Update the variables following gradients info</span>
+  <span class='va'>optimizer</span><span class='op'>$</span><span class='fu'>apply_gradients</span><span class='op'>(</span><span class='fu'>grad</span><span class='op'>(</span><span class='va'>logistic_regression</span>, <span class='va'>x_batch</span>, <span class='va'>y_batch</span><span class='op'>)</span><span class='op'>)</span>
   
-  # Display info
-  if ((step + 1) %% display_step == 0 &amp; step == 0) {
-    if (step &gt; 0){
-      average_loss = average_loss / display_step
-      average_acc = average_acc / display_step
-      average_loss = 0
-      average_acc = 0
-    }
+  <span class='co'># Display info</span>
+  <span class='kw'>if</span> <span class='op'>(</span><span class='op'>(</span><span class='va'>step</span> <span class='op'>+</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>%%</span> <span class='va'>display_step</span> <span class='op'>==</span> <span class='fl'>0</span> <span class='op'>&amp;</span> <span class='va'>step</span> <span class='op'>==</span> <span class='fl'>0</span><span class='op'>)</span> <span class='op'>{</span>
+    <span class='kw'>if</span> <span class='op'>(</span><span class='va'>step</span> <span class='op'>&gt;</span> <span class='fl'>0</span><span class='op'>)</span><span class='op'>{</span>
+      <span class='va'>average_loss</span> <span class='op'>=</span> <span class='va'>average_loss</span> <span class='op'>/</span> <span class='va'>display_step</span>
+      <span class='va'>average_acc</span> <span class='op'>=</span> <span class='va'>average_acc</span> <span class='op'>/</span> <span class='va'>display_step</span>
+      <span class='va'>average_loss</span> <span class='op'>=</span> <span class='fl'>0</span>
+      <span class='va'>average_acc</span> <span class='op'>=</span> <span class='fl'>0</span>
+    <span class='op'>}</span>
     
-  }
-  print(paste(sprintf(&#39;Step: %.f&#39;,(step + 1)),
-              sprintf(&#39;Loss: %.2f&#39;,batch_loss),
-              sprintf(&#39;Accuracy: %.2f&#39;,batch_accuracy)))
-}</code></pre>
+  <span class='op'>}</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span><span class='op'>(</span><span class='st'>'Step: %.f'</span>,<span class='op'>(</span><span class='va'>step</span> <span class='op'>+</span> <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>,
+              <span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span><span class='op'>(</span><span class='st'>'Loss: %.2f'</span>,<span class='va'>batch_loss</span><span class='op'>)</span>,
+              <span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span><span class='op'>(</span><span class='st'>'Accuracy: %.2f'</span>,<span class='va'>batch_accuracy</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+<span class='op'>}</span>
+</code></pre>
+</div>
 </div>
 <h4 id="output-1">Output</h4>
 <p>        Nəticəyə baxanda görünən odur ki, <strong>Accuracy</strong> artır və azalır. Bunun əsaslı səbəbi datada <strong>high variance</strong> olmasıdır, yəni <em>continuous</em> sütunlarda ciddi outlier-lərin mövcud olduğunu bildirir. Bu problem bizim mövzuda araşdırılmayacaq, çünki məqsəd Tensorflow ilə <strong>logistic regression</strong> yaratmaqdır.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-[1] &quot;Step: 28 Loss: 0.62 Accuracy: 0.84&quot;
-[1] &quot;Step: 29 Loss: 0.63 Accuracy: 0.86&quot;
-[1] &quot;Step: 30 Loss: 0.60 Accuracy: 0.92&quot;
-[1] &quot;Step: 31 Loss: 0.60 Accuracy: 0.90&quot;
-[1] &quot;Step: 32 Loss: 0.60 Accuracy: 0.92&quot;
-[1] &quot;Step: 33 Loss: 0.62 Accuracy: 0.82&quot;
-[1] &quot;Step: 34 Loss: 0.61 Accuracy: 0.88&quot;
-[1] &quot;Step: 35 Loss: 0.62 Accuracy: 0.82&quot;
-[1] &quot;Step: 36 Loss: 0.61 Accuracy: 0.86&quot;
-[1] &quot;Step: 37 Loss: 0.63 Accuracy: 0.76&quot;
-[1] &quot;Step: 38 Loss: 0.64 Accuracy: 0.80&quot;
-[1] &quot;Step: 39 Loss: 0.61 Accuracy: 0.80&quot;
-[1] &quot;Step: 40 Loss: 0.59 Accuracy: 0.84&quot;
-[1] &quot;Step: 41 Loss: 0.59 Accuracy: 0.86&quot;
-[1] &quot;Step: 42 Loss: 0.58 Accuracy: 0.88&quot;
-[1] &quot;Step: 43 Loss: 0.58 Accuracy: 0.88&quot;
-[1] &quot;Step: 44 Loss: 0.58 Accuracy: 0.94&quot;
-[1] &quot;Step: 45 Loss: 0.60 Accuracy: 0.86&quot;
-[1] &quot;Step: 46 Loss: 0.57 Accuracy: 0.84&quot;
-[1] &quot;Step: 47 Loss: 0.60 Accuracy: 0.86&quot;
-[1] &quot;Step: 48 Loss: 0.58 Accuracy: 0.88&quot;
-[1] &quot;Step: 49 Loss: 0.58 Accuracy: 0.88&quot;
-[1] &quot;Step: 50 Loss: 0.58 Accuracy: 0.88&quot;
-[1] &quot;Step: 51 Loss: 0.58 Accuracy: 0.86&quot;</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>[<span class="dv">1</span>] <span class="st">&quot;Step: 28 Loss: 0.62 Accuracy: 0.84&quot;</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>[<span class="dv">1</span>] <span class="st">&quot;Step: 29 Loss: 0.63 Accuracy: 0.86&quot;</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>[<span class="dv">1</span>] <span class="st">&quot;Step: 30 Loss: 0.60 Accuracy: 0.92&quot;</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a>[<span class="dv">1</span>] <span class="st">&quot;Step: 31 Loss: 0.60 Accuracy: 0.90&quot;</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a>[<span class="dv">1</span>] <span class="st">&quot;Step: 32 Loss: 0.60 Accuracy: 0.92&quot;</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a>[<span class="dv">1</span>] <span class="st">&quot;Step: 33 Loss: 0.62 Accuracy: 0.82&quot;</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a>[<span class="dv">1</span>] <span class="st">&quot;Step: 34 Loss: 0.61 Accuracy: 0.88&quot;</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a>[<span class="dv">1</span>] <span class="st">&quot;Step: 35 Loss: 0.62 Accuracy: 0.82&quot;</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a>[<span class="dv">1</span>] <span class="st">&quot;Step: 36 Loss: 0.61 Accuracy: 0.86&quot;</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a>[<span class="dv">1</span>] <span class="st">&quot;Step: 37 Loss: 0.63 Accuracy: 0.76&quot;</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a>[<span class="dv">1</span>] <span class="st">&quot;Step: 38 Loss: 0.64 Accuracy: 0.80&quot;</span></span>
+<span id="cb5-12"><a href="#cb5-12"></a>[<span class="dv">1</span>] <span class="st">&quot;Step: 39 Loss: 0.61 Accuracy: 0.80&quot;</span></span>
+<span id="cb5-13"><a href="#cb5-13"></a>[<span class="dv">1</span>] <span class="st">&quot;Step: 40 Loss: 0.59 Accuracy: 0.84&quot;</span></span>
+<span id="cb5-14"><a href="#cb5-14"></a>[<span class="dv">1</span>] <span class="st">&quot;Step: 41 Loss: 0.59 Accuracy: 0.86&quot;</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a>[<span class="dv">1</span>] <span class="st">&quot;Step: 42 Loss: 0.58 Accuracy: 0.88&quot;</span></span>
+<span id="cb5-16"><a href="#cb5-16"></a>[<span class="dv">1</span>] <span class="st">&quot;Step: 43 Loss: 0.58 Accuracy: 0.88&quot;</span></span>
+<span id="cb5-17"><a href="#cb5-17"></a>[<span class="dv">1</span>] <span class="st">&quot;Step: 44 Loss: 0.58 Accuracy: 0.94&quot;</span></span>
+<span id="cb5-18"><a href="#cb5-18"></a>[<span class="dv">1</span>] <span class="st">&quot;Step: 45 Loss: 0.60 Accuracy: 0.86&quot;</span></span>
+<span id="cb5-19"><a href="#cb5-19"></a>[<span class="dv">1</span>] <span class="st">&quot;Step: 46 Loss: 0.57 Accuracy: 0.84&quot;</span></span>
+<span id="cb5-20"><a href="#cb5-20"></a>[<span class="dv">1</span>] <span class="st">&quot;Step: 47 Loss: 0.60 Accuracy: 0.86&quot;</span></span>
+<span id="cb5-21"><a href="#cb5-21"></a>[<span class="dv">1</span>] <span class="st">&quot;Step: 48 Loss: 0.58 Accuracy: 0.88&quot;</span></span>
+<span id="cb5-22"><a href="#cb5-22"></a>[<span class="dv">1</span>] <span class="st">&quot;Step: 49 Loss: 0.58 Accuracy: 0.88&quot;</span></span>
+<span id="cb5-23"><a href="#cb5-23"></a>[<span class="dv">1</span>] <span class="st">&quot;Step: 50 Loss: 0.58 Accuracy: 0.88&quot;</span></span>
+<span id="cb5-24"><a href="#cb5-24"></a>[<span class="dv">1</span>] <span class="st">&quot;Step: 51 Loss: 0.58 Accuracy: 0.86&quot;</span></span></code></pre></div>
 </div>
 <h3 id="nəticələr-məlumdur-test-setdə-necə-təsdiqləmək-olar-aldığmız-nəticəni-overfitting-mövcuddur">Nəticələr məlumdur, test setdə necə təsdiqləmək olar aldığmız nəticəni? Overfitting mövcuddur?</h3>
 <p>        Bu məqsəd üçün biz train_datanı preprocess etdiyimiz kimi test_datanıda həmin qaydada emal etməliyik.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-features2 = test_data %&gt;% mutate_if(is.character,as.factor) %&gt;% select(-Attrition) %&gt;% 
-  .[, sapply(., function(col) length(unique(col))) &gt; 1] %&gt;% 
-  mutate_all(as.numeric) %&gt;% scale(center = T,scale = T) %&gt;% as.matrix()
-
-
-
-labels2 = test_data$Attrition %&gt;%as.factor() %&gt;%  as.numeric() %&gt;% 
-  car::recode(.,&quot;2 = 1; 1 = 0&quot;)
-
-testX = tf$cast(features2, dtype=tf$float32)
-testY = tf$cast(labels2 ,dtype=tf$int64)
-
-test_acc = accuracy_fn(logistic_regression, testX, testY)
-cat(sprintf(&quot;Testset Accuracy: %.2f &quot;,test_acc))
-
-# Output 
-
-Testset Accuracy: 0.88 </code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>features2 =<span class="st"> </span>test_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate_if</span>(is.character,as.factor) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>Attrition) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="st">  </span>.[, <span class="kw">sapply</span>(., <span class="cf">function</span>(col) <span class="kw">length</span>(<span class="kw">unique</span>(col))) <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>] <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="st">  </span><span class="kw">mutate_all</span>(as.numeric) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">scale</span>(<span class="dt">center =</span> T,<span class="dt">scale =</span> T) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.matrix</span>()</span>
+<span id="cb6-4"><a href="#cb6-4"></a></span>
+<span id="cb6-5"><a href="#cb6-5"></a></span>
+<span id="cb6-6"><a href="#cb6-6"></a></span>
+<span id="cb6-7"><a href="#cb6-7"></a>labels2 =<span class="st"> </span>test_data<span class="op">$</span>Attrition <span class="op">%&gt;%</span><span class="kw">as.factor</span>() <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">as.numeric</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="st">  </span>car<span class="op">::</span><span class="kw">recode</span>(.,<span class="st">&quot;2 = 1; 1 = 0&quot;</span>)</span>
+<span id="cb6-9"><a href="#cb6-9"></a></span>
+<span id="cb6-10"><a href="#cb6-10"></a>testX =<span class="st"> </span>tf<span class="op">$</span><span class="kw">cast</span>(features2, <span class="dt">dtype=</span>tf<span class="op">$</span>float32)</span>
+<span id="cb6-11"><a href="#cb6-11"></a>testY =<span class="st"> </span>tf<span class="op">$</span><span class="kw">cast</span>(labels2 ,<span class="dt">dtype=</span>tf<span class="op">$</span>int64)</span>
+<span id="cb6-12"><a href="#cb6-12"></a></span>
+<span id="cb6-13"><a href="#cb6-13"></a>test_acc =<span class="st"> </span><span class="kw">accuracy_fn</span>(logistic_regression, testX, testY)</span>
+<span id="cb6-14"><a href="#cb6-14"></a><span class="kw">cat</span>(<span class="kw">sprintf</span>(<span class="st">&quot;Testset Accuracy: %.2f &quot;</span>,test_acc))</span>
+<span id="cb6-15"><a href="#cb6-15"></a></span>
+<span id="cb6-16"><a href="#cb6-16"></a><span class="co"># Output </span></span>
+<span id="cb6-17"><a href="#cb6-17"></a></span>
+<span id="cb6-18"><a href="#cb6-18"></a>Testset Accuracy<span class="op">:</span><span class="st"> </span><span class="fl">0.88</span> </span></code></pre></div>
 </div>
 <p><strong>Test setdəki</strong> nəticə <strong>train setə</strong> çox yaxın olduğu üçün biz overfitting problemi ilə qarşılaşmadıq.</p>
 <h3 id="conclusion">Conclusion</h3>
 <p>        Nəticədə oxuyuculara Tensorflow ilə Logistic Regression-nun yaradılmasıyla yanaşı Eager Execution-un vacibliyi çatdırılmışdır. Bununla yanaşı məlumatı hansı qaydada hazırlanıb ötürülməsidə ətraflı olaraq izah edilmişdir.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">
   <p class="social_footer">
