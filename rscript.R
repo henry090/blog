@@ -25,6 +25,6 @@ for (i in 1:length(files)) {
   print(paste('Done',i,'post out of',length(files)))
 }
 
-#rmarkdown::render_site()
+rmarkdown::render_site()
 rmarkdown::render_site('index.Rmd')
 
