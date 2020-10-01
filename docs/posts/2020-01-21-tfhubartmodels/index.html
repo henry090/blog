@@ -18,6 +18,73 @@
  <!--radix_placeholder_import_source-->
  <!--/radix_placeholder_import_source-->
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #545454; font-weight: bold; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #a1024a; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007faa; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #008000; } /* Char */
+code span.cn { color: #d91e18; } /* Constant */
+code span.co { color: #545454; } /* Comment */
+code span.cv { color: #545454; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #aa5d00; } /* DataType */
+code span.dv { color: #a1024a; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #a1024a; } /* Float */
+code span.fu { color: #4254a7; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #545454; font-weight: bold; } /* Information */
+code span.kw { color: #007faa; font-weight: bold; } /* Keyword */
+code span.op { color: #696969; } /* Operator */
+code span.ot { color: #007faa; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #008000; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #008000; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #008000; } /* VerbatimString */
+code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
   <!--radix_placeholder_meta_tags-->
 <title>Data Experts: Tensorflow Hub + R + State-of-the-art models</title>
 
@@ -65,7 +132,7 @@
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["comment_56.csv","tf_hub.jpg","tfhubartmodels_files/bowser-1.9.3/bowser.min 2.js","tfhubartmodels_files/bowser-1.9.3/bowser.min.js","tfhubartmodels_files/distill-2.2.21/template.v2.js","tfhubartmodels_files/jquery-1.11.3/jquery.min.js","tfhubartmodels_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["comment_56.csv","tf_hub.jpg","tfhubartmodels_files/bowser-1.9.3/bowser.min.js","tfhubartmodels_files/distill-2.2.21/template.v2.js","tfhubartmodels_files/jquery-1.11.3/jquery.min.js","tfhubartmodels_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -1708,6 +1775,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <!--/radix_placeholder_distill-->
   <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="../../site_libs/anchor-4.2.2/anchor.min.js"></script>
   <script src="../../site_libs/bowser-1.9.3/bowser.min.js"></script>
   <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
   <script src="../../site_libs/distill-2.2.21/template.v2.js"></script>
@@ -1729,7 +1797,7 @@ gtag('config', 'UA-129142339-1');
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Tensorflow Hub + R + State-of-the-art models","description":"Tensorflow Hub ilə \"State-of-the-art\" modellərindən istifadə edərək yüksək dəqiqliyə malik olan modellər yaradın (NLP, Image, Video and etc.). Məsələn, mətnlər üzərində sentiment analizi aparmaq üçün heç bir \"preprocess\" mərhələlərinə ehtiyac yoxdur. \"State-of-the-art\" modelinin özü mətni avtomatik emal edərək hesablamanı həyata keçirəcəkdir. Bütün əməliyyatları 25 sətr kod ilə icra etmək mümkündür.","authors":[{"author":"Turqut Abdullayev","authorURL":"#","affiliation":"Access Bank /  QSS","affiliationURL":"#","orcidID":""}],"publishedDate":"2019-08-25T00:00:00.000+04:00","citationText":"Abdullayev, 2019"}
+{"title":"Tensorflow Hub + R + State-of-the-art models","description":"Tensorflow Hub ilə \"State-of-the-art\" modellərindən istifadə edərək yüksək dəqiqliyə malik olan modellər yaradın (NLP, Image, Video and etc.). Məsələn, mətnlər üzərində sentiment analizi aparmaq üçün heç bir \"preprocess\" mərhələlərinə ehtiyac yoxdur. \"State-of-the-art\" modelinin özü mətni avtomatik emal edərək hesablamanı həyata keçirəcəkdir. Bütün əməliyyatları 25 sətr kod ilə icra etmək mümkündür.","authors":[{"author":"Turqut Abdullayev","authorURL":"#","affiliation":"Access Bank /  QSS","affiliationURL":"#","orcidID":""}],"publishedDate":"2019-08-25T00:00:00.000+00:00","citationText":"Abdullayev, 2019"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1775,7 +1843,13 @@ Contributing
 
 <div class="d-title">
 <h1>Tensorflow Hub + R + State-of-the-art models</h1>
-<p>Tensorflow Hub ilə “State-of-the-art” modellərindən istifadə edərək yüksək dəqiqliyə malik olan modellər yaradın (NLP, Image, Video and etc.). Məsələn, mətnlər üzərində sentiment analizi aparmaq üçün heç bir “preprocess” mərhələlərinə ehtiyac yoxdur. “State-of-the-art” modelinin özü mətni avtomatik emal edərək hesablamanı həyata keçirəcəkdir. Bütün əməliyyatları 25 sətr kod ilə icra etmək mümkündür.</p>
+<!--radix_placeholder_categories-->
+<div class="dt-tags">
+  <a href="../../index.html#category:Tensorflow_Hub" class="dt-tag">Tensorflow Hub</a>
+  <a href="../../index.html#category:State_of_the_art" class="dt-tag">State of the art</a>
+</div>
+<!--/radix_placeholder_categories-->
+<p><p>Tensorflow Hub ilə “State-of-the-art” modellərindən istifadə edərək yüksək dəqiqliyə malik olan modellər yaradın (NLP, Image, Video and etc.). Məsələn, mətnlər üzərində sentiment analizi aparmaq üçün heç bir “preprocess” mərhələlərinə ehtiyac yoxdur. “State-of-the-art” modelinin özü mətni avtomatik emal edərək hesablamanı həyata keçirəcəkdir. Bütün əməliyyatları 25 sətr kod ilə icra etmək mümkündür.</p></p>
 </div>
 
 <div class="d-byline">
@@ -1868,75 +1942,79 @@ Stupid peace of shit stop deleting my stuff asshole go die and fall in a hole go
 <p>İndi isə həmin dataset üzərində 25 sətr kodla modeli yarada bilərik. Qeyd edim ki, mətnləri preprocess etməyə ehtiyac yoxdur. Preprocess deyəndə mətndəki lazımsız simvolları təmizləyərək, indekslərə çevirmək, daha sonra isə hər bir sözün çəkisini “State-of-the-art” modelinin nəticəsindən çıxan vektorlarla birləşdirməyə ehtiyac olmaması deməkdir. Model bütün addımları özü edəcəkdir.</p>
 <p><strong>Nümunə:</strong></p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-# cümlə çox çirklidir və bəzi sözlər böyük hərflə yazılmışdır
-&quot;&#39;&#39;&#39;&#39;hello&#39;, something ,,,went wRong @@after ...meetinG&quot;</code></pre>
+<div class="sourceCode">
+<pre><code><span class='co'># cümlə çox çirklidir və bəzi sözlər böyük hərflə yazılmışdır</span>
+<span class='st'>"''''hello', something ,,,went wRong @@after ...meetinG"</span>
+</code></pre>
+</div>
 </div>
 <p>Datanı manual təmizləyərək, sözləri Glove modelindəki vekorlarla əvəz etməliyik. Məsələn.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-&quot;hello&quot; &quot;something&quot; &quot;went&quot; &quot;wrong&quot; &quot;after&quot; &quot;meeting&quot;
-&quot;0.567&quot; &quot;0.267&quot;     &quot;0.96&quot;  &quot;0.1&quot;   &quot;0.311&quot; &quot;0.532&quot;</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="st">&quot;hello&quot;</span> <span class="st">&quot;something&quot;</span> <span class="st">&quot;went&quot;</span> <span class="st">&quot;wrong&quot;</span> <span class="st">&quot;after&quot;</span> <span class="st">&quot;meeting&quot;</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="st">&quot;0.567&quot;</span> <span class="st">&quot;0.267&quot;</span>     <span class="st">&quot;0.96&quot;</span>  <span class="st">&quot;0.1&quot;</span>   <span class="st">&quot;0.311&quot;</span> <span class="st">&quot;0.532&quot;</span></span></code></pre></div>
 </div>
 <p>Bütün bu addımları etməyə ehtiyac yoxdur. Tensorflow Hub-dakı modellər avtomatik olaraq bu addımları sizin yerinizə edəcəkdir.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-# install all the necessary libraries
-tensorflow::install_tensorflow(version = &quot;2.0.0-beta1&quot;)
+<div class="sourceCode">
+<pre><code><span class='co'># install all the necessary libraries</span>
+<span class='fu'>tensorflow</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/tensorflow/man/install_tensorflow.html'>install_tensorflow</a></span><span class='op'>(</span>version <span class='op'>=</span> <span class='st'>"2.0.0-beta1"</span><span class='op'>)</span>
 
-remotes::install_github(&quot;rstudio/tfdatasets&quot;)
-remotes::install_github(&quot;rstudio/keras&quot;)
+<span class='fu'>remotes</span><span class='fu'>::</span><span class='fu'><a href='https://remotes.r-lib.org/reference/install_github.html'>install_github</a></span><span class='op'>(</span><span class='st'>"rstudio/tfdatasets"</span><span class='op'>)</span>
+<span class='fu'>remotes</span><span class='fu'>::</span><span class='fu'><a href='https://remotes.r-lib.org/reference/install_github.html'>install_github</a></span><span class='op'>(</span><span class='st'>"rstudio/keras"</span><span class='op'>)</span>
 
-# open them
-library(keras)
-library(tfhub)
-# install python tf_hub
-tfhub::install_tfhub()
+<span class='co'># open them</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://keras.rstudio.com'>keras</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/rstudio/tfhub'>tfhub</a></span><span class='op'>)</span>
+<span class='co'># install python tf_hub</span>
+<span class='fu'>tfhub</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/tfhub/man/install_tfhub.html'>install_tfhub</a></span><span class='op'>(</span><span class='op'>)</span>
 
-# import dataset. 1st Download it from 
-# https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge/data
-# Then open train.csv dataset
-comments &lt;- data.table::fread(&#39;/Users/turgutabdullayev/Downloads/train_.csv&#39;)
+<span class='co'># import dataset. 1st Download it from </span>
+<span class='co'># https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge/data</span>
+<span class='co'># Then open train.csv dataset</span>
+<span class='va'>comments</span> <span class='op'>&lt;-</span> <span class='fu'>data.table</span><span class='fu'>::</span><span class='fu'><a href='https://Rdatatable.gitlab.io/data.table/reference/fread.html'>fread</a></span><span class='op'>(</span><span class='st'>'/Users/turgutabdullayev/Downloads/train_.csv'</span><span class='op'>)</span>
 
-# Load pre-trained model with 128 dim
-embeddings &lt;- layer_hub(
-  handle = &quot;https://tfhub.dev/google/tf2-preview/nnlm-en-dim128-with-normalization/1&quot;,
-  trainable = F
-)
+<span class='co'># Load pre-trained model with 128 dim</span>
+<span class='va'>embeddings</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/tfhub/man/layer_hub.html'>layer_hub</a></span><span class='op'>(</span>
+  handle <span class='op'>=</span> <span class='st'>"https://tfhub.dev/google/tf2-preview/nnlm-en-dim128-with-normalization/1"</span>,
+  trainable <span class='op'>=</span> <span class='cn'>F</span>
+<span class='op'>)</span>
 
-# input layer for text
-input &lt;- layer_input(shape = shape(), dtype = &quot;string&quot;)
+<span class='co'># input layer for text</span>
+<span class='va'>input</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/keras/man/layer_input.html'>layer_input</a></span><span class='op'>(</span>shape <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/tensorflow/man/shape.html'>shape</a></span><span class='op'>(</span><span class='op'>)</span>, dtype <span class='op'>=</span> <span class='st'>"string"</span><span class='op'>)</span>
 
-# import model to your acrhitecture
-output = embeddings(input) 
+<span class='co'># import model to your acrhitecture</span>
+<span class='va'>output</span> <span class='op'>=</span> <span class='fu'>embeddings</span><span class='op'>(</span><span class='va'>input</span><span class='op'>)</span> 
 
-# lambda function for reshaping 1d input of tf hub model into 3d due to gru_layer
-output = layer_lambda(f = function(x) {(k_reshape(x,shape = list(-1,1,128)))})(c(output))
+<span class='co'># lambda function for reshaping 1d input of tf hub model into 3d due to gru_layer</span>
+<span class='va'>output</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/keras/man/layer_lambda.html'>layer_lambda</a></span><span class='op'>(</span>f <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>{</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/keras/man/k_reshape.html'>k_reshape</a></span><span class='op'>(</span><span class='va'>x</span>,shape <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>128</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span><span class='op'>}</span><span class='op'>)</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>output</span><span class='op'>)</span><span class='op'>)</span>
 
-# apply bidirectional + layer gru to your model
-output =output %&gt;%  bidirectional(layer_gru(units = 80,return_sequences = T)) 
+<span class='co'># apply bidirectional + layer gru to your model</span>
+<span class='va'>output</span> <span class='op'>=</span><span class='va'>output</span> <span class='op'>%&gt;%</span>  <span class='fu'><a href='https://rdrr.io/pkg/keras/man/bidirectional.html'>bidirectional</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/keras/man/layer_gru.html'>layer_gru</a></span><span class='op'>(</span>units <span class='op'>=</span> <span class='fl'>80</span>,return_sequences <span class='op'>=</span> <span class='cn'>T</span><span class='op'>)</span><span class='op'>)</span> 
 
-# functional api = max_pool + average_pooling
-max_pool = output %&gt;% layer_global_max_pooling_1d()
-ave_pool = output %&gt;% layer_global_average_pooling_1d()
+<span class='co'># functional api = max_pool + average_pooling</span>
+<span class='va'>max_pool</span> <span class='op'>=</span> <span class='va'>output</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/pkg/keras/man/layer_global_max_pooling_1d.html'>layer_global_max_pooling_1d</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='va'>ave_pool</span> <span class='op'>=</span> <span class='va'>output</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/pkg/keras/man/layer_global_average_pooling_1d.html'>layer_global_average_pooling_1d</a></span><span class='op'>(</span><span class='op'>)</span>
 
-# concatenate them via concatenate function
-outp = layer_concatenate(list(ave_pool, max_pool)) %&gt;%
-  layer_dense(units = 32, activation = &quot;relu&quot;) %&gt;%
-  layer_dense(units = 6, activation = &quot;sigmoid&quot;)
+<span class='co'># concatenate them via concatenate function</span>
+<span class='va'>outp</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/keras/man/layer_concatenate.html'>layer_concatenate</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='va'>ave_pool</span>, <span class='va'>max_pool</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/pkg/keras/man/layer_dense.html'>layer_dense</a></span><span class='op'>(</span>units <span class='op'>=</span> <span class='fl'>32</span>, activation <span class='op'>=</span> <span class='st'>"relu"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/pkg/keras/man/layer_dense.html'>layer_dense</a></span><span class='op'>(</span>units <span class='op'>=</span> <span class='fl'>6</span>, activation <span class='op'>=</span> <span class='st'>"sigmoid"</span><span class='op'>)</span>
 
-# gather into final model via keras_model
-model &lt;- keras_model(input, outp)
+<span class='co'># gather into final model via keras_model</span>
+<span class='va'>model</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/keras/man/keras_model.html'>keras_model</a></span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>outp</span><span class='op'>)</span>
 
-# compile model
-model %&gt;% compile(loss = &quot;binary_crossentropy&quot;, optimizer = &quot;adam&quot;, 
-metrics = list(tf$keras$metrics$AUC()))
+<span class='co'># compile model</span>
+<span class='va'>model</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/pkg/generics/man/compile.html'>compile</a></span><span class='op'>(</span>loss <span class='op'>=</span> <span class='st'>"binary_crossentropy"</span>, optimizer <span class='op'>=</span> <span class='st'>"adam"</span>, 
+metrics <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='va'>tf</span><span class='op'>$</span><span class='va'>keras</span><span class='op'>$</span><span class='va'>metrics</span><span class='op'>$</span><span class='fu'>AUC</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
 
-# and run for 1 epoch (is enough!!!)
-model %&gt;% fit(epochs=1, x = comments$comment_text, 
-y = as.matrix(comments[,-c(1:2)]), validation_split = 0.2)</code></pre>
+<span class='co'># and run for 1 epoch (is enough!!!)</span>
+<span class='va'>model</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/pkg/generics/man/fit.html'>fit</a></span><span class='op'>(</span>epochs<span class='op'>=</span><span class='fl'>1</span>, x <span class='op'>=</span> <span class='va'>comments</span><span class='op'>$</span><span class='va'>comment_text</span>, 
+y <span class='op'>=</span> <span class='fu'><a href='https://Rdatatable.gitlab.io/data.table/reference/as.matrix.html'>as.matrix</a></span><span class='op'>(</span><span class='va'>comments</span><span class='op'>[</span>,<span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span><span class='op'>)</span><span class='op'>]</span><span class='op'>)</span>, validation_split <span class='op'>=</span> <span class='fl'>0.2</span><span class='op'>)</span>
+</code></pre>
+</div>
 </div>
 <p>Google tərəfindən <code>pre-trained</code> edilmiş <code>embedding language</code> modeli 128 dimension-dan ibarətdir. Və bu model bizə AUC göstəricisini 0.97-yə kimi verir (olduqca yüksək nəticədir). Glove (0.98) ilə müqayisədə yalnız 1 % aşağıdır (based on Kaggle notebooks where Glove has 300 dimensions).</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">
   <p class="social_footer">

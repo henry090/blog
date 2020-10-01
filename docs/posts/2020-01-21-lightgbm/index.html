@@ -18,6 +18,73 @@
  <!--radix_placeholder_import_source-->
  <!--/radix_placeholder_import_source-->
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #545454; font-weight: bold; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #a1024a; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007faa; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #008000; } /* Char */
+code span.cn { color: #d91e18; } /* Constant */
+code span.co { color: #545454; } /* Comment */
+code span.cv { color: #545454; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #aa5d00; } /* DataType */
+code span.dv { color: #a1024a; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #a1024a; } /* Float */
+code span.fu { color: #4254a7; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #545454; font-weight: bold; } /* Information */
+code span.kw { color: #007faa; font-weight: bold; } /* Keyword */
+code span.op { color: #696969; } /* Operator */
+code span.ot { color: #007faa; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #008000; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #008000; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #008000; } /* VerbatimString */
+code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
   <!--radix_placeholder_meta_tags-->
 <title>Data Experts: Light GBM from Microsoft</title>
 
@@ -1714,6 +1781,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <!--/radix_placeholder_distill-->
   <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="../../site_libs/anchor-4.2.2/anchor.min.js"></script>
   <script src="../../site_libs/bowser-1.9.3/bowser.min.js"></script>
   <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
   <script src="../../site_libs/distill-2.2.21/template.v2.js"></script>
@@ -1735,7 +1803,7 @@ gtag('config', 'UA-129142339-1');
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Light GBM from Microsoft","description":"Olduqca populyar və tez-tez beynəlxalq yarışlarda istifadə olunan və Microsoft tərəfindən təklif olunan Light GBM alqoritmi, hesablamanı çox sadələşdirir, sürətləndirir və dəqiqləşdirir. Bu postda daha çox hiperparametrlərlə işləmə qaydası, data preprocessing və modelin yaradılması oxuyuculara çatdırılacaqdır.","authors":[{"author":"Turqut Abdullayev","authorURL":"#","affiliation":"QSS","affiliationURL":"https://qss.az","orcidID":""},{"author":"Gulab Yusifli","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2019-06-01T00:00:00.000+04:00","citationText":"Abdullayev & Yusifli, 2019"}
+{"title":"Light GBM from Microsoft","description":"Olduqca populyar və tez-tez beynəlxalq yarışlarda istifadə olunan və Microsoft tərəfindən təklif olunan Light GBM alqoritmi, hesablamanı çox sadələşdirir, sürətləndirir və dəqiqləşdirir. Bu postda daha çox hiperparametrlərlə işləmə qaydası, data preprocessing və modelin yaradılması oxuyuculara çatdırılacaqdır.","authors":[{"author":"Turqut Abdullayev","authorURL":"#","affiliation":"QSS","affiliationURL":"https://qss.az","orcidID":""},{"author":"Gulab Yusifli","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2019-06-01T00:00:00.000+00:00","citationText":"Abdullayev & Yusifli, 2019"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1781,7 +1849,12 @@ Contributing
 
 <div class="d-title">
 <h1>Light GBM from Microsoft</h1>
-<p>Olduqca populyar və tez-tez beynəlxalq yarışlarda istifadə olunan və Microsoft tərəfindən təklif olunan Light GBM alqoritmi, hesablamanı çox sadələşdirir, sürətləndirir və dəqiqləşdirir. Bu postda daha çox hiperparametrlərlə işləmə qaydası, data preprocessing və modelin yaradılması oxuyuculara çatdırılacaqdır.</p>
+<!--radix_placeholder_categories-->
+<div class="dt-tags">
+  <a href="../../index.html#category:Light_GBM" class="dt-tag">Light GBM</a>
+</div>
+<!--/radix_placeholder_categories-->
+<p><p>Olduqca populyar və tez-tez beynəlxalq yarışlarda istifadə olunan və Microsoft tərəfindən təklif olunan Light GBM alqoritmi, hesablamanı çox sadələşdirir, sürətləndirir və dəqiqləşdirir. Bu postda daha çox hiperparametrlərlə işləmə qaydası, data preprocessing və modelin yaradılması oxuyuculara çatdırılacaqdır.</p></p>
 </div>
 
 <div class="d-byline">
@@ -1813,74 +1886,79 @@ Contributing
 <p>        Doğrudur, data olduqca kiçik olduqda model <strong>overfitting</strong>-ə meylli olduğuna baxmayaraq, prosesi <code>*max_depth*</code> paratmetri ilə optimallaşdırmaq olar.</p>
 <p>        Alqoritmlə işləmə zamanı tövsiyyə olunur ki, kateqorik sütunları one-hot encoding metodu ilə açmaq əvəzinə həmin sütunu(ları) indeksləşdirərək, bölünmə prosesinə Light GBM-ə ötürək. Həqiqətən belə olduğuna əmin olmaq üçün az altqruplardan ibarə olan kateqorik sütunları dummy variable-lara çevirərək test edə bilərik. Amma altqupların sayı çox olduqda bu demək olar ki, mümkün olamayacaq, səbəb — <strong>yaddaşın çox olmaması olacaqdır</strong>.</p>
 <h3 id="what-one-hot-encoding-means">What One-Hot Encoding means</h3>
-<p><code>Nümunə</code></p>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-library(mltools)
-library(dplyr)
-library(data.table)
-df=data.table(tehsil = as.factor(c(&#39;bakalavr&#39;,&#39;magistr&#39;)),age = c(20:21))
-result = one_hot(df)
+<pre class="nümunə```"><code>
+&lt;div class=&quot;layout-chunk&quot; data-layout=&quot;l-body&quot;&gt;
+&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre&gt;&lt;code&gt;&lt;span class=&#39;kw&#39;&gt;&lt;a href=&#39;https://rdrr.io/r/base/library.html&#39;&gt;library&lt;/a&gt;&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;va&#39;&gt;&lt;a href=&#39;https://github.com/ben519/mltools&#39;&gt;mltools&lt;/a&gt;&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;)&lt;/span&gt;
+&lt;span class=&#39;kw&#39;&gt;&lt;a href=&#39;https://rdrr.io/r/base/library.html&#39;&gt;library&lt;/a&gt;&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;va&#39;&gt;&lt;a href=&#39;https://dplyr.tidyverse.org&#39;&gt;dplyr&lt;/a&gt;&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;)&lt;/span&gt;
+&lt;span class=&#39;kw&#39;&gt;&lt;a href=&#39;https://rdrr.io/r/base/library.html&#39;&gt;library&lt;/a&gt;&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;va&#39;&gt;&lt;a href=&#39;http://r-datatable.com&#39;&gt;data.table&lt;/a&gt;&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;)&lt;/span&gt;
+&lt;span class=&#39;va&#39;&gt;df&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;=&lt;/span&gt;&lt;span class=&#39;fu&#39;&gt;&lt;a href=&#39;https://Rdatatable.gitlab.io/data.table/reference/data.table.html&#39;&gt;data.table&lt;/a&gt;&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;(&lt;/span&gt;tehsil &lt;span class=&#39;op&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;fu&#39;&gt;&lt;a href=&#39;https://rdrr.io/pkg/h2o/man/as.factor.html&#39;&gt;as.factor&lt;/a&gt;&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;fu&#39;&gt;&lt;a href=&#39;https://rdrr.io/r/base/c.html&#39;&gt;c&lt;/a&gt;&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;st&#39;&gt;&#39;bakalavr&#39;&lt;/span&gt;,&lt;span class=&#39;st&#39;&gt;&#39;magistr&#39;&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;)&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;)&lt;/span&gt;,age &lt;span class=&#39;op&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;fu&#39;&gt;&lt;a href=&#39;https://rdrr.io/r/base/c.html&#39;&gt;c&lt;/a&gt;&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;fl&#39;&gt;20&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;:&lt;/span&gt;&lt;span class=&#39;fl&#39;&gt;21&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;)&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;)&lt;/span&gt;
+&lt;span class=&#39;va&#39;&gt;result&lt;/span&gt; &lt;span class=&#39;op&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;fu&#39;&gt;&lt;a href=&#39;https://rdrr.io/pkg/mltools/man/one_hot.html&#39;&gt;one_hot&lt;/a&gt;&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;va&#39;&gt;df&lt;/span&gt;&lt;span class=&#39;op&#39;&gt;)&lt;/span&gt;
 
-df # initial data</code></pre>
+&lt;span class=&#39;va&#39;&gt;df&lt;/span&gt; &lt;span class=&#39;co&#39;&gt;# initial data&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+</code></pre>
+<pre><code> tehsil age</code></pre>
+<p>1: bakalavr 20 2: magistr 21</p>
 <pre><code>
-     tehsil age
-1: bakalavr  20
-2:  magistr  21</code></pre>
-<pre class="r"><code>
-result # after one-hot encoding</code></pre>
+&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre&gt;&lt;code&gt;&lt;span class=&#39;va&#39;&gt;result&lt;/span&gt; &lt;span class=&#39;co&#39;&gt;# after one-hot encoding&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+</code></pre>
+<p>tehsil_bakalavr tehsil_magistr age 1: 1 0 20 2: 0 1 21</p>
 <pre><code>
-   tehsil_bakalavr tehsil_magistr age
-1:               1              0  20
-2:               0              1  21</code></pre>
-</div>
-<p>        Light GBM-in tərkibində həddindən artıq çox parametr mövcuddur. Biz onların arasında olan və training mərhələsində daha çox effektiv olanları nəzərdən keçirəcəyik.</p>
-<ul>
-<li><p><strong>bagging_fraction</strong> — Ümumiyyətlə, <code>bagging</code> <strong>train dataset</strong>-dən əldə edilən <em>sample</em> hissəsinə deyilir, <code>sample == bag</code></p></li>
-<li><p><strong>bagging_freq</strong> — təkrarlama sayına deyilir.</p></li>
-<li><p><strong>bagging_seed</strong> — train setdən eyni nəticəni almaq üçün rəqəmlə ifadə olunmalıdır, məsələn — bagging_seed = 123.</p></li>
-</ul>
-<p><strong>Məsələn:</strong> <code>bagging_fraction=0.2</code>, <code>bagging_freq=3</code>. Bu o deməkdir ki, training dataset-dən hər dəfə 0.2 istifadə olunaraq 3 dəfə hesablanacaq. 3 iterations bitdikdən sonra data-dan yeni sample-lar əldə olunacaq.</p>
-<ul>
-<li><strong>feature_fraction</strong> — alqoritm bu paramterlə hər iteration-da sütünların hissəsini təsadüfi olaraq seçəcək. Məsələn, <code>featuree_fraction = 0.8</code>, random olaraq hər mərhələdə 80 % sütunlar seçiləcək .</li>
-</ul>
-<p>Üstünlüklər:</p>
-<ol type="1">
-<li>Training sürətləndirilir</li>
-<li>Overfitting qarşısı alınır</li>
-</ol>
-<ul>
-<li><p><strong>early_stopping_round</strong> — neçə addımdan sonra training prosesinin dayandırılması, əgər performans yaxşılaşmırsa.</p></li>
-<li><p><strong>boosting</strong> — 4 altqrupa bölünür. Amma arasından ən sürətli və dəqiq olan <em>gbdt</em> hesab olunur.</p></li>
-</ul>
-<ol type="1">
-<li>gbdt, traditional Gradient Boosting Decision Tree</li>
-<li>rf, Random Forest</li>
-<li>dart, Dropouts meet Multiple Additive Regression Trees</li>
-<li>goss, Gradient-based One-Side Sampling</li>
-</ol>
-<ul>
-<li><strong>learning_rate</strong> — öyrənmə sürəti, tövsiyə olunan sürət 0.1-ə bərabərdir.</li>
-<li><strong>tree_learner</strong> — öyrənmə növləri də altqruplara bölünür.</li>
-</ul>
-<ol type="1">
-<li><em>serial</em>, single machine tree learner</li>
-<li><em>feature</em>, feature parallel tree learner</li>
-<li><em>data</em>, data parallel tree learner</li>
-<li><em>voting</em>, voting parallel tree learner</li>
-</ol>
-<ul>
-<li><strong>seed</strong> — bütün train prosesini təkrarlana bilən edilməsi üçün mütləq olaraq müəyyən olunmalıdır. Məsələn, see=123.</li>
-</ul>
-<p>        Daha çox parametrlər haqqında məlumat əldə etmək üçün, bu linkə keçid etməlisiniz:</p>
-<blockquote>
-<p><a href="https://lightgbm.readthedocs.io/en/latest/Parameters.html" class="uri">https://lightgbm.readthedocs.io/en/latest/Parameters.html</a></p>
-</blockquote>
-<h3 id="nümunə-üzərində-modelləşdirmə">Nümunə üzərində modelləşdirmə</h3>
-<p>        İndi isə biraz real case-də nümunəyə nəzər yetirək. Nümunədən əvvəl qeyd edim ki, kitabxananı install etmək üçün <a href="https://github.com/microsoft/LightGBM/tree/master/R-package">github</a> səhifəsinə keçid edin.</p>
-<p>İzah edəcəyimiz nümunə bank datasını əks etdirir, datada 17 sütun mövcuddur:</p>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
+&lt;/div&gt;
+
+
+
+&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Light GBM-in tərkibində həddindən artıq çox parametr mövcuddur. Biz onların arasında olan və training mərhələsində daha çox effektiv olanları nəzərdən keçirəcəyik.
+
+- __bagging_fraction__ ---  Ümumiyyətlə, ```bagging```  __train dataset__-dən əldə edilən *sample* hissəsinə deyilir,  ```sample == bag```
+
+- __bagging_freq__ --- təkrarlama sayına deyilir.
+
+- __bagging_seed__ --- train setdən eyni nəticəni almaq üçün rəqəmlə ifadə olunmalıdır, məsələn --- bagging_seed = 123.
+
+__Məsələn:__ ```bagging_fraction=0.2```, ```bagging_freq=3```. Bu o deməkdir ki, training dataset-dən hər dəfə 0.2 istifadə olunaraq 3 dəfə hesablanacaq. 3 iterations bitdikdən sonra data-dan yeni sample-lar əldə olunacaq.
+
+- __feature_fraction__ --- alqoritm bu paramterlə hər iteration-da sütünların hissəsini təsadüfi olaraq seçəcək. Məsələn, ```featuree_fraction = 0.8```, random olaraq hər mərhələdə 80 % sütunlar seçiləcək .
+
+Üstünlüklər:
+
+1) Training sürətləndirilir
+2) Overfitting qarşısı alınır
+
+- __early_stopping_round__ --- neçə addımdan sonra training prosesinin dayandırılması, əgər performans yaxşılaşmırsa.
+
+- __boosting__ --- 4 altqrupa bölünür. Amma arasından ən sürətli və dəqiq olan _gbdt_ hesab olunur.
+
+1) gbdt, traditional Gradient Boosting Decision Tree
+2) rf, Random Forest
+3) dart, Dropouts meet Multiple Additive Regression Trees
+4) goss, Gradient-based One-Side Sampling
+
+
+- __learning_rate__ --- öyrənmə sürəti, tövsiyə olunan sürət 0.1-ə bərabərdir.
+- __tree_learner__ --- öyrənmə növləri də altqruplara bölünür.
+
+1) _serial_, single machine tree learner
+2) _feature_, feature parallel tree learner
+3) _data_, data parallel tree learner
+4) _voting_, voting parallel tree learner
+
+- __seed__ --- bütün train prosesini təkrarlana bilən edilməsi üçün mütləq olaraq müəyyən olunmalıdır. Məsələn, see=123.
+
+&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Daha çox parametrlər haqqında məlumat əldə etmək üçün, bu linkə keçid etməlisiniz:
+
+&gt; https://lightgbm.readthedocs.io/en/latest/Parameters.html
+
+### Nümunə üzərində modelləşdirmə
+
+&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; İndi isə biraz real case-də nümunəyə nəzər yetirək. Nümunədən əvvəl qeyd edim ki, kitabxananı install etmək üçün [github](https://github.com/microsoft/LightGBM/tree/master/R-package) səhifəsinə keçid edin.
+
+İzah edəcəyimiz nümunə bank datasını əks etdirir, datada 17 sütun mövcuddur:
+
+&lt;div class=&quot;layout-chunk&quot; data-layout=&quot;l-body&quot;&gt;
+
+```r
 Observations: 22,068                                                                                 
 Variables: 17
 chr [10]: job, marital, education, default, housing, loan, contact, month, poutcome, y
@@ -1888,16 +1966,18 @@ dbl [ 7]: age, balance, day, duration, campaign, pdays, previous</code></pre>
 </div>
 <p>        Datanı github səhifəsindən lokala endirək, faktorları da indekslərə çevirək və son addım olaraq output-da olan sütunu 0 və 1-ə kodlayaq.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-library(data.table)
-library(lightgbm)
-library(dplyr)
+<div class="sourceCode">
+<pre><code><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://r-datatable.com'>data.table</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/Microsoft/LightGBM'>lightgbm</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span>
 
-df = fread(
-  &#39;https://github.com/jubins/Bank-Marketing-Multivariate-Analysis/raw/master/bank.csv&#39;) %&gt;% 
-  mutate_if(is.character,as.factor) %&gt;% mutate_if(is.factor,as.numeric)
+<span class='va'>df</span> <span class='op'>=</span> <span class='fu'><a href='https://Rdatatable.gitlab.io/data.table/reference/fread.html'>fread</a></span><span class='op'>(</span>
+  <span class='st'>'https://github.com/jubins/Bank-Marketing-Multivariate-Analysis/raw/master/bank.csv'</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate_all.html'>mutate_if</a></span><span class='op'>(</span><span class='va'>is.character</span>,<span class='va'>as.factor</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate_all.html'>mutate_if</a></span><span class='op'>(</span><span class='va'>is.factor</span>,<span class='va'>as.numeric</span><span class='op'>)</span>
 
-df$y = as.integer(car::recode(df$y, &quot;2=1;1=0&quot;))</code></pre>
+<span class='va'>df</span><span class='op'>$</span><span class='va'>y</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/integer.html'>as.integer</a></span><span class='op'>(</span><span class='fu'>car</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/car/man/recode.html'>recode</a></span><span class='op'>(</span><span class='va'>df</span><span class='op'>$</span><span class='va'>y</span>, <span class='st'>"2=1;1=0"</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
 </div>
 <p>        Data haqqında qısa məlumat:</p>
 <blockquote>
@@ -1905,74 +1985,82 @@ df$y = as.integer(car::recode(df$y, &quot;2=1;1=0&quot;))</code></pre>
 </blockquote>
 <p>        Preprocess mərhələsi çox sadədir. Bunun üçün ən qısa yol sütunlardakı faktorları indeksləşdirərək hesablamanı başlada bilərik. Əlbəttə ki, biz Light GBM-dən istifadə qaydasını göstərmək üçün edirik, performans olaraq data üzərində minlərlə metoddan istifadə edərək transformasiyalar həyata keçirmək olar.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-train = sample_n(df, nrow(df) * 0.8)
-test = anti_join(df, train)</code></pre>
+<div class="sourceCode">
+<pre><code><span class='va'>train</span> <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/sample_n.html'>sample_n</a></span><span class='op'>(</span><span class='va'>df</span>, <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span><span class='op'>(</span><span class='va'>df</span><span class='op'>)</span> <span class='op'>*</span> <span class='fl'>0.8</span><span class='op'>)</span>
+<span class='va'>test</span> <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter-joins.html'>anti_join</a></span><span class='op'>(</span><span class='va'>df</span>, <span class='va'>train</span><span class='op'>)</span>
+</code></pre>
+</div>
 </div>
 <p>Parametrləri də müəyyən etdikdən sonra, prosesi başlatmaq olar.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-# Parametrlər
-p2 &lt;- list(objective = &quot;binary&quot;, 
-           boost=&quot;gbdt&quot;,
-           metric=&quot;auc&quot;,
-           boost_from_average=&quot;false&quot;,
-           learning_rate = 0.01,
-           num_leaves = 6,
-           max_depth=6,
-           tree_learner = &quot;serial&quot;,
-           feature_fraction = 0.2,
-           bagging_freq = 5,
-           bagging_fraction = 0.4,
-           min_data_in_leaf = 85,
-           verbosity = 1,
-           seed=123
-)</code></pre>
+<div class="sourceCode">
+<pre><code><span class='co'># Parametrlər</span>
+<span class='va'>p2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>objective <span class='op'>=</span> <span class='st'>"binary"</span>, 
+           boost<span class='op'>=</span><span class='st'>"gbdt"</span>,
+           metric<span class='op'>=</span><span class='st'>"auc"</span>,
+           boost_from_average<span class='op'>=</span><span class='st'>"false"</span>,
+           learning_rate <span class='op'>=</span> <span class='fl'>0.01</span>,
+           num_leaves <span class='op'>=</span> <span class='fl'>6</span>,
+           max_depth<span class='op'>=</span><span class='fl'>6</span>,
+           tree_learner <span class='op'>=</span> <span class='st'>"serial"</span>,
+           feature_fraction <span class='op'>=</span> <span class='fl'>0.2</span>,
+           bagging_freq <span class='op'>=</span> <span class='fl'>5</span>,
+           bagging_fraction <span class='op'>=</span> <span class='fl'>0.4</span>,
+           min_data_in_leaf <span class='op'>=</span> <span class='fl'>85</span>,
+           verbosity <span class='op'>=</span> <span class='fl'>1</span>,
+           seed<span class='op'>=</span><span class='fl'>123</span>
+<span class='op'>)</span>
+</code></pre>
+</div>
 </div>
 <p>        Modeli run etmək üçün <code>lgb.train</code> funksiyasından istifadə etmək lazımdır. Amma nəzərə almaq lazımdır ki, alternativ metod <code>cv booster</code> daha da yaxşı nəticə əldə etməyə kömək edə bilər.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-model&lt;- lgb.train(data = dtrain,
-                  params= p2, 
-                  nrounds=10000, 
-                  valids = list(val1=dtrain , val2 = dtest), 
-                  metric=&quot;auc&quot;,
-                  obj = &quot;binary&quot;,
-                  eval_freq = 500, 
-                  early_stopping_rounds=50
-)</code></pre>
+<div class="sourceCode">
+<pre><code><span class='va'>model</span><span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/lightgbm/man/lgb.train.html'>lgb.train</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>dtrain</span>,
+                  params<span class='op'>=</span> <span class='va'>p2</span>, 
+                  nrounds<span class='op'>=</span><span class='fl'>10000</span>, 
+                  valids <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>val1<span class='op'>=</span><span class='va'>dtrain</span> , val2 <span class='op'>=</span> <span class='va'>dtest</span><span class='op'>)</span>, 
+                  metric<span class='op'>=</span><span class='st'>"auc"</span>,
+                  obj <span class='op'>=</span> <span class='st'>"binary"</span>,
+                  eval_freq <span class='op'>=</span> <span class='fl'>500</span>, 
+                  early_stopping_rounds<span class='op'>=</span><span class='fl'>50</span>
+<span class='op'>)</span>
+</code></pre>
+</div>
 </div>
 <h3 id="nəticə">Nəticə</h3>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-[LightGBM] [Warning] verbosity is set=1, verbose=1 will be ignored. Current value: verbosity=1
-[LightGBM] [Warning] metric is set=auc, metric=auc will be ignored. Current value: metric=auc
-[LightGBM] [Warning] verbosity is set=1, verbose=1 will be ignored. Current value: verbosity=1
-[LightGBM] [Warning] Starting from the 2.1.2 version, default value for the 
-&quot;boost_from_average&quot; parameter in &quot;binary&quot; objective is true.
-This may cause significantly different results comparing to the previous versions of LightGBM.
-Try to set boost_from_average=false, if your old models produce bad results
-[LightGBM] [Info] Number of positive: 4241, number of negative: 31927
-[LightGBM] [Info] Total Bins 998
-[LightGBM] [Info] Number of data: 36168, number of used features: 16
-[LightGBM] [Warning] verbosity is set=1, verbose=1 will be ignored. Current value: verbosity=1
-[1]:    val1&#39;s auc:0.641237 val2&#39;s auc:0.642355 
-[501]:  val1&#39;s auc:0.913739 val2&#39;s auc:0.917957 
-[1001]: val1&#39;s auc:0.919842 val2&#39;s auc:0.922175 
-[1501]: val1&#39;s auc:0.922546 val2&#39;s auc:0.922958 </code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>[LightGBM] [Warning] verbosity is set=<span class="dv">1</span>, verbose=<span class="dv">1</span> will be ignored. Current value<span class="op">:</span><span class="st"> </span>verbosity=<span class="dv">1</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>[LightGBM] [Warning] metric is set=auc, metric=auc will be ignored. Current value<span class="op">:</span><span class="st"> </span>metric=auc</span>
+<span id="cb5-3"><a href="#cb5-3"></a>[LightGBM] [Warning] verbosity is set=<span class="dv">1</span>, verbose=<span class="dv">1</span> will be ignored. Current value<span class="op">:</span><span class="st"> </span>verbosity=<span class="dv">1</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a>[LightGBM] [Warning] Starting from the <span class="dv">2</span>.<span class="fl">1.2</span> version, default value <span class="cf">for</span> the </span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="st">&quot;boost_from_average&quot;</span> parameter <span class="cf">in</span> <span class="st">&quot;binary&quot;</span> objective is true.</span>
+<span id="cb5-6"><a href="#cb5-6"></a>This may cause significantly different results comparing to the previous versions of LightGBM.</span>
+<span id="cb5-7"><a href="#cb5-7"></a>Try to set boost_from_average=false, <span class="cf">if</span> your old models produce bad results</span>
+<span id="cb5-8"><a href="#cb5-8"></a>[LightGBM] [Info] Number of positive<span class="op">:</span><span class="st"> </span><span class="dv">4241</span>, number of negative<span class="op">:</span><span class="st"> </span><span class="dv">31927</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a>[LightGBM] [Info] Total Bins <span class="dv">998</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a>[LightGBM] [Info] Number of data<span class="op">:</span><span class="st"> </span><span class="dv">36168</span>, number of used features<span class="op">:</span><span class="st"> </span><span class="dv">16</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a>[LightGBM] [Warning] verbosity is set=<span class="dv">1</span>, verbose=<span class="dv">1</span> will be ignored. Current value<span class="op">:</span><span class="st"> </span>verbosity=<span class="dv">1</span></span>
+<span id="cb5-12"><a href="#cb5-12"></a>[<span class="dv">1</span>]<span class="op">:</span><span class="st">    </span>val1<span class="st">&#39;s auc:0.641237 val2&#39;</span>s auc<span class="op">:</span><span class="fl">0.642355</span> </span>
+<span id="cb5-13"><a href="#cb5-13"></a>[<span class="dv">501</span>]<span class="op">:</span><span class="st">  </span>val1<span class="st">&#39;s auc:0.913739 val2&#39;</span>s auc<span class="op">:</span><span class="fl">0.917957</span> </span>
+<span id="cb5-14"><a href="#cb5-14"></a>[<span class="dv">1001</span>]<span class="op">:</span><span class="st"> </span>val1<span class="st">&#39;s auc:0.919842 val2&#39;</span>s auc<span class="op">:</span><span class="fl">0.922175</span> </span>
+<span id="cb5-15"><a href="#cb5-15"></a>[<span class="dv">1501</span>]<span class="op">:</span><span class="st"> </span>val1<span class="st">&#39;s auc:0.922546 val2&#39;</span>s auc<span class="op">:</span><span class="fl">0.922958</span> </span></code></pre></div>
 </div>
 <p>        Yuxarıda görünən odur ki, bin sayı 998-ə bərabərdir. Bu parametri də dəyişib modeli yenidən run edə bilərik, çünki hiperparametrlərlə oynamaq həmişə performansı az da olsa dəqiqləşdirə bilər.</p>
 <p>İndi isə test seti yenidən proqnoz edib ehtimalları əldə edə bilərik.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-pred = predict(model,test %&gt;% select(-y)%&gt;% as.matrix())
+<div class="sourceCode">
+<pre><code><span class='va'>pred</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>model</span>,<span class='va'>test</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='op'>-</span><span class='va'>y</span><span class='op'>)</span><span class='op'>%&gt;%</span> <span class='fu'><a href='https://Rdatatable.gitlab.io/data.table/reference/as.matrix.html'>as.matrix</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
 
-Metrics::auc(test$y %&gt;% as.numeric(),pred)
+<span class='fu'>Metrics</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/Metrics/man/auc.html'>auc</a></span><span class='op'>(</span><span class='va'>test</span><span class='op'>$</span><span class='va'>y</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/pkg/h2o/man/as.numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='op'>)</span>,<span class='va'>pred</span><span class='op'>)</span>
 
- 0.9230309</code></pre>
+ <span class='fl'>0.9230309</span>
+</code></pre>
+</div>
 </div>
 <p>Baxmayaraq ki, hiperparametrlərlə işləməmişik, AUC ~ 0.93-ə bərabərdir. Bu olduqca güclü nəticədir.</p>
 <p>        Əgər postla bağlı hər hansı bir sual və ya çətinlik yaranarsa, aşağı hissədə suallarınızı yerləşdirə bilərsiniz.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">
   <p class="social_footer">
